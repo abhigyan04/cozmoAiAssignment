@@ -21,11 +21,11 @@ JPEG or HEIC both fine.
 
 ## 2. Video tier (native Camera app, ~30 s per room)
 One **continuous** clip through the whole property, **landscape**, 1080p or 4K, 30 fps.
-1. Start in the entrance and **point at the floor for 2 s**.
+1. Start in the entrance, aimed at a **room corner** (two walls + floor in view), hold **2 s**.
 2. Walk **slowly** (half normal speed). In each room, turn a full circle at **chest height**,
    then sweep once **up to the ceiling line** and once **down to the floor line**.
 3. Pass through doorways **slowly, filming the door frame**.
-4. **End where you started**, pointing at the same floor spot for 2 s.
+4. **End where you started**, aimed at the **same corner** for 2 s.
 
 Hand-off: the single `.MOV` file.
 
