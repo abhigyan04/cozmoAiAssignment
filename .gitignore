@@ -5,3 +5,4 @@ out/
 data/raw/
 weights/
 *.ply
+*.egg-info/

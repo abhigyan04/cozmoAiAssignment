@@ -8,6 +8,7 @@ from floorplan.geometry.drift import DriftReport, correct_drift, wall_sharpness
 from floorplan.geometry.floormap import FloorMap, build_floormap, find_doorways, segment_rooms
 from floorplan.geometry.openings import Opening, detect_openings, wall_evidence
 from floorplan.geometry.polygon import RoomPolygon, room_polygon
+from floorplan.geometry.stitch import RoomHeights, SharedOpening, adjacency, pair_openings, room_heights
 from floorplan.geometry.structure import Level, floor_and_ceiling, fuse, manhattan_yaw
 
 DEFAULT_CEILING = 2.6  # sizes wall images only, when no ceiling was captured
@@ -21,7 +22,10 @@ class LidarResult:
     fm: FloorMap
     rooms: np.ndarray
     polys: list[RoomPolygon]
+    heights: list[RoomHeights]
     openings: list[Opening]
+    shared: list[SharedOpening]
+    edges: list[dict]
     sharpness: float
     drift: DriftReport | None
     drift_applied: bool
@@ -48,8 +52,13 @@ def run_lidar(cap: StrayCapture, drift: str = "auto") -> LidarResult:
 
     floor, ceil = floor_and_ceiling(P, N)
     fm = build_floormap(cap, P, N, floor.y, yaw)
-    rooms = segment_rooms(fm, find_doorways(fm))
+    doors = find_doorways(fm)
+    rooms = segment_rooms(fm, doors)
     polys = [room_polygon(rooms == k, fm, P, N, floor.y) for k in range(1, rooms.max() + 1)]
+    heights = room_heights(P, N, fm, rooms)
     top = ceil.y - floor.y if ceil else DEFAULT_CEILING
     openings = detect_openings(wall_evidence(cap, fm, floor.y, polys, top), top)
-    return LidarResult(floor, ceil, yaw, fm, rooms, polys, openings, sharp, rep, applied)
+    shared = pair_openings(openings, polys)
+    edges = adjacency(doors, rooms, shared, fm)
+    return LidarResult(floor, ceil, yaw, fm, rooms, polys, heights, openings, shared, edges,
+                       sharp, rep, applied)
