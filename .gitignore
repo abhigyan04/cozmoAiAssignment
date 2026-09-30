@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+out/
+data/raw/
+weights/
+*.ply
