@@ -1,0 +1,30 @@
+room,item,label,value_m,notes
+living,wall,A,,wall A = the wall with the main door; then B C D ... clockwise seen from above
+living,wall,B,,
+living,wall,C,,
+living,wall,D,,
+living,ceiling,center,,floor to ceiling at room centre
+living,ceiling,corner,,floor to ceiling ~50 cm from corner of walls A/B
+living,door,A1,,clear opening between the inside faces of the frame at ~1 m height
+living,window,C1,,inner opening width (wall reveal to wall reveal)
+living,damage,stain1,,width x height in notes; which wall; centre height from floor
+bedroom1,wall,A,,
+bedroom1,wall,B,,
+bedroom1,wall,C,,
+bedroom1,wall,D,,
+bedroom1,ceiling,center,,
+bedroom1,ceiling,corner,,
+bedroom1,door,A1,,
+bedroom2,wall,A,,
+bedroom2,wall,B,,
+bedroom2,wall,C,,
+bedroom2,wall,D,,
+bedroom2,ceiling,center,,
+bedroom2,ceiling,corner,,
+bedroom2,door,A1,,
+hall,wall,A,,
+hall,wall,B,,
+hall,wall,C,,
+hall,wall,D,,
+hall,ceiling,center,,
+hall,ceiling,corner,,
