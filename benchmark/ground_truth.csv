@@ -1,0 +1,36 @@
+room,item,label,value_m,notes
+living,wall,A,3.12,wall A = the wall with the main door; then B C D ... clockwise seen from above
+living,wall,B,4.93,wall B = the wall with the door to the hall; then C D ... clockwise seen from above
+living,wall,C,2.98,wall C = the wall with the window; then D ... clockwise seen from above
+living,wall,D,4.95,wall D = the wall with nothing; then A ... clockwise seen from above
+living,ceiling,center,2.5,floor to ceiling at room centre
+living,ceiling,corner,2.5,floor to ceiling ~50 cm from corner of walls A/B
+living,door,A1,0.95,main door; clear opening between the inside faces of the frame at ~1 m height
+living,door,B1,0.76,door to the hall; clear opening between the inside faces of the frame at ~1 m height
+living,window,C1,2.75,window on wall C; inner opening width (wall reveal to wall reveal)
+bedroom1,wall,A,4.12,wall A = the wall with the main door; then B C D ... clockwise seen from above
+bedroom1,wall,B,3.68,wall B = the wall with nothing; then C D ... clockwise seen from above
+bedroom1,wall,C,4.17,wall C = the wall with the window; then D ... clockwise seen from above
+bedroom1,wall,D,3.71,wall D = the wall with nothing; then A ... clockwise seen from above
+bedroom1,ceiling,center,2.67,floor to ceiling at room centre
+bedroom1,ceiling,corner,2.67,floor to ceiling ~50 cm from corner of walls A/B
+bedroom1,door,A1,0.76,connected to wall D of hall; clear opening between the inside faces of the frame at ~1 m height
+bedroom1,window,C1,1.19,window on wall C; inner opening width (wall reveal to wall reveal)
+bedroom1,damage,stain1,1.6,1.1x0.07; wall B; centre height from floor; crack
+bedroom1,damage,stain2,0.53,0.1x0.1; wall B; centre height from floor; water stain
+bedroom2,wall,A,3.62,wall A = the wall with the main door; then B C D ... clockwise seen from above
+bedroom2,wall,B,3.06,wall B = the wall with nothing; then C D ... clockwise seen from above
+bedroom2,wall,C,3.66,wall C = the wall with the window; then D ... clockwise seen from above
+bedroom2,wall,D,3.12,wall D = the wall with nothing; then A ... clockwise seen from above
+bedroom2,ceiling,center,2.64,floor to ceiling at room centre
+bedroom2,ceiling,corner,2.64,floor to ceiling ~50 cm from corner of walls A/B
+bedroom2,door,A1,0.75,connected to wall C of hall; clear opening between the inside faces of the frame at ~1 m height
+bedroom2,window,C1,1.75,window on wall C; inner opening width (wall reveal to wall reveal)
+hall,wall,A,0.92,wall A = the wall with the door to living; then B C D ... clockwise seen from above
+hall,wall,B,5.62,wall B = the wall with nothing; then C D ... clockwise seen from above
+hall,wall,C,0.93,wall C = the wall with the door to bedroom 2; then D ... clockwise seen from above
+hall,wall,D,5.68,wall D = the wall with the door to bedroom 1; then A ... clockwise seen from above
+hall,ceiling,center,2.64,floor to ceiling at hall centre
+hall,ceiling,corner,2.64,floor to ceiling ~50 cm from corner of walls A/B
+hall,door,C1,0.76,connected to wall B of living; clear opening between the inside faces of the frame at ~1 m height
+hall,door,D1,0.75,connected to wall A of bedroom 2; clear opening between the inside faces of the frame at ~1 m height
