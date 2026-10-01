@@ -78,8 +78,9 @@ def strip_video(p: Path) -> bool:
 
 
 def strip_heic(p: Path) -> bool:
-    """HEIC has no lossless metadata-only edit in Python: decode and re-encode losslessly
-    (decoded pixels identical), with the EXIF minus its GPS block."""
+    """HEIC has no metadata-only edit in Python: decode and re-encode at maximum quality
+    with the EXIF minus its GPS block. Pixels change very slightly, so every reported
+    number is computed on the stripped files (strip first, then reproduce)."""
     import pillow_heif
     heif = pillow_heif.open_heif(str(p))
     exif = heif.info.get("exif")
