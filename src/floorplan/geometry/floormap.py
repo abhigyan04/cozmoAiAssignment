@@ -31,7 +31,7 @@ class FloorMap:
 
 
 def build_floormap(cap: StrayCapture, P: np.ndarray, N: np.ndarray, floor_y: float,
-                   yaw_deg: float, stride: int = 10) -> FloorMap:
+                   yaw_deg: float, stride: int = 10, rays_per_frame: int = 3000) -> FloorMap:
     t = np.radians(yaw_deg)
     R = np.array([[np.cos(t), np.sin(t)], [-np.sin(t), np.cos(t)]])
     XZ = P[:, [0, 2]] @ R.T
@@ -54,8 +54,8 @@ def build_floormap(cap: StrayCapture, P: np.ndarray, N: np.ndarray, floor_y: flo
     for i in range(0, len(cap.frames), stride):
         p = cap.points_world(i, max_depth=6.0)
         p = p[(p[:, 1] - floor_y > BAND[0]) & (p[:, 1] - floor_y < BAND[1])]
-        if len(p) > 3000:
-            p = p[rng.choice(len(p), 3000, replace=False)]
+        if len(p) > rays_per_frame:
+            p = p[rng.choice(len(p), rays_per_frame, replace=False)]
         o = cap.frames[i].T_wc[:3, 3][[0, 2]]
         rays = o + (p[:, [0, 2]] - o)[:, None, :] * s[None, :, None]
         ij = fm.to_cell(rays.reshape(-1, 2))

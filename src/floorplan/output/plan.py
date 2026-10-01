@@ -47,7 +47,7 @@ def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str]
         perim_sigma = float(np.sqrt(sum(s**2 for s in rp.length_sigmas)))
         rooms.append({
             "id": rid,
-            "name": rid,
+            "name": res.names[ri] if getattr(res, "names", None) else rid,
             "polygon": [to_plan(v) for v in rp.vertices],
             "floor_area": measure(rp.area, rp.area_sigma),
             "perimeter": measure(perim, perim_sigma),
@@ -91,7 +91,7 @@ def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str]
         "concealed_damage_flags": [],
         "scope_items": [],
         "quality": {
-            "wall_sharpness": round(res.sharpness, 3),
+            "wall_sharpness": round(res.sharpness, 3) if np.isfinite(res.sharpness) else None,
             "drift_correction_applied": res.drift_applied,
             "max_heading_drift_deg": round(res.drift.max_abs_drift_deg, 2) if res.drift else None,
             "loop_closure_applied": bool(res.drift and res.drift.loop_closed),

@@ -32,6 +32,12 @@ def run(args) -> int:
         from floorplan.io.stray import StrayCapture
         from floorplan.lidar import run_lidar
         res = run_lidar(StrayCapture(src), drift=args.drift)
+    elif tier == "video":
+        from floorplan.video import run_video
+        res = run_video(src, drift=args.drift)
+    elif tier == "photo":
+        from floorplan.photo import run_photo
+        res = run_photo(src)
     else:
         print(f"tier '{tier}' is not implemented yet", file=sys.stderr)
         return 2

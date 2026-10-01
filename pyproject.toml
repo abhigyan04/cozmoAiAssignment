@@ -10,13 +10,17 @@ requires-python = ">=3.11"
 dependencies = [
     "numpy",
     "scipy",
-    "opencv-python",
+    "opencv-python-headless==4.10.0.84",   # pinned by MapAnything; no GUI needed
     "open3d",
     "matplotlib",
     "shapely",
     "av",
     "pyyaml",
     "tqdm",
+    "pillow-heif",
+    "piexif",
+    # Image-only tiers (photo, video). PyTorch with CUDA is installed separately (see README).
+    "mapanything @ git+https://github.com/facebookresearch/map-anything.git@3d10cf7a3016fc0f9bb13a071ee66c47b10be0d9",
 ]
 
 [tool.setuptools.packages.find]
