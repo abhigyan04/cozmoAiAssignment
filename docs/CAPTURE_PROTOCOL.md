@@ -39,13 +39,19 @@ Hand-off: the single `.MOV` file.
 
 Hand-off: the recording folder (contains `rgb.mp4`, `depth/`, `odometry.csv`, …), zipped is fine.
 
-## 4. Avoid
+## 4. Getting the files off the phone
+Copy the **original files** by USB cable (phone: "File transfer"; copy from `DCIM/Camera`) or
+upload originals to Google Drive / iCloud Drive. **Never send them through WhatsApp or another
+messenger**: it recompresses the images and strips the camera metadata (focal length) the
+pipeline uses for accurate scale.
+
+## 5. Avoid
 - Fast turns (> ¼ turn per second), running, covering the camera with fingers.
 - Starting the recording inside a closet or facing a blank wall.
 - People walking through the shot; pets.
 - Closing doors behind you during the walk.
 
-## 5. Running the pipeline
+## 6. Running the pipeline
 ```
 python -m floorplan run <capture path> --tier {photo|video|lidar} --out out/<name>
 ```
