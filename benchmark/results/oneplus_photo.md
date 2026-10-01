@@ -3,6 +3,7 @@
 | metric | value |
 |---|---|
 | rooms_matched | 4/4 |
+| footprint_m2 | 40.40 vs tape 46.86 (-13.8%) |
 | wall_mean_abs_err_pct | 13.01 |
 | wall_max_abs_err_pct | 55.11 |
 | wall_gate | 8/16 within +-8% |

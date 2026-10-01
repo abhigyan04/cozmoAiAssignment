@@ -119,15 +119,20 @@ def score(plan: dict, gt: dict, mapping: dict) -> dict:
 
     rel = np.array([abs(w["rel"]) for w in walls]) if walls else np.array([np.nan])
     tol = GATES.get(tier)
+    # Walls of rooms the plan did not produce count as failures, not as missing data.
+    n_gt_walls = sum(len(g["walls"]) for g in gt.values())
+    gt_area = sum(float(np.prod(gt_axes(g))) for g in gt.values() if len(gt_axes(g)) == 2)
+    plan_area = plan["property"]["floor_area"]["value"]
     n_open = len(opens["tp"]) + opens["miss"] + opens["phantom"]
     ok_open = sum(abs(o["err_cm"]) <= 2.0 for o in opens["tp"])
     summary = {
         "tier": tier,
         "rooms_matched": f"{len(mapping)}/{len(gt)}",
-        "wall_mean_abs_err_pct": round(100 * float(np.nanmean(rel)), 2),
-        "wall_max_abs_err_pct": round(100 * float(np.nanmax(rel)), 2),
-        "wall_gate": None if tol is None else f"{sum(rel <= tol)}/{len(rel)} within +-{100 * tol:.0f}%",
-        "wall_inside_ci95": f"{sum(w['inside_ci'] for w in walls)}/{len(walls)}",
+        "footprint_m2": f"{plan_area:.2f} vs tape {gt_area:.2f} ({100 * (plan_area / gt_area - 1):+.1f}%)",
+        "wall_mean_abs_err_pct": round(100 * float(np.mean(rel)), 2) if walls else None,
+        "wall_max_abs_err_pct": round(100 * float(np.max(rel)), 2) if walls else None,
+        "wall_gate": None if tol is None else f"{int(np.sum(rel <= tol))}/{n_gt_walls} within +-{100 * tol:.0f}%",
+        "wall_inside_ci95": f"{sum(w['inside_ci'] for w in walls)}/{n_gt_walls}",
         "ceiling_within_1.5cm": f"{sum(abs(c['err_cm']) <= 1.5 for c in ceil)}/{len(ceil)}",
         "openings_within_2cm": f"{ok_open}/{n_open} (missed {opens['miss']}, phantom {opens['phantom']})",
     }
