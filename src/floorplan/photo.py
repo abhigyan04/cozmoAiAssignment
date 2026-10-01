@@ -166,7 +166,14 @@ def reconstruct_room(room: PhotoRoom) -> RoomResult:
     yaw = manhattan_yaw(N)
     fm = build_floormap(cap, P, N, floor.y, yaw, stride=1, rays_per_frame=20000)
     cams = np.array([f.T_wc[:3, 3][[0, 2]] for f in cap.frames]) @ fm.R.T
-    walls = _wall_planes_rect(P, N, fm.R, floor.y, ceil.y - floor.y if ceil else 2.5, cams)
+    if ceil is not None:
+        top = ceil.y - floor.y
+    else:
+        # Ceiling not seen: use the top of the observed walls as the reference height,
+        # so the "just below the ceiling" band still lands on wall, not on empty space.
+        hv = P[np.abs(N[:, 1]) < 0.3, 1] - floor.y
+        top = float(np.percentile(hv[hv > 1.0], 98)) if (hv > 1.0).sum() > 200 else 2.5
+    walls = _wall_planes_rect(P, N, fm.R, floor.y, top, cams)
     doors = find_doorways(fm)
     mask = _pick_room_region(fm, doors)
     if walls is not None:
@@ -247,10 +254,13 @@ def _layout(boxes: list[np.ndarray], iters: int = 50) -> list[np.ndarray]:
     return B
 
 
-def stitch(rooms: list[PhotoRoom], results: list[RoomResult]) -> PhotoPlan:
-    # Coarse placement: one joint reconstruction of every photo.
-    allimgs = [im for r in rooms for im in r.images]
-    owner = [i for i, r in enumerate(rooms) for _ in r.images]
+def stitch(rooms: list[PhotoRoom], results: list[RoomResult], joint_max: int = 44) -> PhotoPlan:
+    # Coarse placement: one joint reconstruction of (up to joint_max) photos, evenly
+    # shared between rooms so it fits an 8 GB GPU.
+    per_room = max(2, joint_max // len(rooms))
+    picks = [np.linspace(0, len(r.images) - 1, min(per_room, len(r.images))).round().astype(int) for r in rooms]
+    allimgs = [r.images[k] for r, ks in zip(rooms, picks) for k in ks]
+    owner = [i for i, ks in enumerate(picks) for _ in ks]
     joint = ReconCapture(run_mapanything(allimgs, rooms[0].K), fps=1.0)
     pcd = fuse(joint, stride=1)
     gyaw = np.radians(manhattan_yaw(np.asarray(pcd.normals)))
@@ -259,7 +269,7 @@ def stitch(rooms: list[PhotoRoom], results: list[RoomResult]) -> PhotoPlan:
 
     polys, boxes, rots = [], [], []
     for i, rr in enumerate(results):
-        own = np.array([f.T_wc[:3, 3][[0, 2]] for f in rr.cap.frames])     # room-local world
+        own = np.array([rr.cap.frames[k].T_wc[:3, 3][[0, 2]] for k in picks[i]])   # room-local world
         R, t = _kabsch2d(own, jcam[[k for k, o in enumerate(owner) if o == i]])
         # room Manhattan frame -> room world -> joint world -> global Manhattan
         M = Rg @ R @ rr.R2.T

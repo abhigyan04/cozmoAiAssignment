@@ -54,3 +54,48 @@ mean absolute wall error ~12% (photo-tier level). **The ±3% video gate will
 still fail** (predicted ~3/16 walls within ±3%): the remaining error is
 per-room metric scale (~10%), which this fix does not address. Expected
 outcome: meaningful movement short of the gate.
+
+---
+
+## 4. After the fix (shipped)
+
+Code: `git diff fixloop-before -- src/floorplan/video.py src/floorplan/photo.py`.
+Regenerate: `python -m floorplan run data/raw/oneplus/video/flat_tour_new.mp4 --out out/fixloop_after_video`
+then `python scripts/benchmark.py out/fixloop_after_video/plan.json`.
+The before run is regenerable from the tag: `git checkout fixloop-before` (same commands).
+
+| metric | before | after | predicted |
+|---|---|---|---|
+| rooms recovered (matched to tape) | 0 / 4 | 2 / 4 (5 rooms output) | ≥ 3 / 4 |
+| footprint vs tape | −95.5 % | **−8.0 %** | within ±15 % |
+| mean abs wall error | n/a | **12.1 %** | ~12 % |
+| walls within ±3 % (gate) | 0 / 16 | 0 / 16 | ~3 / 16 |
+| walls inside reported 95 % CI | 0 / 16 | 6 / 16 | n/a |
+
+**Verdict:** correct root cause, shipped fix, meaningful movement short of the gate.
+
+## 5. Post-mortem: why it fell short, and where the prediction was wrong
+
+- **The gate itself (±3 %):** as predicted, the remaining error is per-room
+  metric scale from an image-only model (~10 %, the same as the photo tier on the
+  same rooms). Grouping cannot fix scale; it fixes consistency. Passing ±3 % on
+  video needs a metric anchor (e.g. phone IMU/ARCore poses, or a known-size
+  reference in the protocol), which is the next fix.
+- **Rooms matched 2/4, predicted ≥ 3/4 (prediction wrong):** visual grouping
+  produced 5 groups for 4 rooms. Blank walls and doors look alike across rooms
+  (DINOv2 similarity 0.6-0.8 between different rooms), so one room is split
+  and the narrow hall is merged with a neighbour. The −8 % footprint therefore
+  overstates per-room quality (area errors of different rooms partly cancel);
+  the 12.1 % mean wall error is the more honest figure.
+- **An intermediate result, recorded honestly:** the first after-run gave
+  footprint −39 %. Video frames rarely capture the ceiling, so the near-ceiling
+  wall-plane fit never engaged and every room fell back to free-space ray
+  casting, which under-fills (we had already measured this on the photo tier).
+  Using the top of the observed walls as the reference height when the ceiling
+  is not seen brought it to −8 %. The photo tier is unchanged by this (its
+  rooms all see the ceiling): 8/16 walls within ±8 %, footprint −13.8 %, same
+  as before.
+- **Calibration is still poor on video** (6/16 inside the 95 % CI): the video
+  scale interval (σ = 10 %, inherited from the photo tier) is too narrow for
+  rooms that were split or merged. The report flags video intervals as
+  under-covering on this benchmark.
