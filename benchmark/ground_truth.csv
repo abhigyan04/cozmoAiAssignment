@@ -3,8 +3,8 @@ living,wall,A,3.12,wall A = the wall with the main door; then B C D ... clockwis
 living,wall,B,4.93,wall B = the wall with the door to the hall; then C D ... clockwise seen from above
 living,wall,C,2.98,wall C = the wall with the window; then D ... clockwise seen from above
 living,wall,D,4.95,wall D = the wall with nothing; then A ... clockwise seen from above
-living,ceiling,center,2.5,floor to ceiling at room centre
-living,ceiling,corner,2.5,floor to ceiling ~50 cm from corner of walls A/B
+living,ceiling,center,2.63,floor to ceiling at room centre
+living,ceiling,corner,2.61,floor to ceiling ~50 cm from corner of walls A/B
 living,door,A1,0.95,main door; clear opening between the inside faces of the frame at ~1 m height
 living,door,B1,0.76,door to the hall; clear opening between the inside faces of the frame at ~1 m height
 living,window,C1,2.75,window on wall C; inner opening width (wall reveal to wall reveal)

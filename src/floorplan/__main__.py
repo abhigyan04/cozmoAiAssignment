@@ -41,12 +41,16 @@ def run(args) -> int:
     else:
         print(f"tier '{tier}' is not implemented yet", file=sys.stderr)
         return 2
+    if not args.no_damage:
+        from floorplan.damage import damage_for
+        res.damage = damage_for(res)
     plan = build_plan(res, tier, str(src), time.time() - t)
     (out / "plan.json").write_text(json.dumps(plan, indent=2))
     (out / "plan.svg").write_text(render_svg(plan), encoding="utf-8")
     p = plan["property"]
     print(f"{tier}: {p['room_count']} rooms, {p['floor_area']['value']:.2f} m2, "
           f"{len(plan['openings'])} openings, {len(p['adjacency'])} connections "
+          f"{len(plan['damage'])} damage regions, {len(plan['concealed_damage_flags'])} concealed flags "
           f"({plan['capture']['processing_seconds']}s) -> {out / 'plan.json'}, {out / 'plan.svg'}")
     for w in plan["quality"]["warnings"]:
         print("  warning:", w)
@@ -62,6 +66,7 @@ def main(argv=None) -> int:
     r.add_argument("--out", help="output folder (default: out/<capture name>)")
     r.add_argument("--drift", default="auto", choices=["auto", "on", "off"],
                    help="drift correction; auto = apply only if it sharpens the walls")
+    r.add_argument("--no-damage", action="store_true", help="skip damage detection")
     args = ap.parse_args(argv)
     return run(args)
 

@@ -44,26 +44,37 @@ def strip_jpeg(p: Path) -> bool:
 
 
 def strip_video(p: Path) -> bool:
-    with av.open(str(p)) as src:
-        meta = dict(src.metadata)
-        if not any(k for k in meta if any(s in k.lower() for s in LOCATION_KEYS)):
-            return False
-        tmp = p.with_suffix(".tmp" + p.suffix)
-        with av.open(str(tmp), "w", options={"movflags": "use_metadata_tags"}) as dst:
-            for k, v in meta.items():
-                if not any(s in k.lower() for s in LOCATION_KEYS):
-                    dst.metadata[k] = v
-            mapping = {}
-            for s in src.streams:
-                if s.type in ("video", "audio"):
-                    mapping[s.index] = dst.add_stream_from_template(s)
-            for packet in src.demux(list(src.streams)):
-                if packet.dts is None or packet.stream.index not in mapping:
-                    continue
-                packet.stream = mapping[packet.stream.index]
-                dst.mux(packet)
-    tmp.replace(p)
-    return True
+    if not p.exists() or ".tmp" in p.name:
+        return False
+    try:
+        with av.open(str(p)) as src:
+            meta = dict(src.metadata)
+            if not any(k for k in meta if any(s in k.lower() for s in LOCATION_KEYS)):
+                return False
+            tmp = p.with_suffix(".tmp" + p.suffix)
+            with av.open(str(tmp), "w", options={"movflags": "use_metadata_tags"}) as dst:
+                for k, v in meta.items():
+                    if not any(s in k.lower() for s in LOCATION_KEYS):
+                        dst.metadata[k] = v
+                mapping = {}
+                for s in src.streams:
+                    if s.type not in ("video", "audio"):
+                        continue
+                    if s.type == "audio" and getattr(s, "codec_context", None) is None:
+                        continue
+                    try:
+                        mapping[s.index] = dst.add_stream_from_template(s)
+                    except ValueError:
+                        continue
+                for packet in src.demux(list(src.streams)):
+                    if packet.dts is None or packet.stream.index not in mapping:
+                        continue
+                    packet.stream = mapping[packet.stream.index]
+                    dst.mux(packet)
+        tmp.replace(p)
+        return True
+    except FileNotFoundError:
+        return False
 
 
 def strip_heic(p: Path) -> bool:
@@ -85,6 +96,8 @@ def strip_heic(p: Path) -> bool:
 def main(root: str) -> None:
     n = 0
     for p in sorted(Path(root).rglob("*")):
+        if not p.is_file() or ".tmp" in p.name:
+            continue
         ext = p.suffix.lower()
         if ext in (".jpg", ".jpeg"):
             n += strip_jpeg(p)

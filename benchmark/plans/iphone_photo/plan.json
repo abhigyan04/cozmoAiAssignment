@@ -1,0 +1,776 @@
+{
+  "schema_version": "1.0",
+  "capture": {
+    "tier": "photo",
+    "source": "data\\raw\\iphone\\photos",
+    "processing_seconds": 68.8
+  },
+  "property": {
+    "floor_area": {
+      "value": 31.819,
+      "sigma": 3.6585,
+      "ci95": [
+        24.648,
+        38.99
+      ]
+    },
+    "room_count": 4,
+    "adjacency": [
+      {
+        "rooms": [
+          "R1",
+          "R3"
+        ],
+        "via": null
+      },
+      {
+        "rooms": [
+          "R3",
+          "R4"
+        ],
+        "via": null
+      }
+    ]
+  },
+  "rooms": [
+    {
+      "id": "R1",
+      "name": "bedroom1",
+      "polygon": [
+        [
+          2.459,
+          8.008
+        ],
+        [
+          2.459,
+          4.539
+        ],
+        [
+          5.444,
+          4.539
+        ],
+        [
+          5.444,
+          8.008
+        ]
+      ],
+      "floor_area": {
+        "value": 10.354,
+        "sigma": 2.0711,
+        "ci95": [
+          6.295,
+          14.413
+        ]
+      },
+      "perimeter": {
+        "value": 12.908,
+        "sigma": 0.6474,
+        "ci95": [
+          11.639,
+          14.176
+        ]
+      },
+      "ceiling_height": {
+        "value": 1.968,
+        "sigma": 0.1969,
+        "ci95": [
+          1.582,
+          2.354
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 1.97,
+          "share": 1.0
+        }
+      ],
+      "walls": [
+        {
+          "id": "R1-W1",
+          "start": [
+            2.459,
+            8.008
+          ],
+          "end": [
+            2.459,
+            4.539
+          ],
+          "length": {
+            "value": 3.47,
+            "sigma": 0.347,
+            "ci95": [
+              2.789,
+              4.15
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W2",
+          "start": [
+            2.459,
+            4.539
+          ],
+          "end": [
+            5.444,
+            4.539
+          ],
+          "length": {
+            "value": 2.984,
+            "sigma": 0.2985,
+            "ci95": [
+              2.399,
+              3.569
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W3",
+          "start": [
+            5.444,
+            4.539
+          ],
+          "end": [
+            5.444,
+            8.008
+          ],
+          "length": {
+            "value": 3.47,
+            "sigma": 0.347,
+            "ci95": [
+              2.789,
+              4.15
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W4",
+          "start": [
+            5.444,
+            8.008
+          ],
+          "end": [
+            2.459,
+            8.008
+          ],
+          "length": {
+            "value": 2.984,
+            "sigma": 0.2985,
+            "ci95": [
+              2.399,
+              3.569
+            ]
+          },
+          "located_on_3d_points": true
+        }
+      ],
+      "surfaces": [
+        "R1-FLOOR",
+        "R1-CEILING",
+        "R1-W1",
+        "R1-W2",
+        "R1-W3",
+        "R1-W4"
+      ]
+    },
+    {
+      "id": "R2",
+      "name": "bedroom2",
+      "polygon": [
+        [
+          10.306,
+          3.812
+        ],
+        [
+          7.539,
+          3.812
+        ],
+        [
+          7.539,
+          6.728
+        ],
+        [
+          10.306,
+          6.728
+        ]
+      ],
+      "floor_area": {
+        "value": 8.065,
+        "sigma": 1.6221,
+        "ci95": [
+          4.886,
+          11.245
+        ]
+      },
+      "perimeter": {
+        "value": 11.364,
+        "sigma": 0.5747,
+        "ci95": [
+          10.237,
+          12.49
+        ]
+      },
+      "ceiling_height": {
+        "value": 2.429,
+        "sigma": 0.243,
+        "ci95": [
+          1.952,
+          2.905
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.43,
+          "share": 1.0
+        }
+      ],
+      "walls": [
+        {
+          "id": "R2-W1",
+          "start": [
+            10.306,
+            3.812
+          ],
+          "end": [
+            7.539,
+            3.812
+          ],
+          "length": {
+            "value": 2.766,
+            "sigma": 0.2798,
+            "ci95": [
+              2.218,
+              3.315
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R2-W2",
+          "start": [
+            7.539,
+            3.812
+          ],
+          "end": [
+            7.539,
+            6.728
+          ],
+          "length": {
+            "value": 2.916,
+            "sigma": 0.2947,
+            "ci95": [
+              2.338,
+              3.493
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R2-W3",
+          "start": [
+            7.539,
+            6.728
+          ],
+          "end": [
+            10.306,
+            6.728
+          ],
+          "length": {
+            "value": 2.766,
+            "sigma": 0.2798,
+            "ci95": [
+              2.218,
+              3.315
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R2-W4",
+          "start": [
+            10.306,
+            6.728
+          ],
+          "end": [
+            10.306,
+            3.812
+          ],
+          "length": {
+            "value": 2.916,
+            "sigma": 0.2947,
+            "ci95": [
+              2.338,
+              3.493
+            ]
+          },
+          "located_on_3d_points": true
+        }
+      ],
+      "surfaces": [
+        "R2-FLOOR",
+        "R2-CEILING",
+        "R2-W1",
+        "R2-W2",
+        "R2-W3",
+        "R2-W4"
+      ]
+    },
+    {
+      "id": "R3",
+      "name": "hall",
+      "polygon": [
+        [
+          3.59,
+          4.419
+        ],
+        [
+          3.59,
+          3.394
+        ],
+        [
+          2.89,
+          3.394
+        ],
+        [
+          2.89,
+          4.419
+        ]
+      ],
+      "floor_area": {
+        "value": 0.717,
+        "sigma": 0.1682,
+        "ci95": [
+          0.388,
+          1.047
+        ]
+      },
+      "perimeter": {
+        "value": 3.45,
+        "sigma": 0.2254,
+        "ci95": [
+          3.008,
+          3.892
+        ]
+      },
+      "ceiling_height": null,
+      "ceiling_levels": [],
+      "walls": [
+        {
+          "id": "R3-W1",
+          "start": [
+            3.59,
+            4.419
+          ],
+          "end": [
+            3.59,
+            3.394
+          ],
+          "length": {
+            "value": 1.025,
+            "sigma": 0.1245,
+            "ci95": [
+              0.781,
+              1.269
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W2",
+          "start": [
+            3.59,
+            3.394
+          ],
+          "end": [
+            2.89,
+            3.394
+          ],
+          "length": {
+            "value": 0.7,
+            "sigma": 0.0995,
+            "ci95": [
+              0.505,
+              0.895
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W3",
+          "start": [
+            2.89,
+            3.394
+          ],
+          "end": [
+            2.89,
+            4.419
+          ],
+          "length": {
+            "value": 1.025,
+            "sigma": 0.1245,
+            "ci95": [
+              0.781,
+              1.269
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W4",
+          "start": [
+            2.89,
+            4.419
+          ],
+          "end": [
+            3.59,
+            4.419
+          ],
+          "length": {
+            "value": 0.7,
+            "sigma": 0.0995,
+            "ci95": [
+              0.505,
+              0.895
+            ]
+          },
+          "located_on_3d_points": false
+        }
+      ],
+      "surfaces": [
+        "R3-FLOOR",
+        "R3-CEILING",
+        "R3-W1",
+        "R3-W2",
+        "R3-W3",
+        "R3-W4"
+      ]
+    },
+    {
+      "id": "R4",
+      "name": "living",
+      "polygon": [
+        [
+          2.77,
+          4.578
+        ],
+        [
+          0.0,
+          4.578
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          2.77,
+          0.0
+        ]
+      ],
+      "floor_area": {
+        "value": 12.683,
+        "sigma": 2.5368,
+        "ci95": [
+          7.71,
+          17.655
+        ]
+      },
+      "perimeter": {
+        "value": 14.697,
+        "sigma": 0.7569,
+        "ci95": [
+          13.213,
+          16.18
+        ]
+      },
+      "ceiling_height": {
+        "value": 2.37,
+        "sigma": 0.2371,
+        "ci95": [
+          1.905,
+          2.835
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.37,
+          "share": 1.0
+        }
+      ],
+      "walls": [
+        {
+          "id": "R4-W1",
+          "start": [
+            2.77,
+            4.578
+          ],
+          "end": [
+            0.0,
+            4.578
+          ],
+          "length": {
+            "value": 2.77,
+            "sigma": 0.2771,
+            "ci95": [
+              2.227,
+              3.313
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R4-W2",
+          "start": [
+            0.0,
+            4.578
+          ],
+          "end": [
+            0.0,
+            0.0
+          ],
+          "length": {
+            "value": 4.578,
+            "sigma": 0.4579,
+            "ci95": [
+              3.681,
+              5.476
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R4-W3",
+          "start": [
+            0.0,
+            0.0
+          ],
+          "end": [
+            2.77,
+            0.0
+          ],
+          "length": {
+            "value": 2.77,
+            "sigma": 0.2771,
+            "ci95": [
+              2.227,
+              3.313
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R4-W4",
+          "start": [
+            2.77,
+            0.0
+          ],
+          "end": [
+            2.77,
+            4.578
+          ],
+          "length": {
+            "value": 4.578,
+            "sigma": 0.4579,
+            "ci95": [
+              3.681,
+              5.476
+            ]
+          },
+          "located_on_3d_points": true
+        }
+      ],
+      "surfaces": [
+        "R4-FLOOR",
+        "R4-CEILING",
+        "R4-W1",
+        "R4-W2",
+        "R4-W3",
+        "R4-W4"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "O1",
+      "kind": "window",
+      "rooms": [
+        "R1"
+      ],
+      "walls": [
+        "R1-W2"
+      ],
+      "center": [
+        4.983,
+        4.539
+      ],
+      "width": {
+        "value": 0.55,
+        "sigma": 0.0568,
+        "ci95": [
+          0.438,
+          0.661
+        ]
+      },
+      "sill_height": 1.14,
+      "head_height": 1.82,
+      "seen_from_both_sides": false
+    },
+    {
+      "id": "O2",
+      "kind": "door",
+      "rooms": [
+        "R2"
+      ],
+      "walls": [
+        "R2-W1"
+      ],
+      "center": [
+        8.032,
+        3.812
+      ],
+      "width": {
+        "value": 1.014,
+        "sigma": 0.1024,
+        "ci95": [
+          0.813,
+          1.214
+        ]
+      },
+      "sill_height": 0.06,
+      "head_height": 1.82,
+      "seen_from_both_sides": false
+    },
+    {
+      "id": "O3",
+      "kind": "window",
+      "rooms": [
+        "R2"
+      ],
+      "walls": [
+        "R2-W4"
+      ],
+      "center": [
+        10.306,
+        5.047
+      ],
+      "width": {
+        "value": 1.052,
+        "sigma": 0.1061,
+        "ci95": [
+          0.844,
+          1.26
+        ]
+      },
+      "sill_height": 0.7,
+      "head_height": 2.4,
+      "seen_from_both_sides": false
+    },
+    {
+      "id": "O4",
+      "kind": "window",
+      "rooms": [
+        "R4"
+      ],
+      "walls": [
+        "R4-W3"
+      ],
+      "center": [
+        0.7,
+        0.0
+      ],
+      "width": {
+        "value": 0.6,
+        "sigma": 0.0616,
+        "ci95": [
+          0.479,
+          0.721
+        ]
+      },
+      "sill_height": 0.78,
+      "head_height": 1.48,
+      "seen_from_both_sides": false
+    },
+    {
+      "id": "O5",
+      "kind": "door",
+      "rooms": [
+        "R4"
+      ],
+      "walls": [
+        "R4-W4"
+      ],
+      "center": [
+        2.77,
+        1.898
+      ],
+      "width": {
+        "value": 0.68,
+        "sigma": 0.0695,
+        "ci95": [
+          0.544,
+          0.816
+        ]
+      },
+      "sill_height": 0.06,
+      "head_height": 1.8,
+      "seen_from_both_sides": false
+    }
+  ],
+  "damage": [
+    {
+      "id": "D1",
+      "surface": "R4-W4",
+      "class": "crack",
+      "width": {
+        "value": 0.686,
+        "sigma": 0.02,
+        "ci95": [
+          0.646,
+          0.725
+        ]
+      },
+      "height": {
+        "value": 0.137,
+        "sigma": 0.02,
+        "ci95": [
+          0.098,
+          0.176
+        ]
+      },
+      "area_m2": 0.0303,
+      "height_from_floor": [
+        2.11,
+        2.25
+      ],
+      "confidence": 0.92,
+      "seen_in_frames": 1
+    }
+  ],
+  "concealed_damage_flags": [],
+  "scope_items": [
+    {
+      "surface": "R4-W4",
+      "damage": "D1",
+      "description": "Rake out, fill and sand crack; prime and repaint wall",
+      "quantity": 0.69,
+      "unit": "m"
+    },
+    {
+      "surface": "R4-W4",
+      "damage": "D1",
+      "description": "Repaint full wall for uniform finish",
+      "quantity": 10.85,
+      "unit": "m2"
+    }
+  ],
+  "quality": {
+    "wall_sharpness": null,
+    "drift_correction_applied": false,
+    "max_heading_drift_deg": null,
+    "loop_closure_applied": false,
+    "warnings": [
+      "R3: ceiling not observed, height not reported"
+    ]
+  }
+}

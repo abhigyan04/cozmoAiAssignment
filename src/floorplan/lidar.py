@@ -30,6 +30,7 @@ class LidarResult:
     sharpness: float
     drift: DriftReport | None
     drift_applied: bool
+    cap: StrayCapture | None = None   # the capture actually used (drift-corrected if applied)
 
 
 def _fused(cap: StrayCapture, stride: int = 10):
@@ -57,7 +58,8 @@ def run_lidar(cap: StrayCapture, drift: str = "auto", stride: int = 10,
         if drift == "on" or sharp2 > sharp + 0.005:
             cap, P, N, yaw, sharp, applied = cc, P2, N2, yaw2, sharp2, True
 
-    floor, ceil = floor_and_ceiling(P, N)
+    cam_y = float(np.median([f.T_wc[1, 3] for f in cap.frames]))
+    floor, ceil = floor_and_ceiling(P, N, cam_y=cam_y)
     band = wall_band(ceil.y - floor.y if ceil else None)
     fm = build_floormap(cap, P, N, floor.y, yaw, stride=stride, rays_per_frame=rays_per_frame)
     doors = find_doorways(fm)
@@ -73,4 +75,4 @@ def run_lidar(cap: StrayCapture, drift: str = "auto", stride: int = 10,
     shared = pair_openings(openings, polys)
     edges = adjacency(doors, rooms, shared, fm)
     return LidarResult(floor, ceil, yaw, fm, rooms, polys, heights, openings, shared, edges,
-                       sharp, rep, applied)
+                       sharp, rep, applied, cap)

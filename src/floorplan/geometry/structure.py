@@ -39,12 +39,24 @@ def _refine_level(y: np.ndarray, y0: float, band: float = 0.03) -> Level:
 
 
 def floor_and_ceiling(P: np.ndarray, N: np.ndarray, min_room_h: float = 1.8,
-                      min_support: int = 2000) -> tuple[Level, Level | None]:
-    """Floor = lowest strong horizontal plane; ceiling = highest one >= 1.8 m above it."""
+                      min_support: int = 2000, cam_y: float | None = None) -> tuple[Level, Level | None]:
+    """Floor = lowest strong horizontal plane; ceiling = highest one >= 1.8 m above it.
+
+    cam_y (median camera height, if known): the floor must lie below the cameras.
+    A scan that looks up a lot (as the protocol asks, for the ceiling) can see far
+    more ceiling than floor, especially with a bed covering it, so only peaks below
+    the cameras are floor candidates, with a lower support threshold (5 %)."""
     horiz = np.abs(N[:, 1]) > 0.9
     y = P[horiz, 1]
     hist, edges = np.histogram(y, bins=np.arange(y.min(), y.max() + 0.01, 0.01))
-    strong = np.nonzero(hist >= max(hist.max() * 0.2, 200))[0]
+    if cam_y is not None and (edges[:-1] < cam_y - 0.5).any():
+        below = edges[:-1] < cam_y - 0.5
+        hb = np.where(below, hist, 0)
+        strong = np.nonzero(hb >= max(hb.max() * 0.05, 200))[0]
+        if not len(strong):
+            strong = np.nonzero(hist >= max(hist.max() * 0.2, 200))[0]
+    else:
+        strong = np.nonzero(hist >= max(hist.max() * 0.2, 200))[0]
     floor = _refine_level(y, edges[strong.min()] + 0.005)
 
     up = y[y > floor.y + min_room_h]

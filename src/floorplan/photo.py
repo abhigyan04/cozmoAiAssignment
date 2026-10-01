@@ -103,6 +103,7 @@ class RoomResult:
     yaw: float
     R2: np.ndarray          # 2x2 world(x,z) -> room Manhattan frame
     scale_sigma: float
+    floor_y: float = 0.0
 
 
 def _wall_planes_rect(P, N, R, floor_y, top, cams) -> list[Wall] | None:
@@ -186,7 +187,7 @@ def reconstruct_room(room: PhotoRoom) -> RoomResult:
     openings = detect_openings(wall_evidence(cap, fm, floor.y, [poly], top, stride=1, max_pts=40000), top)
     s = SCALE_SIGMA[room.has_exif]
     widen_for_scale([poly], [heights], openings, s)
-    return RoomResult(room.name, poly, heights, openings, cap, yaw, fm.R, s)
+    return RoomResult(room.name, poly, heights, openings, cap, yaw, fm.R, s, floor.y)
 
 
 # ---------------------------------------------------------------- stitching
@@ -202,6 +203,7 @@ class PhotoPlan:
     sharpness: float = float("nan")
     drift: object = None
     drift_applied: bool = False
+    results: list = None      # per-room RoomResult (own frames), used for damage
 
 
 def _rot2(theta: float) -> np.ndarray:
@@ -308,7 +310,7 @@ def stitch(rooms: list[PhotoRoom], results: list[RoomResult], joint_max: int = 4
             ov = [min(a[2], b[2]) - max(a[0], b[0]), min(a[3], b[3]) - max(a[1], b[1])]
             if max(ov) > 0.5 and abs(min(ov) + WALL_T) < 0.05:
                 edges.append({"rooms": [i, j], "center": None, "opening": None})
-    return PhotoPlan(names, out_polys, [r.heights for r in results], shared, edges)
+    return PhotoPlan(names, out_polys, [r.heights for r in results], shared, edges, results=results)
 
 
 def run_photo(root: Path) -> PhotoPlan:

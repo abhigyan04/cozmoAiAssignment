@@ -1,0 +1,1406 @@
+{
+  "schema_version": "1.0",
+  "capture": {
+    "tier": "lidar",
+    "source": "C:\\Users\\abhig\\Downloads\\single_scan_with_ceiling",
+    "processing_seconds": 152.2
+  },
+  "property": {
+    "floor_area": {
+      "value": 42.992,
+      "sigma": 0.5436,
+      "ci95": [
+        41.927,
+        44.057
+      ]
+    },
+    "room_count": 5,
+    "adjacency": [
+      {
+        "rooms": [
+          "R1",
+          "R4"
+        ],
+        "via": null
+      },
+      {
+        "rooms": [
+          "R3",
+          "R4"
+        ],
+        "via": null
+      },
+      {
+        "rooms": [
+          "R3",
+          "R5"
+        ],
+        "via": null
+      }
+    ]
+  },
+  "rooms": [
+    {
+      "id": "R1",
+      "name": "R1",
+      "polygon": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.788
+        ],
+        [
+          1.646,
+          2.788
+        ],
+        [
+          1.646,
+          1.763
+        ],
+        [
+          2.171,
+          1.763
+        ],
+        [
+          2.171,
+          0.953
+        ],
+        [
+          2.821,
+          0.953
+        ],
+        [
+          2.821,
+          0.0
+        ]
+      ],
+      "floor_area": {
+        "value": 6.136,
+        "sigma": 0.1709,
+        "ci95": [
+          5.801,
+          6.471
+        ]
+      },
+      "perimeter": {
+        "value": 11.219,
+        "sigma": 0.1833,
+        "ci95": [
+          10.86,
+          11.578
+        ]
+      },
+      "ceiling_height": {
+        "value": 2.955,
+        "sigma": 0.0071,
+        "ci95": [
+          2.941,
+          2.969
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.95,
+          "share": 0.87
+        }
+      ],
+      "walls": [
+        {
+          "id": "R1-W1",
+          "start": [
+            0.0,
+            0.0
+          ],
+          "end": [
+            0.0,
+            2.788
+          ],
+          "length": {
+            "value": 2.788,
+            "sigma": 0.0583,
+            "ci95": [
+              2.674,
+              2.903
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W2",
+          "start": [
+            0.0,
+            2.788
+          ],
+          "end": [
+            1.646,
+            2.788
+          ],
+          "length": {
+            "value": 1.646,
+            "sigma": 0.0583,
+            "ci95": [
+              1.532,
+              1.76
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W3",
+          "start": [
+            1.646,
+            2.788
+          ],
+          "end": [
+            1.646,
+            1.763
+          ],
+          "length": {
+            "value": 1.025,
+            "sigma": 0.0707,
+            "ci95": [
+              0.886,
+              1.164
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W4",
+          "start": [
+            1.646,
+            1.763
+          ],
+          "end": [
+            2.171,
+            1.763
+          ],
+          "length": {
+            "value": 0.525,
+            "sigma": 0.0707,
+            "ci95": [
+              0.386,
+              0.664
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W5",
+          "start": [
+            2.171,
+            1.763
+          ],
+          "end": [
+            2.171,
+            0.953
+          ],
+          "length": {
+            "value": 0.81,
+            "sigma": 0.0707,
+            "ci95": [
+              0.671,
+              0.949
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W6",
+          "start": [
+            2.171,
+            0.953
+          ],
+          "end": [
+            2.821,
+            0.953
+          ],
+          "length": {
+            "value": 0.65,
+            "sigma": 0.0707,
+            "ci95": [
+              0.511,
+              0.789
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W7",
+          "start": [
+            2.821,
+            0.953
+          ],
+          "end": [
+            2.821,
+            0.0
+          ],
+          "length": {
+            "value": 0.953,
+            "sigma": 0.0583,
+            "ci95": [
+              0.839,
+              1.068
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W8",
+          "start": [
+            2.821,
+            0.0
+          ],
+          "end": [
+            0.0,
+            0.0
+          ],
+          "length": {
+            "value": 2.821,
+            "sigma": 0.0583,
+            "ci95": [
+              2.707,
+              2.935
+            ]
+          },
+          "located_on_3d_points": true
+        }
+      ],
+      "surfaces": [
+        "R1-FLOOR",
+        "R1-CEILING",
+        "R1-W1",
+        "R1-W2",
+        "R1-W3",
+        "R1-W4",
+        "R1-W5",
+        "R1-W6",
+        "R1-W7",
+        "R1-W8"
+      ]
+    },
+    {
+      "id": "R2",
+      "name": "R2",
+      "polygon": [
+        [
+          0.177,
+          3.988
+        ],
+        [
+          0.177,
+          5.838
+        ],
+        [
+          1.634,
+          5.838
+        ],
+        [
+          1.634,
+          3.988
+        ]
+      ],
+      "floor_area": {
+        "value": 2.695,
+        "sigma": 0.1665,
+        "ci95": [
+          2.369,
+          3.021
+        ]
+      },
+      "perimeter": {
+        "value": 6.614,
+        "sigma": 0.1414,
+        "ci95": [
+          6.336,
+          6.891
+        ]
+      },
+      "ceiling_height": {
+        "value": 2.279,
+        "sigma": 0.0071,
+        "ci95": [
+          2.265,
+          2.293
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.27,
+          "share": 1.0
+        }
+      ],
+      "walls": [
+        {
+          "id": "R2-W1",
+          "start": [
+            0.177,
+            3.988
+          ],
+          "end": [
+            0.177,
+            5.838
+          ],
+          "length": {
+            "value": 1.85,
+            "sigma": 0.0707,
+            "ci95": [
+              1.711,
+              1.989
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R2-W2",
+          "start": [
+            0.177,
+            5.838
+          ],
+          "end": [
+            1.634,
+            5.838
+          ],
+          "length": {
+            "value": 1.457,
+            "sigma": 0.0707,
+            "ci95": [
+              1.318,
+              1.595
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R2-W3",
+          "start": [
+            1.634,
+            5.838
+          ],
+          "end": [
+            1.634,
+            3.988
+          ],
+          "length": {
+            "value": 1.85,
+            "sigma": 0.0707,
+            "ci95": [
+              1.711,
+              1.989
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R2-W4",
+          "start": [
+            1.634,
+            3.988
+          ],
+          "end": [
+            0.177,
+            3.988
+          ],
+          "length": {
+            "value": 1.457,
+            "sigma": 0.0707,
+            "ci95": [
+              1.318,
+              1.595
+            ]
+          },
+          "located_on_3d_points": false
+        }
+      ],
+      "surfaces": [
+        "R2-FLOOR",
+        "R2-CEILING",
+        "R2-W1",
+        "R2-W2",
+        "R2-W3",
+        "R2-W4"
+      ]
+    },
+    {
+      "id": "R3",
+      "name": "R3",
+      "polygon": [
+        [
+          6.045,
+          5.313
+        ],
+        [
+          6.045,
+          1.511
+        ],
+        [
+          3.183,
+          1.511
+        ],
+        [
+          3.183,
+          4.997
+        ],
+        [
+          1.996,
+          4.997
+        ],
+        [
+          1.996,
+          5.988
+        ],
+        [
+          2.846,
+          5.988
+        ],
+        [
+          2.846,
+          6.648
+        ],
+        [
+          2.321,
+          6.648
+        ],
+        [
+          2.321,
+          7.538
+        ],
+        [
+          1.246,
+          7.538
+        ],
+        [
+          1.246,
+          8.588
+        ],
+        [
+          0.846,
+          8.588
+        ],
+        [
+          0.846,
+          9.554
+        ],
+        [
+          2.746,
+          9.554
+        ],
+        [
+          2.746,
+          10.063
+        ],
+        [
+          3.721,
+          10.063
+        ],
+        [
+          3.721,
+          5.574
+        ],
+        [
+          6.364,
+          5.574
+        ],
+        [
+          6.364,
+          5.313
+        ]
+      ],
+      "floor_area": {
+        "value": 20.807,
+        "sigma": 0.3627,
+        "ci95": [
+          20.096,
+          21.518
+        ]
+      },
+      "perimeter": {
+        "value": 29.839,
+        "sigma": 0.3007,
+        "ci95": [
+          29.25,
+          30.429
+        ]
+      },
+      "ceiling_height": {
+        "value": 2.435,
+        "sigma": 0.0071,
+        "ci95": [
+          2.422,
+          2.449
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.43,
+          "share": 0.6
+        },
+        {
+          "height": 3.09,
+          "share": 0.2
+        }
+      ],
+      "walls": [
+        {
+          "id": "R3-W1",
+          "start": [
+            6.045,
+            5.313
+          ],
+          "end": [
+            6.045,
+            1.511
+          ],
+          "length": {
+            "value": 3.802,
+            "sigma": 0.0583,
+            "ci95": [
+              3.688,
+              3.917
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R3-W2",
+          "start": [
+            6.045,
+            1.511
+          ],
+          "end": [
+            3.183,
+            1.511
+          ],
+          "length": {
+            "value": 2.862,
+            "sigma": 0.0424,
+            "ci95": [
+              2.779,
+              2.945
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R3-W3",
+          "start": [
+            3.183,
+            1.511
+          ],
+          "end": [
+            3.183,
+            4.997
+          ],
+          "length": {
+            "value": 3.486,
+            "sigma": 0.0583,
+            "ci95": [
+              3.372,
+              3.601
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R3-W4",
+          "start": [
+            3.183,
+            4.997
+          ],
+          "end": [
+            1.996,
+            4.997
+          ],
+          "length": {
+            "value": 1.187,
+            "sigma": 0.0583,
+            "ci95": [
+              1.072,
+              1.301
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W5",
+          "start": [
+            1.996,
+            4.997
+          ],
+          "end": [
+            1.996,
+            5.988
+          ],
+          "length": {
+            "value": 0.991,
+            "sigma": 0.0707,
+            "ci95": [
+              0.852,
+              1.13
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W6",
+          "start": [
+            1.996,
+            5.988
+          ],
+          "end": [
+            2.846,
+            5.988
+          ],
+          "length": {
+            "value": 0.85,
+            "sigma": 0.0707,
+            "ci95": [
+              0.711,
+              0.989
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W7",
+          "start": [
+            2.846,
+            5.988
+          ],
+          "end": [
+            2.846,
+            6.648
+          ],
+          "length": {
+            "value": 0.66,
+            "sigma": 0.0707,
+            "ci95": [
+              0.521,
+              0.798
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W8",
+          "start": [
+            2.846,
+            6.648
+          ],
+          "end": [
+            2.321,
+            6.648
+          ],
+          "length": {
+            "value": 0.525,
+            "sigma": 0.0707,
+            "ci95": [
+              0.386,
+              0.664
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W9",
+          "start": [
+            2.321,
+            6.648
+          ],
+          "end": [
+            2.321,
+            7.538
+          ],
+          "length": {
+            "value": 0.89,
+            "sigma": 0.0707,
+            "ci95": [
+              0.752,
+              1.029
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W10",
+          "start": [
+            2.321,
+            7.538
+          ],
+          "end": [
+            1.246,
+            7.538
+          ],
+          "length": {
+            "value": 1.075,
+            "sigma": 0.0707,
+            "ci95": [
+              0.936,
+              1.214
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W11",
+          "start": [
+            1.246,
+            7.538
+          ],
+          "end": [
+            1.246,
+            8.588
+          ],
+          "length": {
+            "value": 1.05,
+            "sigma": 0.0707,
+            "ci95": [
+              0.911,
+              1.189
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W12",
+          "start": [
+            1.246,
+            8.588
+          ],
+          "end": [
+            0.846,
+            8.588
+          ],
+          "length": {
+            "value": 0.4,
+            "sigma": 0.0707,
+            "ci95": [
+              0.261,
+              0.539
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W13",
+          "start": [
+            0.846,
+            8.588
+          ],
+          "end": [
+            0.846,
+            9.554
+          ],
+          "length": {
+            "value": 0.966,
+            "sigma": 0.0707,
+            "ci95": [
+              0.827,
+              1.105
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W14",
+          "start": [
+            0.846,
+            9.554
+          ],
+          "end": [
+            2.746,
+            9.554
+          ],
+          "length": {
+            "value": 1.9,
+            "sigma": 0.0707,
+            "ci95": [
+              1.761,
+              2.039
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W15",
+          "start": [
+            2.746,
+            9.554
+          ],
+          "end": [
+            2.746,
+            10.063
+          ],
+          "length": {
+            "value": 0.509,
+            "sigma": 0.0707,
+            "ci95": [
+              0.37,
+              0.648
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W16",
+          "start": [
+            2.746,
+            10.063
+          ],
+          "end": [
+            3.721,
+            10.063
+          ],
+          "length": {
+            "value": 0.975,
+            "sigma": 0.0707,
+            "ci95": [
+              0.836,
+              1.114
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W17",
+          "start": [
+            3.721,
+            10.063
+          ],
+          "end": [
+            3.721,
+            5.574
+          ],
+          "length": {
+            "value": 4.489,
+            "sigma": 0.0707,
+            "ci95": [
+              4.35,
+              4.628
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W18",
+          "start": [
+            3.721,
+            5.574
+          ],
+          "end": [
+            6.364,
+            5.574
+          ],
+          "length": {
+            "value": 2.642,
+            "sigma": 0.0707,
+            "ci95": [
+              2.504,
+              2.781
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W19",
+          "start": [
+            6.364,
+            5.574
+          ],
+          "end": [
+            6.364,
+            5.313
+          ],
+          "length": {
+            "value": 0.261,
+            "sigma": 0.0707,
+            "ci95": [
+              0.122,
+              0.4
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R3-W20",
+          "start": [
+            6.364,
+            5.313
+          ],
+          "end": [
+            6.045,
+            5.313
+          ],
+          "length": {
+            "value": 0.319,
+            "sigma": 0.0583,
+            "ci95": [
+              0.205,
+              0.433
+            ]
+          },
+          "located_on_3d_points": false
+        }
+      ],
+      "surfaces": [
+        "R3-FLOOR",
+        "R3-CEILING",
+        "R3-W1",
+        "R3-W2",
+        "R3-W3",
+        "R3-W4",
+        "R3-W5",
+        "R3-W6",
+        "R3-W7",
+        "R3-W8",
+        "R3-W9",
+        "R3-W10",
+        "R3-W11",
+        "R3-W12",
+        "R3-W13",
+        "R3-W14",
+        "R3-W15",
+        "R3-W16",
+        "R3-W17",
+        "R3-W18",
+        "R3-W19",
+        "R3-W20"
+      ]
+    },
+    {
+      "id": "R4",
+      "name": "R4",
+      "polygon": [
+        [
+          2.026,
+          1.388
+        ],
+        [
+          2.026,
+          4.813
+        ],
+        [
+          2.968,
+          4.813
+        ],
+        [
+          2.968,
+          1.388
+        ]
+      ],
+      "floor_area": {
+        "value": 3.227,
+        "sigma": 0.2105,
+        "ci95": [
+          2.815,
+          3.64
+        ]
+      },
+      "perimeter": {
+        "value": 8.735,
+        "sigma": 0.1296,
+        "ci95": [
+          8.48,
+          8.989
+        ]
+      },
+      "ceiling_height": {
+        "value": 3.068,
+        "sigma": 0.0071,
+        "ci95": [
+          3.054,
+          3.082
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.47,
+          "share": 0.3
+        },
+        {
+          "height": 2.37,
+          "share": 0.28
+        },
+        {
+          "height": 3.07,
+          "share": 0.25
+        }
+      ],
+      "walls": [
+        {
+          "id": "R4-W1",
+          "start": [
+            2.026,
+            1.388
+          ],
+          "end": [
+            2.026,
+            4.813
+          ],
+          "length": {
+            "value": 3.425,
+            "sigma": 0.0707,
+            "ci95": [
+              3.286,
+              3.564
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R4-W2",
+          "start": [
+            2.026,
+            4.813
+          ],
+          "end": [
+            2.968,
+            4.813
+          ],
+          "length": {
+            "value": 0.942,
+            "sigma": 0.0583,
+            "ci95": [
+              0.828,
+              1.057
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R4-W3",
+          "start": [
+            2.968,
+            4.813
+          ],
+          "end": [
+            2.968,
+            1.388
+          ],
+          "length": {
+            "value": 3.425,
+            "sigma": 0.0707,
+            "ci95": [
+              3.286,
+              3.564
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R4-W4",
+          "start": [
+            2.968,
+            1.388
+          ],
+          "end": [
+            2.026,
+            1.388
+          ],
+          "length": {
+            "value": 0.942,
+            "sigma": 0.0583,
+            "ci95": [
+              0.828,
+              1.057
+            ]
+          },
+          "located_on_3d_points": false
+        }
+      ],
+      "surfaces": [
+        "R4-FLOOR",
+        "R4-CEILING",
+        "R4-W1",
+        "R4-W2",
+        "R4-W3",
+        "R4-W4"
+      ]
+    },
+    {
+      "id": "R5",
+      "name": "R5",
+      "polygon": [
+        [
+          6.203,
+          1.06
+        ],
+        [
+          6.203,
+          5.022
+        ],
+        [
+          7.088,
+          5.022
+        ],
+        [
+          7.088,
+          3.838
+        ],
+        [
+          9.471,
+          3.838
+        ],
+        [
+          9.471,
+          1.06
+        ]
+      ],
+      "floor_area": {
+        "value": 10.127,
+        "sigma": 0.2504,
+        "ci95": [
+          9.636,
+          10.618
+        ]
+      },
+      "perimeter": {
+        "value": 14.46,
+        "sigma": 0.1536,
+        "ci95": [
+          14.159,
+          14.761
+        ]
+      },
+      "ceiling_height": {
+        "value": 3.083,
+        "sigma": 0.0071,
+        "ci95": [
+          3.069,
+          3.097
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 3.09,
+          "share": 0.93
+        }
+      ],
+      "walls": [
+        {
+          "id": "R5-W1",
+          "start": [
+            6.203,
+            1.06
+          ],
+          "end": [
+            6.203,
+            5.022
+          ],
+          "length": {
+            "value": 3.962,
+            "sigma": 0.0583,
+            "ci95": [
+              3.847,
+              4.076
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R5-W2",
+          "start": [
+            6.203,
+            5.022
+          ],
+          "end": [
+            7.088,
+            5.022
+          ],
+          "length": {
+            "value": 0.885,
+            "sigma": 0.0583,
+            "ci95": [
+              0.77,
+              0.999
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R5-W3",
+          "start": [
+            7.088,
+            5.022
+          ],
+          "end": [
+            7.088,
+            3.838
+          ],
+          "length": {
+            "value": 1.183,
+            "sigma": 0.0707,
+            "ci95": [
+              1.045,
+              1.322
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R5-W4",
+          "start": [
+            7.088,
+            3.838
+          ],
+          "end": [
+            9.471,
+            3.838
+          ],
+          "length": {
+            "value": 2.383,
+            "sigma": 0.0707,
+            "ci95": [
+              2.245,
+              2.522
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R5-W5",
+          "start": [
+            9.471,
+            3.838
+          ],
+          "end": [
+            9.471,
+            1.06
+          ],
+          "length": {
+            "value": 2.778,
+            "sigma": 0.0583,
+            "ci95": [
+              2.664,
+              2.893
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R5-W6",
+          "start": [
+            9.471,
+            1.06
+          ],
+          "end": [
+            6.203,
+            1.06
+          ],
+          "length": {
+            "value": 3.268,
+            "sigma": 0.0583,
+            "ci95": [
+              3.154,
+              3.382
+            ]
+          },
+          "located_on_3d_points": true
+        }
+      ],
+      "surfaces": [
+        "R5-FLOOR",
+        "R5-CEILING",
+        "R5-W1",
+        "R5-W2",
+        "R5-W3",
+        "R5-W4",
+        "R5-W5",
+        "R5-W6"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "O1",
+      "kind": "passage",
+      "rooms": [
+        "R1"
+      ],
+      "walls": [
+        "R1-W8"
+      ],
+      "center": [
+        1.171,
+        0.0
+      ],
+      "width": {
+        "value": 2.138,
+        "sigma": 0.0141,
+        "ci95": [
+          2.11,
+          2.165
+        ]
+      },
+      "sill_height": 0.08,
+      "head_height": 2.54,
+      "seen_from_both_sides": false
+    },
+    {
+      "id": "O2",
+      "kind": "door",
+      "rooms": [
+        "R3"
+      ],
+      "walls": [
+        "R3-W1"
+      ],
+      "center": [
+        6.045,
+        5.016
+      ],
+      "width": {
+        "value": 0.63,
+        "sigma": 0.0141,
+        "ci95": [
+          0.603,
+          0.658
+        ]
+      },
+      "sill_height": 0.08,
+      "head_height": 2.12,
+      "seen_from_both_sides": false
+    },
+    {
+      "id": "O3",
+      "kind": "door",
+      "rooms": [
+        "R5"
+      ],
+      "walls": [
+        "R5-W6"
+      ],
+      "center": [
+        7.108,
+        1.06
+      ],
+      "width": {
+        "value": 0.6,
+        "sigma": 0.0141,
+        "ci95": [
+          0.572,
+          0.628
+        ]
+      },
+      "sill_height": 0.06,
+      "head_height": 1.66,
+      "seen_from_both_sides": false
+    }
+  ],
+  "damage": [],
+  "concealed_damage_flags": [],
+  "scope_items": [],
+  "quality": {
+    "wall_sharpness": 0.413,
+    "drift_correction_applied": true,
+    "max_heading_drift_deg": 3.16,
+    "loop_closure_applied": false,
+    "warnings": [
+      "R3: 2 ceiling levels (false ceiling?); ceiling_height is the dominant one",
+      "R4: 3 ceiling levels (false ceiling?); ceiling_height is the dominant one"
+    ]
+  }
+}

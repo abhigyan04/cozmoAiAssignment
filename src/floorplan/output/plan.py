@@ -76,6 +76,28 @@ def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str]
     adjacency = [{"rooms": [f"R{a + 1}" for a in e["rooms"]],
                   "via": None if e["opening"] is None else f"O{e['opening'] + 1}"} for e in res.edges]
 
+    damage_json, flags, scope = [], [], []
+    dmg = getattr(res, "damage", None) or []
+    if dmg:
+        from floorplan.damage import concealed_flags, scope_items
+        ids = [[w["id"] for w in r["walls"]] for r in rooms]
+        heights_m = [(r["ceiling_height"] or {}).get("value", 2.6) for r in rooms]
+        areas = [[w["length"]["value"] * heights_m[i] for w in r["walls"]] for i, r in enumerate(rooms)]
+        scale = getattr(res, "scale_sigma", 0.0) or 0.0
+        for i, d in enumerate(dmg):
+            w = rooms[d.room]["walls"][d.wall]
+            width, height = d.u1 - d.u0, d.h1 - d.h0
+            damage_json.append({
+                "id": f"D{i + 1}", "surface": w["id"], "class": d.cls,
+                "width": measure(width, np.hypot(0.02, scale * width)),
+                "height": measure(height, np.hypot(0.02, scale * height)),
+                "area_m2": round(d.area_m2, 4),
+                "height_from_floor": [round(d.h0, 2), round(d.h1, 2)],
+                "confidence": round(d.confidence, 2), "seen_in_frames": d.frames,
+            })
+        flags = [{**f, "damage": f"D{f['damage'] + 1}"} for f in concealed_flags(dmg, res.heights)]
+        scope = [{**s_, "damage": f"D{s_['damage'] + 1}"} for s_ in scope_items(dmg, ids, areas)]
+
     total = sum(r["floor_area"]["value"] for r in rooms) if rooms else 0.0
     total_sigma = float(np.sqrt(sum(r["floor_area"]["sigma"] ** 2 for r in rooms)))
     return {
@@ -88,9 +110,9 @@ def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str]
         },
         "rooms": rooms,
         "openings": openings,
-        "damage": [],
-        "concealed_damage_flags": [],
-        "scope_items": [],
+        "damage": damage_json,
+        "concealed_damage_flags": flags,
+        "scope_items": scope,
         "quality": {
             "wall_sharpness": round(res.sharpness, 3) if np.isfinite(res.sharpness) else None,
             "drift_correction_applied": res.drift_applied,

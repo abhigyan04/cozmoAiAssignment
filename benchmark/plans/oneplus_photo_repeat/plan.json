@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "capture": {
+    "tier": "photo",
+    "source": "data\\raw\\oneplus\\photos_repeat",
+    "processing_seconds": 42.3
+  },
+  "property": {
+    "floor_area": {
+      "value": 10.581,
+      "sigma": 2.1164,
+      "ci95": [
+        6.433,
+        14.729
+      ]
+    },
+    "room_count": 1,
+    "adjacency": []
+  },
+  "rooms": [
+    {
+      "id": "R1",
+      "name": "bedroom1",
+      "polygon": [
+        [
+          0.0,
+          2.991
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          3.538,
+          0.0
+        ],
+        [
+          3.538,
+          2.991
+        ]
+      ],
+      "floor_area": {
+        "value": 10.581,
+        "sigma": 2.1164,
+        "ci95": [
+          6.433,
+          14.729
+        ]
+      },
+      "perimeter": {
+        "value": 13.057,
+        "sigma": 0.6553,
+        "ci95": [
+          11.773,
+          14.341
+        ]
+      },
+      "ceiling_height": {
+        "value": 2.466,
+        "sigma": 0.2467,
+        "ci95": [
+          1.982,
+          2.95
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.47,
+          "share": 0.98
+        }
+      ],
+      "walls": [
+        {
+          "id": "R1-W1",
+          "start": [
+            0.0,
+            2.991
+          ],
+          "end": [
+            0.0,
+            0.0
+          ],
+          "length": {
+            "value": 2.991,
+            "sigma": 0.2992,
+            "ci95": [
+              2.405,
+              3.577
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W2",
+          "start": [
+            0.0,
+            0.0
+          ],
+          "end": [
+            3.538,
+            0.0
+          ],
+          "length": {
+            "value": 3.538,
+            "sigma": 0.3538,
+            "ci95": [
+              2.844,
+              4.231
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W3",
+          "start": [
+            3.538,
+            0.0
+          ],
+          "end": [
+            3.538,
+            2.991
+          ],
+          "length": {
+            "value": 2.991,
+            "sigma": 0.2992,
+            "ci95": [
+              2.405,
+              3.577
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W4",
+          "start": [
+            3.538,
+            2.991
+          ],
+          "end": [
+            0.0,
+            2.991
+          ],
+          "length": {
+            "value": 3.538,
+            "sigma": 0.3538,
+            "ci95": [
+              2.844,
+              4.231
+            ]
+          },
+          "located_on_3d_points": true
+        }
+      ],
+      "surfaces": [
+        "R1-FLOOR",
+        "R1-CEILING",
+        "R1-W1",
+        "R1-W2",
+        "R1-W3",
+        "R1-W4"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "O1",
+      "kind": "window",
+      "rooms": [
+        "R1"
+      ],
+      "walls": [
+        "R1-W3"
+      ],
+      "center": [
+        3.538,
+        2.554
+      ],
+      "width": {
+        "value": 0.492,
+        "sigma": 0.0512,
+        "ci95": [
+          0.392,
+          0.592
+        ]
+      },
+      "sill_height": 0.88,
+      "head_height": 1.54,
+      "seen_from_both_sides": false
+    }
+  ],
+  "damage": [],
+  "concealed_damage_flags": [],
+  "scope_items": [],
+  "quality": {
+    "wall_sharpness": null,
+    "drift_correction_applied": false,
+    "max_heading_drift_deg": null,
+    "loop_closure_applied": false,
+    "warnings": []
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0",
+  "capture": {
+    "tier": "lidar",
+    "source": "data\\raw\\iphone\\lidar\\bedroom1_a",
+    "processing_seconds": 35.4
+  },
+  "property": {
+    "floor_area": {
+      "value": 10.446,
+      "sigma": 0.1871,
+      "ci95": [
+        10.079,
+        10.813
+      ]
+    },
+    "room_count": 1,
+    "adjacency": []
+  },
+  "rooms": [
+    {
+      "id": "R1",
+      "name": "R1",
+      "polygon": [
+        [
+          3.609,
+          3.049
+        ],
+        [
+          3.609,
+          0.0
+        ],
+        [
+          0.762,
+          0.0
+        ],
+        [
+          0.762,
+          0.733
+        ],
+        [
+          0.0,
+          0.733
+        ],
+        [
+          0.0,
+          3.049
+        ]
+      ],
+      "floor_area": {
+        "value": 10.446,
+        "sigma": 0.1871,
+        "ci95": [
+          10.079,
+          10.813
+        ]
+      },
+      "perimeter": {
+        "value": 13.316,
+        "sigma": 0.1312,
+        "ci95": [
+          13.059,
+          13.573
+        ]
+      },
+      "ceiling_height": {
+        "value": 2.655,
+        "sigma": 0.0071,
+        "ci95": [
+          2.641,
+          2.669
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.65,
+          "share": 0.98
+        }
+      ],
+      "walls": [
+        {
+          "id": "R1-W1",
+          "start": [
+            3.609,
+            3.049
+          ],
+          "end": [
+            3.609,
+            0.0
+          ],
+          "length": {
+            "value": 3.049,
+            "sigma": 0.0424,
+            "ci95": [
+              2.966,
+              3.132
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W2",
+          "start": [
+            3.609,
+            0.0
+          ],
+          "end": [
+            0.762,
+            0.0
+          ],
+          "length": {
+            "value": 2.847,
+            "sigma": 0.0583,
+            "ci95": [
+              2.733,
+              2.961
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W3",
+          "start": [
+            0.762,
+            0.0
+          ],
+          "end": [
+            0.762,
+            0.733
+          ],
+          "length": {
+            "value": 0.733,
+            "sigma": 0.0583,
+            "ci95": [
+              0.619,
+              0.847
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W4",
+          "start": [
+            0.762,
+            0.733
+          ],
+          "end": [
+            0.0,
+            0.733
+          ],
+          "length": {
+            "value": 0.762,
+            "sigma": 0.0583,
+            "ci95": [
+              0.648,
+              0.876
+            ]
+          },
+          "located_on_3d_points": false
+        },
+        {
+          "id": "R1-W5",
+          "start": [
+            0.0,
+            0.733
+          ],
+          "end": [
+            0.0,
+            3.049
+          ],
+          "length": {
+            "value": 2.317,
+            "sigma": 0.0583,
+            "ci95": [
+              2.202,
+              2.431
+            ]
+          },
+          "located_on_3d_points": true
+        },
+        {
+          "id": "R1-W6",
+          "start": [
+            0.0,
+            3.049
+          ],
+          "end": [
+            3.609,
+            3.049
+          ],
+          "length": {
+            "value": 3.609,
+            "sigma": 0.0424,
+            "ci95": [
+              3.526,
+              3.692
+            ]
+          },
+          "located_on_3d_points": true
+        }
+      ],
+      "surfaces": [
+        "R1-FLOOR",
+        "R1-CEILING",
+        "R1-W1",
+        "R1-W2",
+        "R1-W3",
+        "R1-W4",
+        "R1-W5",
+        "R1-W6"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "O1",
+      "kind": "door",
+      "rooms": [
+        "R1"
+      ],
+      "walls": [
+        "R1-W1"
+      ],
+      "center": [
+        3.609,
+        2.55
+      ],
+      "width": {
+        "value": 0.679,
+        "sigma": 0.0141,
+        "ci95": [
+          0.651,
+          0.706
+        ]
+      },
+      "sill_height": 0.14,
+      "head_height": 2.16,
+      "seen_from_both_sides": false
+    }
+  ],
+  "damage": [
+    {
+      "id": "D1",
+      "surface": "R1-W6",
+      "class": "crack",
+      "width": {
+        "value": 0.036,
+        "sigma": 0.02,
+        "ci95": [
+          -0.003,
+          0.075
+        ]
+      },
+      "height": {
+        "value": 0.121,
+        "sigma": 0.02,
+        "ci95": [
+          0.082,
+          0.161
+        ]
+      },
+      "area_m2": 0.0012,
+      "height_from_floor": [
+        1.93,
+        2.06
+      ],
+      "confidence": 0.58,
+      "seen_in_frames": 2
+    }
+  ],
+  "concealed_damage_flags": [],
+  "scope_items": [
+    {
+      "surface": "R1-W6",
+      "damage": "D1",
+      "description": "Rake out, fill and sand crack; prime and repaint wall",
+      "quantity": 0.12,
+      "unit": "m"
+    },
+    {
+      "surface": "R1-W6",
+      "damage": "D1",
+      "description": "Repaint full wall for uniform finish",
+      "quantity": 9.58,
+      "unit": "m2"
+    }
+  ],
+  "quality": {
+    "wall_sharpness": 0.398,
+    "drift_correction_applied": false,
+    "max_heading_drift_deg": 2.12,
+    "loop_closure_applied": false,
+    "warnings": []
+  }
+}

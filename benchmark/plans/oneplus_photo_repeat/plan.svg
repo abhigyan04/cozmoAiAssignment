@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="514" height="459" viewBox="0 0 514 459" font-family="Helvetica, Arial, sans-serif">
+<rect width="514" height="459" fill="white"/>
+<polygon points="80.0,80.0 80.0,379.1 433.8,379.1 433.8,80.0" fill="#e8f1fb" stroke="#222" stroke-width="4"/>
+<text x="80.0" y="221.6" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 80.0 229.6)">2.99 ±59cm</text>
+<text x="256.9" y="371.1" font-size="12" fill="#1a4d8f" text-anchor="middle">3.54 ±69cm</text>
+<text x="433.8" y="221.6" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 433.8 229.6)">2.99 ±59cm</text>
+<text x="256.9" y="72.0" font-size="12" fill="#1a4d8f" text-anchor="middle">3.54 ±69cm</text>
+<line x1="433.8" y1="148.3" x2="433.8" y2="99.1" stroke="white" stroke-width="8"/>
+<line x1="433.8" y1="148.3" x2="433.8" y2="99.1" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="433.8" y="141.7" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.49</text>
+<text x="256.9" y="229.6" font-size="16" font-weight="bold" text-anchor="middle">bedroom1</text>
+<text x="256.9" y="247.6" font-size="12" text-anchor="middle">10.58 ± 4.15 m²</text>
+<text x="256.9" y="263.6" font-size="12" text-anchor="middle">ceiling 2.466 m</text>
+<text x="80" y="30" font-size="14">Tier: photo · total 10.58 m² · blue = located on 3D points, red = grid-only (wider interval) · ±values are 95% intervals</text>
+</svg>

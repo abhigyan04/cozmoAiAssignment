@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1496" height="1126" viewBox="0 0 1496 1126" font-family="Helvetica, Arial, sans-serif">
+<rect width="1496" height="1126" fill="white"/>
+<polygon points="704.4,299.6 422.5,299.6 422.5,260.1 387.3,260.1 387.3,145.7 80.0,145.7 80.0,80.0 704.4,80.0" fill="#e8f1fb" stroke="#222" stroke-width="4"/>
+<polygon points="791.8,1036.9 507.6,1036.9 507.6,702.8 791.8,702.8" fill="#fdf1e3" stroke="#222" stroke-width="4"/>
+<polygon points="872.4,402.8 872.4,276.0 1022.7,276.0 1022.7,364.3 1050.0,364.3 1050.0,478.5 963.2,478.5 963.2,731.3 873.8,731.3 873.8,689.6 615.0,689.6 615.0,547.5 529.6,547.5 529.6,402.8" fill="#eaf6ec" stroke="#222" stroke-width="4"/>
+<polygon points="525.0,381.0 525.0,297.0 855.0,297.0 855.0,381.0" fill="#f7e9f3" stroke="#222" stroke-width="4"/>
+<polygon points="796.1,265.3 796.1,100.1 1013.9,100.1 1013.9,265.3" fill="#fbf7de" stroke="#222" stroke-width="4"/>
+<polygon points="1099.7,1046.5 889.5,1046.5 889.5,753.8 962.0,753.8 962.0,795.0 1099.7,795.0" fill="#e9f4f6" stroke="#222" stroke-width="4"/>
+<polygon points="1416.0,194.7 1416.0,479.6 1150.0,479.6 1150.0,250.6 1030.1,250.6 1030.1,215.3 1167.5,215.3 1167.5,153.8 1260.0,153.8 1260.0,194.7" fill="#f3ece6" stroke="#222" stroke-width="4"/>
+<text x="563.5" y="291.6" font-size="12" fill="#1a4d8f" text-anchor="middle">2.82 ±11cm</text>
+<text x="422.5" y="271.9" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 422.5 279.9)">0.40 ±8cm</text>
+<text x="404.9" y="252.1" font-size="12" fill="#1a4d8f" text-anchor="middle">0.35 ±11cm</text>
+<text x="387.3" y="194.9" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 387.3 202.9)">1.14 ±11cm</text>
+<text x="233.7" y="137.7" font-size="12" fill="#b03a2e" text-anchor="middle">3.07 ±11cm</text>
+<text x="80.0" y="104.9" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 80.0 112.9)">0.66 ±11cm</text>
+<text x="392.2" y="72.0" font-size="12" fill="#1a4d8f" text-anchor="middle">6.24 ±11cm</text>
+<text x="704.4" y="181.8" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 704.4 189.8)">2.20 ±8cm</text>
+<text x="649.7" y="1028.9" font-size="12" fill="#1a4d8f" text-anchor="middle">2.84 ±8cm</text>
+<text x="507.6" y="861.9" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 507.6 869.9)">3.34 ±8cm</text>
+<text x="649.7" y="694.8" font-size="12" fill="#1a4d8f" text-anchor="middle">2.84 ±8cm</text>
+<text x="791.8" y="861.9" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 791.8 869.9)">3.34 ±8cm</text>
+<text x="872.4" y="331.4" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 872.4 339.4)">1.27 ±8cm</text>
+<text x="947.5" y="268.0" font-size="12" fill="#1a4d8f" text-anchor="middle">1.50 ±8cm</text>
+<text x="1022.7" y="312.1" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 1022.7 320.1)">0.88 ±8cm</text>
+<text x="1050.0" y="413.4" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 1050.0 421.4)">1.14 ±8cm</text>
+<text x="1006.6" y="470.5" font-size="12" fill="#1a4d8f" text-anchor="middle">0.87 ±11cm</text>
+<text x="963.2" y="596.9" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 963.2 604.9)">2.53 ±11cm</text>
+<text x="918.5" y="723.3" font-size="12" fill="#b03a2e" text-anchor="middle">0.89 ±8cm</text>
+<text x="873.8" y="702.5" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 873.8 710.5)">0.42 ±11cm</text>
+<text x="744.4" y="681.6" font-size="12" fill="#1a4d8f" text-anchor="middle">2.59 ±11cm</text>
+<text x="615.0" y="610.5" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 615.0 618.5)">1.42 ±8cm</text>
+<text x="572.3" y="539.5" font-size="12" fill="#1a4d8f" text-anchor="middle">0.85 ±11cm</text>
+<text x="529.6" y="467.1" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 529.6 475.1)">1.45 ±8cm</text>
+<text x="701.0" y="394.8" font-size="12" fill="#1a4d8f" text-anchor="middle">3.43 ±8cm</text>
+<text x="525.0" y="331.0" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 525.0 339.0)">0.84 ±8cm</text>
+<text x="690.0" y="289.0" font-size="12" fill="#1a4d8f" text-anchor="middle">3.30 ±14cm</text>
+<text x="855.0" y="331.0" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 855.0 339.0)">0.84 ±8cm</text>
+<text x="690.0" y="373.0" font-size="12" fill="#1a4d8f" text-anchor="middle">3.30 ±14cm</text>
+<text x="796.1" y="174.7" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 796.1 182.7)">1.65 ±8cm</text>
+<text x="905.0" y="92.1" font-size="12" fill="#1a4d8f" text-anchor="middle">2.18 ±8cm</text>
+<text x="1013.9" y="174.7" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 1013.9 182.7)">1.65 ±8cm</text>
+<text x="905.0" y="257.3" font-size="12" fill="#1a4d8f" text-anchor="middle">2.18 ±8cm</text>
+<text x="994.6" y="1038.5" font-size="12" fill="#1a4d8f" text-anchor="middle">2.10 ±8cm</text>
+<text x="889.5" y="892.1" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 889.5 900.1)">2.93 ±11cm</text>
+<text x="925.8" y="745.8" font-size="12" fill="#b03a2e" text-anchor="middle">0.72 ±8cm</text>
+<text x="962.0" y="766.4" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 962.0 774.4)">0.41 ±11cm</text>
+<text x="1030.8" y="787.0" font-size="12" fill="#1a4d8f" text-anchor="middle">1.38 ±8cm</text>
+<text x="1099.7" y="912.8" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 1099.7 920.8)">2.52 ±8cm</text>
+<text x="1416.0" y="329.1" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 1416.0 337.1)">2.85 ±8cm</text>
+<text x="1283.0" y="471.6" font-size="12" fill="#1a4d8f" text-anchor="middle">2.66 ±11cm</text>
+<text x="1150.0" y="357.1" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 1150.0 365.1)">2.29 ±11cm</text>
+<text x="1090.0" y="242.6" font-size="12" fill="#b03a2e" text-anchor="middle">1.20 ±11cm</text>
+<text x="1030.1" y="225.0" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 1030.1 233.0)">0.35 ±11cm</text>
+<text x="1098.8" y="207.3" font-size="12" fill="#1a4d8f" text-anchor="middle">1.37 ±11cm</text>
+<text x="1167.5" y="176.6" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 1167.5 184.6)">0.61 ±11cm</text>
+<text x="1213.8" y="145.8" font-size="12" fill="#b03a2e" text-anchor="middle">0.93 ±14cm</text>
+<text x="1260.0" y="166.2" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 1260.0 174.2)">0.41 ±11cm</text>
+<text x="1338.0" y="186.7" font-size="12" fill="#1a4d8f" text-anchor="middle">1.56 ±11cm</text>
+<line x1="387.3" y1="249.7" x2="387.3" y2="185.4" stroke="white" stroke-width="8"/>
+<line x1="387.3" y1="249.7" x2="387.3" y2="185.4" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="387.3" y="235.5" font-size="11" fill="#c0392b" text-anchor="middle">door 0.64</text>
+<line x1="791.8" y1="802.0" x2="791.8" y2="707.3" stroke="white" stroke-width="8"/>
+<line x1="791.8" y1="802.0" x2="791.8" y2="707.3" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="791.8" y="772.7" font-size="11" fill="#c0392b" text-anchor="middle">door 0.95</text>
+<line x1="872.4" y1="367.2" x2="872.4" y2="284.5" stroke="white" stroke-width="8"/>
+<line x1="872.4" y1="367.2" x2="872.4" y2="284.5" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="872.4" y="343.9" font-size="11" fill="#c0392b" text-anchor="middle">door 0.83</text>
+<line x1="963.2" y1="726.0" x2="963.2" y2="477.2" stroke="white" stroke-width="8"/>
+<line x1="963.2" y1="726.0" x2="963.2" y2="477.2" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
+<text x="963.2" y="619.6" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.49</text>
+<line x1="529.6" y1="466.9" x2="529.6" y2="412.0" stroke="white" stroke-width="8"/>
+<line x1="529.6" y1="466.9" x2="529.6" y2="412.0" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="529.6" y="457.5" font-size="11" fill="#c0392b" text-anchor="middle">door 0.55</text>
+<line x1="614.2" y1="297.0" x2="855.0" y2="297.0" stroke="white" stroke-width="8"/>
+<line x1="614.2" y1="297.0" x2="855.0" y2="297.0" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
+<text x="734.6" y="315.0" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.41</text>
+<line x1="796.1" y1="100.1" x2="936.5" y2="100.1" stroke="white" stroke-width="8"/>
+<line x1="796.1" y1="100.1" x2="936.5" y2="100.1" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="866.3" y="118.1" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.40</text>
+<line x1="801.9" y1="265.3" x2="864.9" y2="265.3" stroke="white" stroke-width="8"/>
+<line x1="801.9" y1="265.3" x2="864.9" y2="265.3" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="833.4" y="283.3" font-size="11" fill="#c0392b" text-anchor="middle">door 0.63</text>
+<line x1="953.2" y1="1046.5" x2="999.6" y2="1046.5" stroke="white" stroke-width="8"/>
+<line x1="953.2" y1="1046.5" x2="999.6" y2="1046.5" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="976.4" y="1064.5" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.46</text>
+<line x1="889.5" y1="797.8" x2="889.5" y2="752.5" stroke="white" stroke-width="8"/>
+<line x1="889.5" y1="797.8" x2="889.5" y2="752.5" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="889.5" y="793.1" font-size="11" fill="#c0392b" text-anchor="middle">door 0.45</text>
+<line x1="1416.0" y1="249.0" x2="1416.0" y2="193.5" stroke="white" stroke-width="8"/>
+<line x1="1416.0" y1="249.0" x2="1416.0" y2="193.5" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="1416.0" y="239.3" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.56</text>
+<line x1="1052.1" y1="215.3" x2="1118.1" y2="215.3" stroke="white" stroke-width="8"/>
+<line x1="1052.1" y1="215.3" x2="1118.1" y2="215.3" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="1085.1" y="233.3" font-size="11" fill="#c0392b" text-anchor="middle">door 0.66</text>
+<line x1="1260.0" y1="194.7" x2="1362.0" y2="194.7" stroke="white" stroke-width="8"/>
+<line x1="1260.0" y1="194.7" x2="1362.0" y2="194.7" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="1311.0" y="212.7" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.02</text>
+<text x="398.6" y="196.4" font-size="16" font-weight="bold" text-anchor="middle">R1</text>
+<text x="398.6" y="214.4" font-size="12" text-anchor="middle">8.84 ± 0.53 m²</text>
+<text x="649.7" y="869.9" font-size="16" font-weight="bold" text-anchor="middle">R2</text>
+<text x="649.7" y="887.9" font-size="12" text-anchor="middle">9.49 ± 0.36 m²</text>
+<text x="846.7" y="498.6" font-size="16" font-weight="bold" text-anchor="middle">R3</text>
+<text x="846.7" y="516.6" font-size="12" text-anchor="middle">14.26 ± 0.39 m²</text>
+<text x="690.0" y="339.0" font-size="16" font-weight="bold" text-anchor="middle">R4</text>
+<text x="690.0" y="357.0" font-size="12" text-anchor="middle">2.77 ± 0.30 m²</text>
+<text x="905.0" y="182.7" font-size="16" font-weight="bold" text-anchor="middle">R5</text>
+<text x="905.0" y="200.7" font-size="12" text-anchor="middle">3.60 ± 0.23 m²</text>
+<text x="983.7" y="865.1" font-size="16" font-weight="bold" text-anchor="middle">R6</text>
+<text x="983.7" y="883.1" font-size="12" text-anchor="middle">5.59 ± 0.28 m²</text>
+<text x="1204.7" y="258.8" font-size="16" font-weight="bold" text-anchor="middle">R7</text>
+<text x="1204.7" y="276.8" font-size="12" text-anchor="middle">8.34 ± 0.38 m²</text>
+<text x="80" y="30" font-size="14">Tier: lidar · total 52.90 m² · blue = located on 3D points, red = grid-only (wider interval) · ±values are 95% intervals</text>
+</svg>
