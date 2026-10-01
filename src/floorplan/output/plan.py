@@ -20,8 +20,9 @@ def measure(value, sigma, digits: int = 3):
 
 def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str] | None = None) -> dict:
     warnings = list(warnings or [])
-    all_v = np.vstack([rp.vertices for rp in res.polys])
-    origin = all_v.min(0)
+    if not res.polys:
+        warnings.append("no room could be segmented from this capture")
+    origin = np.vstack([rp.vertices for rp in res.polys]).min(0) if res.polys else np.zeros(2)
     to_plan = lambda v: [round(float(v[0] - origin[0]), 3), round(float(v[1] - origin[1]), 3)]  # noqa: E731
 
     rooms = []
@@ -75,7 +76,7 @@ def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str]
     adjacency = [{"rooms": [f"R{a + 1}" for a in e["rooms"]],
                   "via": None if e["opening"] is None else f"O{e['opening'] + 1}"} for e in res.edges]
 
-    total = sum(r["floor_area"]["value"] for r in rooms)
+    total = sum(r["floor_area"]["value"] for r in rooms) if rooms else 0.0
     total_sigma = float(np.sqrt(sum(r["floor_area"]["sigma"] ** 2 for r in rooms)))
     return {
         "schema_version": SCHEMA_VERSION,

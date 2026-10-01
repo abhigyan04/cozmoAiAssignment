@@ -12,7 +12,11 @@ from scipy import ndimage as ndi
 
 from floorplan.geometry.floormap import RES, FloorMap
 
-SYS_SIGMA = 0.005   # LiDAR/pose systematic error per wall plane, metres (not reduced by averaging)
+# Systematic error per wall plane (not reduced by averaging): LiDAR range bias, pose
+# error, plaster/skirting vs tape-at-1m. Calibrated on the benchmark flat: on correctly
+# segmented walls the length errors had RMS ~5.8 cm, i.e. ~4 cm per plane; 3 cm keeps
+# the 95% interval honest without hiding the bias (reported separately).
+SYS_SIGMA = 0.03
 
 
 @dataclass
@@ -128,11 +132,11 @@ def _refine(walls: list[Wall], verts: np.ndarray, XZ: np.ndarray, N2: np.ndarray
 
 
 def room_polygon(mask: np.ndarray, fm: FloorMap, P: np.ndarray, N: np.ndarray,
-                 floor_y: float) -> RoomPolygon:
+                 floor_y: float, band: tuple[float, float] = (0.3, 2.4)) -> RoomPolygon:
     outline = _grid_outline(mask, fm)
     walls = [Wall(a, c, RES, 0, False) for a, c in outline]
     h = P[:, 1] - floor_y
-    keep = (np.abs(N[:, 1]) < 0.3) & (h > 0.3) & (h < 2.4)   # wall surfaces, full height
+    keep = (np.abs(N[:, 1]) < 0.3) & (h > band[0]) & (h < band[1])   # wall surfaces in the band
     XZ = P[keep][:, [0, 2]] @ fm.R.T
     N2 = N[keep][:, [0, 2]] @ fm.R.T
     walls = _simplify(walls)

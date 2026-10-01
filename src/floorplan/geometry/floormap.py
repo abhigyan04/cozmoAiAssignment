@@ -14,7 +14,20 @@ from scipy import ndimage as ndi
 from floorplan.io.stray import StrayCapture
 
 RES = 0.05            # grid cell size, metres
-BAND = (1.1, 2.1)     # height band above floor used for walls and free space
+BAND = (1.1, 2.1)     # default height band above floor used for walls and free space
+
+
+def wall_band(ceiling_height: float | None) -> tuple[float, float]:
+    """Height band where vertical surfaces are walls.
+
+    With a known ceiling: just below it (top-0.45 m .. top-0.08 m). Wardrobes and
+    lofts in real homes reach ~2.1 m and doors end ~2.1 m, so this band contains
+    walls and door lintels only: furniture cannot be mistaken for a wall, and the
+    lintels close each room off. Without a ceiling (it was never filmed) fall back
+    to 1.1-2.1 m, which is above tables, beds and sofas but not above wardrobes."""
+    if ceiling_height is None or ceiling_height < 2.3:
+        return BAND
+    return (ceiling_height - 0.45, ceiling_height - 0.08)
 
 
 @dataclass
@@ -31,7 +44,8 @@ class FloorMap:
 
 
 def build_floormap(cap: StrayCapture, P: np.ndarray, N: np.ndarray, floor_y: float,
-                   yaw_deg: float, stride: int = 10, rays_per_frame: int = 3000) -> FloorMap:
+                   yaw_deg: float, stride: int = 10, rays_per_frame: int = 3000,
+                   band: tuple[float, float] = BAND) -> FloorMap:
     t = np.radians(yaw_deg)
     R = np.array([[np.cos(t), np.sin(t)], [-np.sin(t), np.cos(t)]])
     XZ = P[:, [0, 2]] @ R.T
@@ -42,7 +56,7 @@ def build_floormap(cap: StrayCapture, P: np.ndarray, N: np.ndarray, floor_y: flo
 
     # Walls: vertical surfaces inside the band, seen at least twice.
     wall = np.zeros(shape, np.int32)
-    ij = fm.to_cell(P[(np.abs(N[:, 1]) < 0.3) & (h > BAND[0]) & (h < BAND[1])][:, [0, 2]])
+    ij = fm.to_cell(P[(np.abs(N[:, 1]) < 0.3) & (h > band[0]) & (h < band[1])][:, [0, 2]])
     np.add.at(wall, (ij[:, 0], ij[:, 1]), 1)
     fm.wall = wall >= 2
 
@@ -53,7 +67,7 @@ def build_floormap(cap: StrayCapture, P: np.ndarray, N: np.ndarray, floor_y: flo
     rng = np.random.default_rng(0)
     for i in range(0, len(cap.frames), stride):
         p = cap.points_world(i, max_depth=6.0)
-        p = p[(p[:, 1] - floor_y > BAND[0]) & (p[:, 1] - floor_y < BAND[1])]
+        p = p[(p[:, 1] - floor_y > band[0]) & (p[:, 1] - floor_y < band[1])]
         if len(p) > rays_per_frame:
             p = p[rng.choice(len(p), rays_per_frame, replace=False)]
         o = cap.frames[i].T_wc[:3, 3][[0, 2]]

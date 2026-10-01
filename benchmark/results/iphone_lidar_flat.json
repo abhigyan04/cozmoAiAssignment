@@ -1,0 +1,196 @@
+{
+  "summary": {
+    "tier": "lidar",
+    "rooms_matched": "3/4",
+    "footprint_m2": "37.63 vs tape 46.86 (-19.7%)",
+    "wall_mean_abs_err_pct": 7.54,
+    "wall_max_abs_err_pct": 25.95,
+    "wall_gate": null,
+    "wall_inside_ci95": "7/16",
+    "ceiling_within_1.5cm": "1/3",
+    "openings_within_2cm": "0/10 (missed 4, phantom 3)"
+  },
+  "walls": [
+    {
+      "room": "bedroom2",
+      "wall": "A",
+      "tape": 3.62,
+      "ours": 3.612,
+      "err_cm": -0.8,
+      "rel": -0.0022099447513812174,
+      "ci95_cm": 8.3,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom2",
+      "wall": "C",
+      "tape": 3.66,
+      "ours": 3.612,
+      "err_cm": -4.8,
+      "rel": -0.013114754098360666,
+      "ci95_cm": 8.3,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom2",
+      "wall": "B",
+      "tape": 3.06,
+      "ours": 3.022,
+      "err_cm": -3.8,
+      "rel": -0.012418300653594854,
+      "ci95_cm": 8.3,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom2",
+      "wall": "D",
+      "tape": 3.12,
+      "ours": 3.022,
+      "err_cm": -9.8,
+      "rel": -0.03141025641025651,
+      "ci95_cm": 8.3,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "bedroom1",
+      "wall": "A",
+      "tape": 4.12,
+      "ours": 3.088,
+      "err_cm": -103.2,
+      "rel": -0.2504854368932037,
+      "ci95_cm": 11.4,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "bedroom1",
+      "wall": "C",
+      "tape": 4.17,
+      "ours": 3.088,
+      "err_cm": -108.2,
+      "rel": -0.2594724220623499,
+      "ci95_cm": 11.4,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "bedroom1",
+      "wall": "B",
+      "tape": 3.68,
+      "ours": 3.618,
+      "err_cm": -6.2,
+      "rel": -0.016847826086956598,
+      "ci95_cm": 11.4,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom1",
+      "wall": "D",
+      "tape": 3.71,
+      "ours": 3.618,
+      "err_cm": -9.2,
+      "rel": -0.024797843665768215,
+      "ci95_cm": 11.4,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "living",
+      "wall": "A",
+      "tape": 3.12,
+      "ours": 3.486,
+      "err_cm": 36.6,
+      "rel": 0.11730769230769247,
+      "ci95_cm": 11.4,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "living",
+      "wall": "C",
+      "tape": 2.98,
+      "ours": 3.486,
+      "err_cm": 50.6,
+      "rel": 0.16979865771812103,
+      "ci95_cm": 11.4,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "living",
+      "wall": "B",
+      "tape": 4.93,
+      "ours": 4.922,
+      "err_cm": -0.8,
+      "rel": -0.001622718052738158,
+      "ci95_cm": 11.4,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "living",
+      "wall": "D",
+      "tape": 4.95,
+      "ours": 4.922,
+      "err_cm": -2.8,
+      "rel": -0.0056565656565655716,
+      "ci95_cm": 11.4,
+      "inside_ci": 1.0
+    }
+  ],
+  "ceilings": [
+    {
+      "room": "bedroom2",
+      "tape": 2.64,
+      "ours": 2.645,
+      "err_cm": 0.5,
+      "inside_ci": true
+    },
+    {
+      "room": "bedroom1",
+      "tape": 2.67,
+      "ours": 2.048,
+      "err_cm": -62.2,
+      "inside_ci": false
+    },
+    {
+      "room": "living",
+      "tape": 2.5,
+      "ours": 2.685,
+      "err_cm": 18.5,
+      "inside_ci": false
+    }
+  ],
+  "openings": {
+    "tp": [
+      {
+        "room": "bedroom2",
+        "label": "A1",
+        "kind": "door",
+        "tape": 0.75,
+        "ours": 0.665,
+        "err_cm": -8.5,
+        "inside_ci": false
+      },
+      {
+        "room": "bedroom1",
+        "label": "A1",
+        "kind": "door",
+        "tape": 0.76,
+        "ours": 0.682,
+        "err_cm": -7.8,
+        "inside_ci": false
+      },
+      {
+        "room": "living",
+        "label": "A1",
+        "kind": "door",
+        "tape": 0.95,
+        "ours": 0.813,
+        "err_cm": -13.7,
+        "inside_ci": false
+      }
+    ],
+    "miss": 4,
+    "phantom": 3
+  },
+  "mapping": {
+    "R1": "bedroom2",
+    "R3": "bedroom1",
+    "R4": "living"
+  }
+}

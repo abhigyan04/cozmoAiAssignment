@@ -7,7 +7,7 @@ COLOURS = ["#e8f1fb", "#fdf1e3", "#eaf6ec", "#f7e9f3", "#fbf7de", "#e9f4f6", "#f
 
 
 def render_svg(plan: dict) -> str:
-    pts = [p for r in plan["rooms"] for p in r["polygon"]]
+    pts = [p for r in plan["rooms"] for p in r["polygon"]] or [[0.0, 0.0], [1.0, 1.0]]
     W = max(p[0] for p in pts) * PX + 2 * MARGIN
     H = max(p[1] for p in pts) * PX + 2 * MARGIN
     X = lambda x: MARGIN + x * PX          # noqa: E731
