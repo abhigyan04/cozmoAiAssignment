@@ -20,23 +20,26 @@ import piexif
 LOCATION_KEYS = ("location", "gps", "xyz")
 
 
+def _dump_without_gps(exif: dict) -> bytes:
+    exif["GPS"] = {}
+    for _ in range(20):
+        try:
+            return piexif.dump(exif)
+        except ValueError as e:
+            # Some phones store UNDEFINED-type tags (e.g. SceneType 41729) as plain ints,
+            # which piexif refuses to write back. Convert that tag to bytes and retry.
+            tag = int(str(e).splitlines()[-1].split(" in ")[0].strip())
+            ifd = next(k for k in ("0th", "Exif", "1st") if tag in exif.get(k, {}))
+            v = exif[ifd][tag]
+            exif[ifd][tag] = bytes([v]) if isinstance(v, int) else bytes(v)
+    raise ValueError("could not rewrite EXIF")
+
+
 def strip_jpeg(p: Path) -> bool:
     exif = piexif.load(str(p))
     if not exif.get("GPS"):
         return False
-    exif["GPS"] = {}
-    for _ in range(20):
-        try:
-            blob = piexif.dump(exif)
-            break
-        except ValueError as e:
-            # Some phones store UNDEFINED-type tags (e.g. SceneType 41729) as plain ints,
-            # which piexif refuses to write back. Convert that tag to bytes and retry.
-            tag = int(str(e).split("\n")[-1].split(" in ")[0].strip())
-            ifd = next(k for k in ("0th", "Exif", "1st") if tag in exif.get(k, {}))
-            v = exif[ifd][tag]
-            exif[ifd][tag] = bytes([v]) if isinstance(v, int) else bytes(v)
-    piexif.insert(blob, str(p))
+    piexif.insert(_dump_without_gps(exif), str(p))
     return True
 
 
@@ -63,12 +66,30 @@ def strip_video(p: Path) -> bool:
     return True
 
 
+def strip_heic(p: Path) -> bool:
+    """HEIC has no lossless metadata-only edit in Python: decode and re-encode losslessly
+    (decoded pixels identical), with the EXIF minus its GPS block."""
+    import pillow_heif
+    heif = pillow_heif.open_heif(str(p))
+    exif = heif.info.get("exif")
+    if not exif:
+        return False
+    d = piexif.load(exif)
+    if not d.get("GPS"):
+        return False
+    img = heif.to_pillow()
+    pillow_heif.from_pillow(img).save(str(p), quality=-1, exif=_dump_without_gps(d))
+    return True
+
+
 def main(root: str) -> None:
     n = 0
     for p in sorted(Path(root).rglob("*")):
         ext = p.suffix.lower()
         if ext in (".jpg", ".jpeg"):
             n += strip_jpeg(p)
+        elif ext in (".heic", ".heif"):
+            n += strip_heic(p)
         elif ext in (".mp4", ".mov"):
             n += strip_video(p)
     print(f"stripped location from {n} files under {root}")
