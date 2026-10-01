@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "capture": {
     "tier": "video",
-    "source": "data\\raw\\iphone\\video\\IMG_2821.MOV",
-    "processing_seconds": 240.8
+    "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\iphone\\video\\IMG_2821.MOV",
+    "processing_seconds": 308.4
   },
   "property": {
     "floor_area": {

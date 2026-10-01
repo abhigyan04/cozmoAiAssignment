@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "capture": {
     "tier": "lidar",
-    "source": "data\\raw\\iphone\\lidar\\flat",
-    "processing_seconds": 92.7
+    "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\iphone\\lidar\\flat",
+    "processing_seconds": 151.5
   },
   "property": {
     "floor_area": {

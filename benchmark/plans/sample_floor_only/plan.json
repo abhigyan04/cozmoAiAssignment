@@ -3,7 +3,7 @@
   "capture": {
     "tier": "lidar",
     "source": "C:\\Users\\abhig\\Downloads\\single_scan_floor_only",
-    "processing_seconds": 104.8
+    "processing_seconds": 146.9
   },
   "property": {
     "floor_area": {

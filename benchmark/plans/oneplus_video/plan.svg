@@ -6,32 +6,32 @@
 <polygon points="80.0,537.0 484.1,537.0 484.1,80.0 80.0,80.0" fill="#f7e9f3" stroke="#222" stroke-width="4"/>
 <polygon points="184.0,1270.2 184.0,1210.2 386.5,1210.2 386.5,843.6 772.6,843.6 772.6,899.9 664.0,899.9 664.0,1066.2 419.0,1066.2 419.0,1270.2" fill="#fbf7de" stroke="#222" stroke-width="4"/>
 <text x="475.9" y="759.4" font-size="12" fill="#b03a2e" text-anchor="middle">0.58 ±18cm</text>
-<text x="447.0" y="791.5" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 447.0 799.5)">0.64 ±16cm</text>
+<text x="447.0" y="791.5" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 447.0 799.5)">0.64 ±17cm</text>
 <text x="330.6" y="823.6" font-size="12" fill="#1a4d8f" text-anchor="middle">2.33 ±47cm</text>
-<text x="214.1" y="682.5" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 214.1 690.5)">2.82 ±55cm</text>
+<text x="214.1" y="682.5" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 214.1 690.5)">2.82 ±56cm</text>
 <text x="359.5" y="541.4" font-size="12" fill="#1a4d8f" text-anchor="middle">2.91 ±58cm</text>
 <text x="504.9" y="650.4" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 504.9 658.4)">2.18 ±44cm</text>
 <text x="677.0" y="653.7" font-size="12" fill="#b03a2e" text-anchor="middle">0.82 ±21cm</text>
-<text x="718.2" y="676.5" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 718.2 684.5)">0.46 ±13cm</text>
+<text x="718.2" y="676.5" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 718.2 684.5)">0.46 ±14cm</text>
 <text x="617.5" y="699.3" font-size="12" fill="#1a4d8f" text-anchor="middle">2.01 ±42cm</text>
-<text x="516.9" y="655.1" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 516.9 663.1)">0.88 ±17cm</text>
+<text x="516.9" y="655.1" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 516.9 663.1)">0.88 ±19cm</text>
 <text x="552.5" y="610.9" font-size="12" fill="#1a4d8f" text-anchor="middle">0.71 ±20cm</text>
-<text x="588.2" y="585.9" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 588.2 593.9)">0.50 ±14cm</text>
+<text x="588.2" y="585.9" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 588.2 593.9)">0.50 ±15cm</text>
 <text x="612.0" y="561.0" font-size="12" fill="#b03a2e" text-anchor="middle">0.47 ±17cm</text>
 <text x="635.7" y="607.3" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 635.7 615.3)">0.93 ±23cm</text>
-<text x="240.7" y="235.1" font-size="12" fill="#1a4d8f" text-anchor="middle">2.00 ±40cm</text>
-<text x="340.8" y="273.4" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 340.8 281.4)">0.77 ±18cm</text>
+<text x="240.7" y="235.1" font-size="12" fill="#1a4d8f" text-anchor="middle">2.00 ±41cm</text>
+<text x="340.8" y="273.4" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 340.8 281.4)">0.77 ±19cm</text>
 <text x="374.6" y="311.7" font-size="12" fill="#b03a2e" text-anchor="middle">0.68 ±19cm</text>
 <text x="408.3" y="337.9" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 408.3 345.9)">0.53 ±17cm</text>
 <text x="382.1" y="364.2" font-size="12" fill="#b03a2e" text-anchor="middle">0.53 ±17cm</text>
 <text x="355.8" y="446.5" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 355.8 454.5)">1.65 ±34cm</text>
-<text x="248.2" y="528.9" font-size="12" fill="#1a4d8f" text-anchor="middle">2.15 ±43cm</text>
+<text x="248.2" y="528.9" font-size="12" fill="#1a4d8f" text-anchor="middle">2.15 ±44cm</text>
 <text x="140.6" y="382.0" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 140.6 390.0)">2.94 ±58cm</text>
 <text x="282.1" y="529.0" font-size="12" fill="#1a4d8f" text-anchor="middle">4.04 ±79cm</text>
 <text x="484.1" y="300.5" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 484.1 308.5)">4.57 ±90cm</text>
 <text x="282.1" y="72.0" font-size="12" fill="#1a4d8f" text-anchor="middle">4.04 ±79cm</text>
 <text x="80.0" y="300.5" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 80.0 308.5)">4.57 ±90cm</text>
-<text x="184.0" y="1232.2" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 184.0 1240.2)">0.60 ±15cm</text>
+<text x="184.0" y="1232.2" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 184.0 1240.2)">0.60 ±16cm</text>
 <text x="285.2" y="1202.2" font-size="12" fill="#b03a2e" text-anchor="middle">2.02 ±42cm</text>
 <text x="386.5" y="1018.9" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 386.5 1026.9)">3.67 ±73cm</text>
 <text x="579.5" y="835.6" font-size="12" fill="#b03a2e" text-anchor="middle">3.86 ±77cm</text>
@@ -39,7 +39,7 @@
 <text x="718.3" y="891.9" font-size="12" fill="#b03a2e" text-anchor="middle">1.09 ±25cm</text>
 <text x="664.0" y="975.0" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 664.0 983.0)">1.66 ±34cm</text>
 <text x="541.5" y="1058.2" font-size="12" fill="#1a4d8f" text-anchor="middle">2.45 ±50cm</text>
-<text x="419.0" y="1160.2" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 419.0 1168.2)">2.04 ±40cm</text>
+<text x="419.0" y="1160.2" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 419.0 1168.2)">2.04 ±41cm</text>
 <text x="301.5" y="1262.2" font-size="12" fill="#1a4d8f" text-anchor="middle">2.35 ±48cm</text>
 <line x1="516.1" y1="707.3" x2="687.5" y2="707.3" stroke="white" stroke-width="8"/>
 <line x1="516.1" y1="707.3" x2="687.5" y2="707.3" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
@@ -63,11 +63,11 @@
 <line x1="418.9" y1="1066.2" x2="578.6" y2="1066.2" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
 <text x="498.8" y="1084.2" font-size="11" fill="#7d3c98" text-anchor="middle">passage 1.60</text>
 <text x="388.7" y="716.1" font-size="16" font-weight="bold" text-anchor="middle">R1</text>
-<text x="388.7" y="734.1" font-size="12" text-anchor="middle">7.83 ± 3.08 m²</text>
+<text x="388.7" y="734.1" font-size="12" text-anchor="middle">7.83 ± 3.09 m²</text>
 <text x="614.8" y="639.2" font-size="16" font-weight="bold" text-anchor="middle">R2</text>
-<text x="614.8" y="657.2" font-size="12" text-anchor="middle">1.66 ± 0.67 m²</text>
+<text x="614.8" y="657.2" font-size="12" text-anchor="middle">1.66 ± 0.69 m²</text>
 <text x="311.4" y="368.0" font-size="16" font-weight="bold" text-anchor="middle">R3</text>
-<text x="311.4" y="386.0" font-size="12" text-anchor="middle">6.48 ± 2.55 m²</text>
+<text x="311.4" y="386.0" font-size="12" text-anchor="middle">6.48 ± 2.56 m²</text>
 <text x="282.1" y="308.5" font-size="16" font-weight="bold" text-anchor="middle">R4</text>
 <text x="282.1" y="326.5" font-size="12" text-anchor="middle">18.47 ± 7.24 m²</text>
 <text x="485.2" y="1058.0" font-size="16" font-weight="bold" text-anchor="middle">R5</text>

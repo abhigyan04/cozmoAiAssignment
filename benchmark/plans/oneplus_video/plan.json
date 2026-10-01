@@ -2,16 +2,16 @@
   "schema_version": "1.0",
   "capture": {
     "tier": "video",
-    "source": "data\\raw\\oneplus\\video\\flat_tour_new.mp4",
-    "processing_seconds": 115.6
+    "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\oneplus\\video\\flat_tour_new.mp4",
+    "processing_seconds": 155.1
   },
   "property": {
     "floor_area": {
       "value": 43.115,
-      "sigma": 4.586,
+      "sigma": 4.5913,
       "ci95": [
-        34.126,
-        52.104
+        34.116,
+        52.114
       ]
     },
     "room_count": 5,
@@ -78,18 +78,18 @@
       ],
       "floor_area": {
         "value": 7.834,
-        "sigma": 1.5714,
+        "sigma": 1.5775,
         "ci95": [
-          4.754,
-          10.914
+          4.742,
+          10.926
         ]
       },
       "perimeter": {
         "value": 11.46,
-        "sigma": 0.5372,
+        "sigma": 0.5421,
         "ci95": [
-          10.407,
-          12.513
+          10.397,
+          12.522
         ]
       },
       "ceiling_height": null,
@@ -127,10 +127,10 @@
           ],
           "length": {
             "value": 0.642,
-            "sigma": 0.0815,
+            "sigma": 0.0867,
             "ci95": [
-              0.482,
-              0.802
+              0.472,
+              0.812
             ]
           },
           "located_on_3d_points": false
@@ -147,10 +147,10 @@
           ],
           "length": {
             "value": 2.329,
-            "sigma": 0.2383,
+            "sigma": 0.2401,
             "ci95": [
-              1.862,
-              2.796
+              1.858,
+              2.8
             ]
           },
           "located_on_3d_points": true
@@ -167,10 +167,10 @@
           ],
           "length": {
             "value": 2.822,
-            "sigma": 0.2823,
+            "sigma": 0.2854,
             "ci95": [
-              2.269,
-              3.375
+              2.263,
+              3.381
             ]
           },
           "located_on_3d_points": true
@@ -187,10 +187,10 @@
           ],
           "length": {
             "value": 2.908,
-            "sigma": 0.2951,
+            "sigma": 0.2966,
             "ci95": [
-              2.329,
-              3.486
+              2.327,
+              3.489
             ]
           },
           "located_on_3d_points": true
@@ -207,10 +207,10 @@
           ],
           "length": {
             "value": 2.18,
-            "sigma": 0.2237,
+            "sigma": 0.2257,
             "ci95": [
-              1.741,
-              2.618
+              1.738,
+              2.622
             ]
           },
           "located_on_3d_points": false
@@ -266,18 +266,18 @@
       ],
       "floor_area": {
         "value": 1.664,
-        "sigma": 0.344,
+        "sigma": 0.3498,
         "ci95": [
-          0.989,
-          2.338
+          0.978,
+          2.349
         ]
       },
       "perimeter": {
         "value": 6.792,
-        "sigma": 0.3252,
+        "sigma": 0.3305,
         "ci95": [
-          6.154,
-          7.429
+          6.144,
+          7.44
         ]
       },
       "ceiling_height": null,
@@ -315,10 +315,10 @@
           ],
           "length": {
             "value": 0.456,
-            "sigma": 0.0679,
+            "sigma": 0.074,
             "ci95": [
-              0.323,
-              0.589
+              0.311,
+              0.601
             ]
           },
           "located_on_3d_points": false
@@ -355,10 +355,10 @@
           ],
           "length": {
             "value": 0.884,
-            "sigma": 0.0887,
+            "sigma": 0.0981,
             "ci95": [
-              0.71,
-              1.058
+              0.692,
+              1.076
             ]
           },
           "located_on_3d_points": false
@@ -395,10 +395,10 @@
           ],
           "length": {
             "value": 0.499,
-            "sigma": 0.0708,
+            "sigma": 0.0767,
             "ci95": [
-              0.36,
-              0.637
+              0.348,
+              0.649
             ]
           },
           "located_on_3d_points": false
@@ -496,18 +496,18 @@
       ],
       "floor_area": {
         "value": 6.483,
-        "sigma": 1.3009,
+        "sigma": 1.3067,
         "ci95": [
-          3.933,
-          9.033
+          3.922,
+          9.044
         ]
       },
       "perimeter": {
         "value": 11.23,
-        "sigma": 0.4908,
+        "sigma": 0.4962,
         "ci95": [
-          10.268,
-          12.192
+          10.257,
+          12.202
         ]
       },
       "ceiling_height": null,
@@ -525,10 +525,10 @@
           ],
           "length": {
             "value": 2.002,
-            "sigma": 0.2064,
+            "sigma": 0.2085,
             "ci95": [
-              1.597,
-              2.407
+              1.593,
+              2.411
             ]
           },
           "located_on_3d_points": true
@@ -545,10 +545,10 @@
           ],
           "length": {
             "value": 0.765,
-            "sigma": 0.0916,
+            "sigma": 0.0962,
             "ci95": [
-              0.586,
-              0.945
+              0.577,
+              0.954
             ]
           },
           "located_on_3d_points": false
@@ -625,10 +625,10 @@
           ],
           "length": {
             "value": 1.647,
-            "sigma": 0.1722,
+            "sigma": 0.1748,
             "ci95": [
-              1.31,
-              1.985
+              1.305,
+              1.99
             ]
           },
           "located_on_3d_points": false
@@ -645,10 +645,10 @@
           ],
           "length": {
             "value": 2.152,
-            "sigma": 0.221,
+            "sigma": 0.223,
             "ci95": [
-              1.719,
-              2.585
+              1.715,
+              2.589
             ]
           },
           "located_on_3d_points": true
@@ -665,10 +665,10 @@
           ],
           "length": {
             "value": 2.938,
-            "sigma": 0.2939,
+            "sigma": 0.2968,
             "ci95": [
-              2.362,
-              3.514
+              2.356,
+              3.52
             ]
           },
           "located_on_3d_points": true
@@ -864,18 +864,18 @@
       ],
       "floor_area": {
         "value": 8.666,
-        "sigma": 1.7628,
+        "sigma": 1.7657,
         "ci95": [
-          5.211,
-          12.121
+          5.206,
+          12.127
         ]
       },
       "perimeter": {
         "value": 20.304,
-        "sigma": 0.7534,
+        "sigma": 0.7558,
         "ci95": [
-          18.827,
-          21.78
+          18.823,
+          21.785
         ]
       },
       "ceiling_height": null,
@@ -893,10 +893,10 @@
           ],
           "length": {
             "value": 0.6,
-            "sigma": 0.0783,
+            "sigma": 0.0837,
             "ci95": [
-              0.447,
-              0.753
+              0.436,
+              0.764
             ]
           },
           "located_on_3d_points": false
@@ -1013,10 +1013,10 @@
           ],
           "length": {
             "value": 1.663,
-            "sigma": 0.1737,
+            "sigma": 0.1762,
             "ci95": [
-              1.323,
-              2.004
+              1.318,
+              2.008
             ]
           },
           "located_on_3d_points": false
@@ -1053,10 +1053,10 @@
           ],
           "length": {
             "value": 2.04,
-            "sigma": 0.2041,
+            "sigma": 0.2084,
             "ci95": [
-              1.64,
-              2.44
+              1.631,
+              2.448
             ]
           },
           "located_on_3d_points": false

@@ -40,7 +40,7 @@ differences are honest differences in the input, not in the code.
 |---|---|---|---|---|
 | LiDAR | Stray Scanner recording, start/end at same corner, ceiling swept | iPhone 12 Pro or newer Pro/Pro Max (tested: iPhone 17 Pro; Cozmo sample) | 8.2 % (3-10 cm on correctly segmented walls, biased short ~4 cm) | ±6 cm per wall (95 %) when the room is segmented correctly |
 | video | one landscape walkthrough, 1x lens, 1080p+ | any iPhone 15+ / Android flagship (tested: iPhone 17 Pro, OnePlus 13) | 12.1-12.5 % | ±20 % per wall (95 %); room grouping can split/merge rooms |
-| photo | 4-8 landscape stills per room, corner to corner | any phone with EXIF focal length (tested: iPhone 17 Pro, OnePlus 13) | 13.0 % (OnePlus), 23.3 % (iPhone) | ±20 % per wall (95 %), ±30 % without EXIF |
+| photo | 4-8 landscape stills per room, corner to corner | any phone with EXIF focal length (tested: iPhone 17 Pro, OnePlus 13) | 13.0 % (OnePlus), 13.4 % (iPhone) | ±20 % per wall (95 %), ±30 % without EXIF |
 
 Intrinsics for image tiers: from EXIF 35 mm-equivalent focal (photo, `f_px = f35 · diag_px / 43.27`)
 or container metadata (Android video writes `lens.focal_length`). Known intrinsics were the
@@ -98,7 +98,7 @@ Every measurement carries σ and a 95 % interval; we checked coverage against ta
 | capture | walls inside reported 95 % CI | note |
 |---|---|---|
 | OnePlus photo | **12/16** | scale σ = 10 % calibrated here |
-| iPhone photo | 8/16 | bedroom1 ceiling picked a loft (2.0 m), hall length unseen |
+| iPhone photo | 12/16 | see the stability note below |
 | LiDAR iPhone | 6/16 | all misses are segmentation failures; correct rooms are covered |
 | OnePlus / iPhone video | 6/16, 2/16 | intervals inherited from photo tier, too narrow when visits are split |
 
@@ -107,6 +107,13 @@ per-wall systematic σ raised from 0.5 cm to 3 cm (the first version claimed ±1
 off by 5-13 cm, which is exactly "confident garbage"); (b) photo scale σ set to 10 %. What the
 intervals do **not** cover is structural failure (wrong room, merged rooms). Those are reported
 as separate counts (rooms matched, warnings in `quality`) rather than hidden in wide intervals.
+
+**Run-to-run stability (disclosed).** Re-running every capture on the final, GPS-stripped data
+reproduced all numbers exactly except the iPhone photo tier, whose HEIC files had been re-encoded
+by the stripping step (imperceptible pixel changes): walls within ±8 % went 7/16 → 11/16,
+footprint −32 % → −23 %. The photo tier is therefore sensitive to tiny input perturbations at the
+level of ~±4 walls out of 16; the reported number is the post-strip one because that is what
+`reproduce.py` regenerates from the shipped data. LiDAR and video were bit-stable.
 
 **Ground-truth correction (disclosed).** The living-room ceiling was first taped at 2.50 m.
 LiDAR (2.685 m) and the photo tier (2.704 m) independently disagreed by ~19 cm, so it was

@@ -12,9 +12,9 @@
 <text x="536.8" y="72.0" font-size="12" fill="#1a4d8f" text-anchor="middle">3.07 ±60cm</text>
 <text x="383.2" y="260.5" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 383.2 268.5)">3.77 ±74cm</text>
 <text x="536.8" y="449.1" font-size="12" fill="#1a4d8f" text-anchor="middle">3.07 ±60cm</text>
-<text x="574.0" y="461.8" font-size="12" fill="#b03a2e" text-anchor="middle">1.01 ±20cm</text>
+<text x="574.0" y="461.8" font-size="12" fill="#b03a2e" text-anchor="middle">1.01 ±21cm</text>
 <text x="624.5" y="589.3" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 624.5 597.3)">2.55 ±52cm</text>
-<text x="574.0" y="716.8" font-size="12" fill="#b03a2e" text-anchor="middle">1.01 ±20cm</text>
+<text x="574.0" y="716.8" font-size="12" fill="#b03a2e" text-anchor="middle">1.01 ±21cm</text>
 <text x="523.6" y="589.3" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 523.6 597.3)">2.55 ±52cm</text>
 <text x="562.8" y="988.3" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 562.8 996.3)">3.11 ±61cm</text>
 <text x="811.9" y="1143.8" font-size="12" fill="#1a4d8f" text-anchor="middle">4.98 ±98cm</text>
@@ -39,7 +39,7 @@
 <text x="536.8" y="286.5" font-size="12" text-anchor="middle">11.58 ± 4.54 m²</text>
 <text x="536.8" y="302.5" font-size="12" text-anchor="middle">ceiling 2.629 m</text>
 <text x="574.0" y="597.3" font-size="16" font-weight="bold" text-anchor="middle">hall</text>
-<text x="574.0" y="615.3" font-size="12" text-anchor="middle">2.58 ± 1.02 m²</text>
+<text x="574.0" y="615.3" font-size="12" text-anchor="middle">2.58 ± 1.04 m²</text>
 <text x="811.9" y="996.3" font-size="16" font-weight="bold" text-anchor="middle">living</text>
 <text x="811.9" y="1014.3" font-size="12" text-anchor="middle">15.49 ± 6.07 m²</text>
 <text x="811.9" y="1030.3" font-size="12" text-anchor="middle">ceiling 2.704 m</text>

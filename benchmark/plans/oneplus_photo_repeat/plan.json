@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "capture": {
     "tier": "photo",
-    "source": "data\\raw\\oneplus\\photos_repeat",
-    "processing_seconds": 42.3
+    "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\oneplus\\photos_repeat",
+    "processing_seconds": 49.3
   },
   "property": {
     "floor_area": {

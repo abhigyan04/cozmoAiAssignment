@@ -3,7 +3,7 @@
   "capture": {
     "tier": "lidar",
     "source": "C:\\Users\\abhig\\Downloads\\single_room",
-    "processing_seconds": 44.5
+    "processing_seconds": 58.2
   },
   "property": {
     "floor_area": {
@@ -81,7 +81,7 @@
             "sigma": 0.0583,
             "ci95": [
               2.38,
-              2.609
+              2.608
             ]
           },
           "located_on_3d_points": false
@@ -232,11 +232,11 @@
         "sigma": 0.1542,
         "ci95": [
           5.192,
-          5.797
+          5.796
         ]
       },
       "perimeter": {
-        "value": 11.061,
+        "value": 11.06,
         "sigma": 0.1183,
         "ci95": [
           10.829,
@@ -277,7 +277,7 @@
             2.996
           ],
           "length": {
-            "value": 2.992,
+            "value": 2.993,
             "sigma": 0.0424,
             "ci95": [
               2.909,
@@ -317,7 +317,7 @@
             4.301
           ],
           "length": {
-            "value": 1.304,
+            "value": 1.305,
             "sigma": 0.0424,
             "ci95": [
               1.221,
@@ -415,15 +415,15 @@
         "R2-W5"
       ],
       "center": [
-        0.351,
+        0.35,
         4.301
       ],
       "width": {
-        "value": 0.701,
+        "value": 0.7,
         "sigma": 0.0141,
         "ci95": [
           0.673,
-          0.729
+          0.728
         ]
       },
       "sill_height": 0.12,

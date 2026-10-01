@@ -33,8 +33,8 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 | Gate: ceiling ≤ 1.5 cm per room, repeat spread ≤ 1 cm | benchmark/REPORT.md | LiDAR bedroom2 +0.5 cm; others fail | ❌ partially (1/3 rooms) |
 | Gate: repeatability ≤ 1 cm or 0.5 % per wall | benchmark/REPORT.md | photo 0.9 / 6.7 cm; LiDAR 2.9 / 1.9 cm | ❌ (repeatable-but-biased on LiDAR, stated) |
 | Gate: drift accountability + ablation on/off | geometry/drift.py, scripts/drift_ablation.py, benchmark/ablation/ | sharpness + footprint on/off, guard | ✅ |
-| Gate: photo-tier whole-property stitch, no overlaps, footprint ±8 % | photo.stitch | no overlaps; footprint −13.8 % (OnePlus), −32 % (iPhone) | ❌ footprint outside ±8 % |
-| Gate: photo walls ±8 % with calibrated intervals | benchmark/REPORT.md | 8/16 (OnePlus), 7/16 (iPhone) | ❌ partially; intervals cover 12/16 |
+| Gate: photo-tier whole-property stitch, no overlaps, footprint ±8 % | photo.stitch | no overlaps; footprint −13.8 % (OnePlus), −22.7 % (iPhone) | ❌ footprint outside ±8 % |
+| Gate: photo walls ±8 % with calibrated intervals | benchmark/REPORT.md | 8/16 (OnePlus), 11/16 (iPhone) | ❌ partially; intervals cover 12/16 on both |
 | Gate: video walls ±3 % | benchmark/REPORT.md | 0/16 (OnePlus), 2/16 (iPhone) | ❌ (fix loop §6) |
 | Calibration scored at every tier | docs/TECHNICAL_REPORT.md §5 | CI coverage table | ✅ |
 

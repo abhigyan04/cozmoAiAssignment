@@ -6,3 +6,4 @@ data/raw/
 weights/
 *.ply
 *.egg-info/
+notes/

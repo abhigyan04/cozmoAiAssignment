@@ -2,16 +2,16 @@
   "schema_version": "1.0",
   "capture": {
     "tier": "photo",
-    "source": "data\\raw\\oneplus\\photos",
-    "processing_seconds": 54.2
+    "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\oneplus\\photos",
+    "processing_seconds": 70.8
   },
   "property": {
     "floor_area": {
       "value": 40.399,
-      "sigma": 4.4568,
+      "sigma": 4.458,
       "ci95": [
-        31.664,
-        49.134
+        31.661,
+        49.137
       ]
     },
     "room_count": 4,
@@ -340,18 +340,18 @@
       ],
       "floor_area": {
         "value": 2.575,
-        "sigma": 0.5201,
+        "sigma": 0.531,
         "ci95": [
-          1.555,
-          3.594
+          1.534,
+          3.615
         ]
       },
       "perimeter": {
         "value": 7.119,
-        "sigma": 0.4007,
+        "sigma": 0.405,
         "ci95": [
-          6.334,
-          7.905
+          6.325,
+          7.913
         ]
       },
       "ceiling_height": null,
@@ -369,10 +369,10 @@
           ],
           "length": {
             "value": 1.01,
-            "sigma": 0.1012,
+            "sigma": 0.1095,
             "ci95": [
-              0.811,
-              1.208
+              0.795,
+              1.224
             ]
           },
           "located_on_3d_points": false
@@ -409,10 +409,10 @@
           ],
           "length": {
             "value": 1.01,
-            "sigma": 0.1012,
+            "sigma": 0.1095,
             "ci95": [
-              0.811,
-              1.208
+              0.795,
+              1.224
             ]
           },
           "located_on_3d_points": false
@@ -692,9 +692,53 @@
       "seen_from_both_sides": false
     }
   ],
-  "damage": [],
+  "damage": [
+    {
+      "id": "D1",
+      "surface": "R3-W2",
+      "class": "water_stain",
+      "width": {
+        "value": 0.072,
+        "sigma": 0.02,
+        "ci95": [
+          0.033,
+          0.111
+        ]
+      },
+      "height": {
+        "value": 0.462,
+        "sigma": 0.02,
+        "ci95": [
+          0.423,
+          0.501
+        ]
+      },
+      "area_m2": 0.0028,
+      "height_from_floor": [
+        1.46,
+        1.92
+      ],
+      "confidence": 0.74,
+      "seen_in_frames": 3
+    }
+  ],
   "concealed_damage_flags": [],
-  "scope_items": [],
+  "scope_items": [
+    {
+      "surface": "R3-W2",
+      "damage": "D1",
+      "description": "Treat stain with stain-blocking primer; repaint wall",
+      "quantity": 0.0,
+      "unit": "m2"
+    },
+    {
+      "surface": "R3-W2",
+      "damage": "D1",
+      "description": "Repaint full wall for uniform finish",
+      "quantity": 6.63,
+      "unit": "m2"
+    }
+  ],
   "quality": {
     "wall_sharpness": null,
     "drift_correction_applied": false,

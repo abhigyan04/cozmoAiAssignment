@@ -3,7 +3,7 @@
   "capture": {
     "tier": "lidar",
     "source": "C:\\Users\\abhig\\Downloads\\single_scan_with_ceiling",
-    "processing_seconds": 152.2
+    "processing_seconds": 217.0
   },
   "property": {
     "floor_area": {
