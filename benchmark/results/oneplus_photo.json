@@ -1,0 +1,218 @@
+{
+  "summary": {
+    "tier": "photo",
+    "rooms_matched": "4/4",
+    "wall_mean_abs_err_pct": 13.01,
+    "wall_max_abs_err_pct": 55.11,
+    "wall_gate": "8/16 within +-8%",
+    "wall_inside_ci95": "12/16",
+    "ceiling_within_1.5cm": "1/3",
+    "openings_within_2cm": "1/12 (missed 8, phantom 3)"
+  },
+  "walls": [
+    {
+      "room": "bedroom1",
+      "wall": "A",
+      "tape": 4.12,
+      "ours": 3.605,
+      "err_cm": -51.5,
+      "rel": -0.12500000000000003,
+      "ci95_cm": 70.7,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom1",
+      "wall": "C",
+      "tape": 4.17,
+      "ours": 3.605,
+      "err_cm": -56.5,
+      "rel": -0.1354916067146283,
+      "ci95_cm": 70.7,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom1",
+      "wall": "B",
+      "tape": 3.68,
+      "ours": 2.982,
+      "err_cm": -69.8,
+      "rel": -0.18967391304347836,
+      "ci95_cm": 58.5,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "bedroom1",
+      "wall": "D",
+      "tape": 3.71,
+      "ours": 2.982,
+      "err_cm": -72.8,
+      "rel": -0.1962264150943397,
+      "ci95_cm": 58.5,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "bedroom2",
+      "wall": "A",
+      "tape": 3.62,
+      "ours": 3.771,
+      "err_cm": 15.1,
+      "rel": 0.04171270718232038,
+      "ci95_cm": 73.9,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom2",
+      "wall": "C",
+      "tape": 3.66,
+      "ours": 3.771,
+      "err_cm": 11.1,
+      "rel": 0.03032786885245895,
+      "ci95_cm": 73.9,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom2",
+      "wall": "B",
+      "tape": 3.06,
+      "ours": 3.071,
+      "err_cm": 1.1,
+      "rel": 0.0035947712418299598,
+      "ci95_cm": 60.2,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "bedroom2",
+      "wall": "D",
+      "tape": 3.12,
+      "ours": 3.071,
+      "err_cm": -4.9,
+      "rel": -0.015705128205128326,
+      "ci95_cm": 60.2,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "hall",
+      "wall": "A",
+      "tape": 0.92,
+      "ours": 1.009,
+      "err_cm": 8.9,
+      "rel": 0.09673913043478294,
+      "ci95_cm": 19.8,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "hall",
+      "wall": "C",
+      "tape": 0.93,
+      "ours": 1.009,
+      "err_cm": 7.9,
+      "rel": 0.08494623655914009,
+      "ci95_cm": 19.8,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "hall",
+      "wall": "B",
+      "tape": 5.62,
+      "ours": 2.55,
+      "err_cm": -307.0,
+      "rel": -0.5462633451957294,
+      "ci95_cm": 51.9,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "hall",
+      "wall": "D",
+      "tape": 5.68,
+      "ours": 2.55,
+      "err_cm": -313.0,
+      "rel": -0.5510563380281689,
+      "ci95_cm": 51.9,
+      "inside_ci": 0.0
+    },
+    {
+      "room": "living",
+      "wall": "A",
+      "tape": 3.12,
+      "ours": 3.109,
+      "err_cm": -1.1,
+      "rel": -0.0035256410256410643,
+      "ci95_cm": 61.0,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "living",
+      "wall": "C",
+      "tape": 2.98,
+      "ours": 3.109,
+      "err_cm": 12.9,
+      "rel": 0.043288590604026844,
+      "ci95_cm": 61.0,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "living",
+      "wall": "B",
+      "tape": 4.93,
+      "ours": 4.983,
+      "err_cm": 5.3,
+      "rel": 0.010750507099391468,
+      "ci95_cm": 97.7,
+      "inside_ci": 1.0
+    },
+    {
+      "room": "living",
+      "wall": "D",
+      "tape": 4.95,
+      "ours": 4.983,
+      "err_cm": 3.3,
+      "rel": 0.00666666666666656,
+      "ci95_cm": 97.7,
+      "inside_ci": 1.0
+    }
+  ],
+  "ceilings": [
+    {
+      "room": "bedroom1",
+      "tape": 2.67,
+      "ours": 2.507,
+      "err_cm": -16.3,
+      "inside_ci": true
+    },
+    {
+      "room": "bedroom2",
+      "tape": 2.64,
+      "ours": 2.629,
+      "err_cm": -1.1,
+      "inside_ci": true
+    },
+    {
+      "room": "living",
+      "tape": 2.5,
+      "ours": 2.704,
+      "err_cm": 20.4,
+      "inside_ci": true
+    }
+  ],
+  "openings": {
+    "tp": [
+      {
+        "room": "living",
+        "label": "B1",
+        "kind": "door",
+        "tape": 0.76,
+        "ours": 0.752,
+        "err_cm": -0.8,
+        "inside_ci": true
+      }
+    ],
+    "miss": 8,
+    "phantom": 3
+  },
+  "mapping": {
+    "R1": "bedroom1",
+    "R2": "bedroom2",
+    "R3": "hall",
+    "R4": "living"
+  }
+}
