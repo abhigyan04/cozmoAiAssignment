@@ -19,7 +19,7 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 |---|---|---|---|
 | Per-room plan: walls, ceiling height, floor area, openings | output/plan.py | `rooms[].walls`, `ceiling_height`, `floor_area`, `openings[]` | ✅ |
 | Stitched multi-room plan, correct adjacency | geometry/stitch.py, photo.stitch | `property.adjacency`, `plan.svg` | ⚠️ LiDAR shared frame; image tiers layout-snapped, adjacency partly wrong |
-| Per-surface damage regions with class and metric extent | damage.py | `damage[]` (surface, class, width/height with CI, area) | ⚠️ crack found (partial extent), small stain missed |
+| Per-surface damage regions with class and metric extent | damage.py | `damage[]` (surface, class, width/height with CI, area) | ⚠️ crack found in LiDAR room scans (partial extent), small stain missed, ~1 false positive per capture (report §8) |
 | Concealed-damage flags with the rule that fired | damage.concealed_flags | `concealed_damage_flags[].rule` | ✅ |
 | Scope line items keyed to surfaces | damage.scope_items | `scope_items[].surface` | ✅ |
 | Confidence interval on every measurement | output/plan.py `measure()` | `{value, sigma, ci95}` | ✅ |
@@ -55,7 +55,7 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 
 | requirement | file | artifact | status |
 |---|---|---|---|
-| Commit as you work | git history | ~25 incremental commits over 2 days | ✅ |
+| Commit as you work | git history | 27+ incremental commits over 3 days, fix-loop tag before the fix | ✅ |
 
 ## Deliverables
 
@@ -68,5 +68,5 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 | 5 | Benchmark report (gates all tiers, repeatability, head-to-head, timing) | benchmark/REPORT.md, benchmark/HEAD_TO_HEAD.md | ✅ |
 | 6 | Fix loop bundle | docs/FIX_LOOP.md, benchmark/results/fixloop_* | ✅ |
 | 7 | Technical report ≤ 6 pages | docs/TECHNICAL_REPORT.md | ✅ |
-| 8 | Raw benchmark data (sensor logs, ground truth, app exports), location stripped | scripts/fetch_data.py → Google Drive | ⏳ upload pending |
+| 8 | Raw benchmark data (sensor logs, ground truth, app exports), location stripped | scripts/fetch_data.py → [Google Drive](https://drive.google.com/file/d/1S1M1B_mQx73fF7FrRO4jQyMNStXVzag4/view) (2.4 GB, download tested); ground truth in benchmark/ground_truth.csv | ✅ |
 | — | Mirrors, glass, wet-look, low light covered | TECHNICAL_REPORT.md §7 | ⚠️ documented; glass/mirror only partly handled |
