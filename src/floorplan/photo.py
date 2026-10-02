@@ -21,7 +21,7 @@ from scipy import ndimage as ndi
 from scipy.ndimage import gaussian_filter1d, maximum_filter1d
 
 from floorplan.geometry.floormap import RES, build_floormap, find_doorways
-from floorplan.geometry.openings import detect_openings, refine_with_jambs, wall_evidence
+from floorplan.geometry.openings import detect_openings, wall_evidence
 from floorplan.geometry.polygon import RoomPolygon, Wall, _vertices, room_polygon
 from floorplan.geometry.stitch import RoomHeights, SharedOpening, room_heights
 from floorplan.geometry.structure import floor_and_ceiling, fuse, manhattan_yaw
@@ -185,7 +185,8 @@ def reconstruct_room(room: PhotoRoom) -> RoomResult:
     heights = room_heights(P, N, fm, rooms, floor)[0]
     top = ceil.y - floor.y if ceil else 2.6
     openings = detect_openings(wall_evidence(cap, fm, floor.y, [poly], top, stride=1, max_pts=40000), top)
-    refine_with_jambs(openings, [poly], P, N, fm.R, floor.y)
+    # No jamb snapping here (LiDAR only): a jamb is a 10-20 cm wide face and image-only
+    # depth is too smooth at edges to locate it; on the benchmark it made photo doors worse.
     s = SCALE_SIGMA[room.has_exif]
     widen_for_scale([poly], [heights], openings, s)
     return RoomResult(room.name, poly, heights, openings, cap, yaw, fm.R, s, floor.y)
