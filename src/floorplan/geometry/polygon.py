@@ -170,6 +170,9 @@ def _finalize(rp: RoomPolygon) -> RoomPolygon:
     return rp
 
 
+MAX_FURNITURE_DEPTH = 0.6   # m; wardrobes are ~0.6 m deep
+
+
 def extend_to_ceiling(polys: list[RoomPolygon], ceilings: list[float | None], P: np.ndarray, N: np.ndarray,
                       R2: np.ndarray, floor_y: float, max_out: float = 1.5) -> list[dict]:
     """Push walls that are really furniture faces (wardrobes) out to the true wall.
@@ -191,7 +194,7 @@ def extend_to_ceiling(polys: list[RoomPolygon], ceilings: list[float | None], P:
     for ri, (rp, top) in enumerate(zip(polys, ceilings)):
         if top is None:
             continue
-        others = [Polygon(o.vertices) for j, o in enumerate(polys) if j != ri]
+        others = [Polygon(o.vertices).buffer(0) for j, o in enumerate(polys) if j != ri]
         ceil = horiz & (np.abs(H - top) < 0.05)
         high = vert & (H > top - 0.35) & (H < top - 0.05)
         moved = False
@@ -216,17 +219,24 @@ def extend_to_ceiling(polys: list[RoomPolygon], ceilings: list[float | None], P:
             edge = float(np.percentile(beyond, 98))
             # (3) first ceiling-reaching plane further out, still under the ceiling
             cand = d_all[high & span & (np.abs(N2[:, w.axis]) > 0.9) & (d_all > 0.2) & (d_all < edge + 0.15)]
-            target = edge
-            if len(cand) >= 100:
-                hist, e = np.histogram(cand, bins=np.arange(0.2, edge + 0.16, 0.02))
-                pk = np.nonzero(hist >= max(0.3 * hist.max(), 30))[0]
-                if len(pk):
-                    t0 = e[pk.min()] + 0.01
-                    target = float(np.median(cand[np.abs(cand - t0) < 0.03]))
+            # Only move onto a *visible* ceiling-reaching plane (the real wall seen above or
+            # beside the furniture), never onto the bare ceiling edge, and never further
+            # than a wardrobe is deep: large unverified moves are worse than a short wall.
+            if len(cand) < 100:
+                continue
+            hist, e = np.histogram(cand, bins=np.arange(0.2, edge + 0.16, 0.02))
+            pk = np.nonzero(hist >= max(0.3 * hist.max(), 30))[0]
+            if not len(pk):
+                continue
+            t0 = e[pk.min()] + 0.01
+            target = float(np.median(cand[np.abs(cand - t0) < 0.03]))
+            if target > MAX_FURNITURE_DEPTH:
+                continue
             old_c = w.c
             w.c = old_c + out * target
             trial = _finalize(rp)
-            if trial.area <= 0 or any(Polygon(trial.vertices).intersection(o).area > 0.3 for o in others):
+            mine = Polygon(trial.vertices).buffer(0)          # buffer(0) repairs self-touching outlines
+            if trial.area <= 0 or not mine.is_valid or any(mine.intersection(o).area > 0.3 for o in others):
                 w.c = old_c                       # would cross into another room: keep
                 _finalize(rp)
                 continue
