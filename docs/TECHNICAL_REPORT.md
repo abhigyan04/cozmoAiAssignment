@@ -38,7 +38,7 @@ differences are honest differences in the input, not in the code.
 
 | tier | input (protocol: docs/CAPTURE_PROTOCOL.md) | runs on | wall error on benchmark flat (mean abs) | honest accuracy claim |
 |---|---|---|---|---|
-| LiDAR | Stray Scanner recording, start/end at same corner, ceiling swept | iPhone 12 Pro or newer Pro/Pro Max (tested: iPhone 17 Pro; Cozmo sample) | 8.2 % (3-10 cm on correctly segmented walls, biased short ~4 cm) | ±6 cm per wall (95 %) when the room is segmented correctly |
+| LiDAR | Stray Scanner recording, start/end at same corner, ceiling swept | iPhone 12 Pro or newer Pro/Pro Max (tested: iPhone 17 Pro; Cozmo sample) | 7.5 % (1-10 cm on correctly segmented walls, biased short ~4 cm) | ±6 cm per wall (95 %) when the room is segmented correctly |
 | video | one landscape walkthrough, 1x lens, 1080p+ | any iPhone 15+ / Android flagship (tested: iPhone 17 Pro, OnePlus 13) | 12.1-12.5 % | ±20 % per wall (95 %); room grouping can split/merge rooms |
 | photo | 4-8 landscape stills per room, corner to corner | any phone with EXIF focal length (tested: iPhone 17 Pro, OnePlus 13) | 13.0 % (OnePlus), 13.4 % (iPhone) | ±20 % per wall (95 %), ±30 % without EXIF |
 
@@ -99,7 +99,7 @@ Every measurement carries σ and a 95 % interval; we checked coverage against ta
 |---|---|---|
 | OnePlus photo | **12/16** | scale σ = 10 % calibrated here |
 | iPhone photo | 12/16 | see the stability note below |
-| LiDAR iPhone | 6/16 | all misses are segmentation failures; correct rooms are covered |
+| LiDAR iPhone | 8/16 | all misses are segmentation failures; correct rooms are covered |
 | OnePlus / iPhone video | 6/16, 2/16 | intervals inherited from photo tier, too narrow when visits are split |
 
 Two calibration changes were made *because of* the benchmark and are disclosed: (a) LiDAR
@@ -137,7 +137,8 @@ short because image-only metric scale (~10 %) is untouched; the next fix is a me
 
 | condition | effect | mitigation / status |
 |---|---|---|
-| wardrobes and lofts up to 2.1 m | wardrobe face taken as a wall (bedroom1: −1.06 m); loft underside taken as ceiling (2.05 m) | walls refined below ceiling (fixed bedroom2 −5..−13 → −1..−10 cm); segmentation in the high band tried and measured worse (too few rays near the ceiling); **open** |
+| wardrobes and lofts up to 2.1 m | wardrobe face taken as a wall (bedroom1: −1.03 m) | (a) walls refined just below the ceiling (bedroom2 −5..−13 → −1..−10 cm); (b) a wall that does not reach the ceiling while the room's ceiling continues past it is pushed to the visible ceiling-reaching wall ≤ 0.6 m behind (bedroom2 −16.7 → −1.5 cm on one axis); bedroom1's loft runs to the ceiling, so it is correctly *not* moved: **open**. Evidence for the next fix: the ceiling continues 0.98 m past that wall in the flat scan, matching the 1.03 m deficit |
+| bed covering the floor | bed top (0.6 m) taken as the room's floor → bedroom1 ceiling 2.05 m | room floor searched within ±10 cm of the flat-wide floor; ceilings ≥ 2.2 m preferred: bedroom1 −62.2 → −0.7 cm, ceilings within 1.5 cm 1/3 → 2/3, repeat spread 0.4 cm |
 | mirrors | LiDAR rays reflect: phantom opening behind the mirror | openings report `seen_from_both_sides`; a mirror is never seen from the other side |
 | glass (windows, glass doors) | rays pass or return noise | windows detected as pass-through holes; window widths unreliable (0/≈10 within 2 cm) |
 | wet-look / glossy floors | specular LiDAR dropouts | confidence-2 depth only; floor found as a histogram peak, robust to holes |
@@ -147,7 +148,19 @@ short because image-only metric scale (~10 %) is untouched; the next fix is a me
 | floor barely seen (bed covers it) | floor detected on the ceiling | floor must lie below the cameras (fixed) |
 | narrow corridors in photos | hall length unseen (2.55 vs 5.65 m) | protocol: photograph each end of a corridor; **open** |
 | blank walls | damage false positives, video room confusion | texture gate + CLIP negatives (posters, curtains, doors) |
-| openings at cm accuracy | 0-1 of ~10 doors within 2 cm | **weakest result overall**; ray-vote edges are ~2 cm pixels, jamb-plane refinement is the next fix |
+| openings at cm accuracy | vote edges biased ~10 cm narrow (frame, open leaf, grazing rays) | LiDAR edges snapped to jamb planes: doors −10.7/−7.8/−13.7 → +3.3/−3.8/−6.8 cm (mean 10.7 → 4.6 cm); still 0/3 within 2 cm, gate **not met**; jamb snapping made image-only doors worse (depth too smooth at edges), so it is LiDAR-only; windows (grilles, curtains) mostly missed |
+
+## 7b. Day-2 improvements (each diagnosed on the benchmark, each a commit)
+
+| change | why (evidence) | effect (iPhone LiDAR, tape) |
+|---|---|---|
+| door edges snapped to jamb planes | all 3 doors 8-14 cm narrow: vote edges sit inside the frame | mean door error 10.7 → 4.6 cm |
+| room floor near flat-wide floor; ceiling ≥ 2.2 m | bedroom1 "ceiling" 2.05 m was really ceiling minus bed top | ceilings 1/3 → 2/3 within 1.5 cm; repeat spread 0.4 cm (gate met) |
+| wardrobe-front walls pushed to ceiling-reaching wall (guarded) | wardrobe fronts stop at 2.1 m; the ceiling continues past them | mean wall error 8.2 → 7.5 %; walls in CI 6 → 8/16; Polycam 4 → 5/10 |
+
+An unguarded version of the last change moved walls by up to 1.5 m on the Cozmo sample scans,
+where nothing can be verified; it was capped at 0.6 m (wardrobe depth) and restricted to
+visible walls. One reverted change: jamb snapping on the photo tier made doors worse.
 
 ## 8. Damage
 
@@ -166,10 +179,10 @@ name in the JSON; scope items are keyed to surface IDs (`R1-W2`).
 Polycam for iOS 7.0.3 (free tier) on the same iPhone 17 Pro, living and bedroom1. The free
 tier exports a mesh but not its plan numbers, so Polycam's dimensions are read off its own
 mesh by a simple neutral procedure (outermost wall planes, floor/ceiling peaks; no tuning).
-**Result: beat or tie on 4/10 shared dimensions (40 %), gate ≥ 70 % not met.** Where our rooms
+**Result: beat or tie on 5/10 shared dimensions (50 %), gate ≥ 70 % not met.** Where our rooms
 are segmented correctly we win (living long walls −0.8/−2.8 cm vs Polycam +4.0/+2.0 cm); we lose
-on segmentation (living merged with the passage, bedroom1 cut at the wardrobe) and on ceilings
-(loft underside chosen in bedroom1). Polycam's mesh is also cut by bedroom1's wardrobes
+on segmentation (living merged with the passage, bedroom1 cut at the wardrobe) and on the living
+ceiling (+4.4 vs −1.0 cm); we now win bedroom1's ceiling (−0.7 vs −3.0 cm). Polycam's mesh is also cut by bedroom1's wardrobes
 (3.67 × 3.03 m vs 4.14 × 3.70 m tape), so furnished rooms are hard for both; our measurement
 step is competitive, our segmentation is the gap. Caveat: Polycam's own app may report
 different numbers than our reading of its mesh.

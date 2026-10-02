@@ -29,8 +29,8 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 | Same rooms at all three tiers incl. multi-room, photo as per-room folders | data/raw/iphone/{lidar,video,photos} | iPhone 17 Pro, all three tiers | ✅ |
 | One room captured twice at the same tier | bedroom1: LiDAR a/b, OnePlus photos ×2 | benchmark/REPORT.md repeatability | ✅ |
 | Tape ground truth on everything, raw data submitted | benchmark/ground_truth.csv, scripts/fetch_data.py | tape (laser not available) | ⚠️ tape, not laser |
-| Gate: openings ≤ 2 cm on ≥ 85 % | benchmark/REPORT.md | 0-1 of 5-13 | ❌ weakest result (report §7) |
-| Gate: ceiling ≤ 1.5 cm per room, repeat spread ≤ 1 cm | benchmark/REPORT.md | LiDAR bedroom2 +0.5 cm; others fail | ❌ partially (1/3 rooms) |
+| Gate: openings ≤ 2 cm on ≥ 85 % | benchmark/REPORT.md | LiDAR doors +3.3/−3.8/−6.8 cm (jamb-snapped); 0-1 within 2 cm per capture | ❌ weakest result (report §7) |
+| Gate: ceiling ≤ 1.5 cm per room, repeat spread ≤ 1 cm | benchmark/REPORT.md | LiDAR 2/3 rooms (0.0, −0.7 cm; living +4.4 cm); repeat spread 0.4 cm | ⚠️ spread met; 2/3 rooms within 1.5 cm |
 | Gate: repeatability ≤ 1 cm or 0.5 % per wall | benchmark/REPORT.md | photo 0.9 / 6.7 cm; LiDAR 2.9 / 1.9 cm | ❌ (repeatable-but-biased on LiDAR, stated) |
 | Gate: drift accountability + ablation on/off | geometry/drift.py, scripts/drift_ablation.py, benchmark/ablation/ | sharpness + footprint on/off, guard | ✅ |
 | Gate: photo-tier whole-property stitch, no overlaps, footprint ±8 % | photo.stitch | no overlaps; footprint −13.8 % (OnePlus), −22.7 % (iPhone) | ❌ footprint outside ±8 % |
@@ -42,7 +42,7 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 
 | requirement | file | artifact | status |
 |---|---|---|---|
-| LiDAR output vs one consumer app on 2 rooms, app + version named, export submitted | benchmark/HEAD_TO_HEAD.md, scripts/head_to_head.py, data/raw/iphone/polycam | Polycam iOS 7.0.3, glTF export, 10 dimensions | ❌ 4/10 beat-or-tie (gate 70 %); free tier gives mesh only, read by neutral procedure |
+| LiDAR output vs one consumer app on 2 rooms, app + version named, export submitted | benchmark/HEAD_TO_HEAD.md, scripts/head_to_head.py, data/raw/iphone/polycam | Polycam iOS 7.0.3, glTF export, 10 dimensions | ❌ 5/10 beat-or-tie (gate 70 %); free tier gives mesh only, read by neutral procedure |
 
 ## Part 4 — fix loop
 
