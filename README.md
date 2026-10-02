@@ -20,7 +20,7 @@ Requirements: Windows or Linux, NVIDIA GPU with >= 8 GB (tested: RTX 4070 Laptop
 Python 3.11, [uv](https://docs.astral.sh/uv/) (or pip), git.
 
 ```bash
-git clone <this repo> && cd cozmoAiAssignment
+git clone https://github.com/abhigyan04/cozmoAiAssignment.git && cd cozmoAiAssignment
 uv venv --python 3.11 .venv
 # PyTorch with CUDA (pick the index matching your driver; cu128 tested)
 uv pip install --python .venv/Scripts/python.exe torch torchvision --index-url https://download.pytorch.org/whl/cu128
@@ -48,9 +48,14 @@ Typical run times on an RTX 4070 Laptop: LiDAR 40-90 s, photo (4 rooms) ~1-2 min
 ## Reproducing every reported number
 
 ```bash
-python scripts/fetch_data.py                 # benchmark raw data (location metadata stripped)
-python scripts/reproduce.py                  # runs every capture + scores against tape -> benchmark/results/
+python scripts/fetch_data.py                 # benchmark raw data (location metadata stripped) -> data/raw/
+python scripts/reproduce.py                  # score cached plans (benchmark/plans/) -> benchmark/REPORT.md
+python scripts/reproduce.py --force          # re-run every capture live (~30 min on RTX 4070), then score
 ```
+Cozmo's sample LiDAR scans are not redistributed: place the three folders next to the repo
+(`../single_room`, `../single_scan_floor_only`, `../single_scan_with_ceiling`); runs whose
+input is missing are skipped. Drift ablation: `python scripts/drift_ablation.py <scan> ...`
+(figures in `benchmark/ablation/`). Head-to-head: `python scripts/head_to_head.py`.
 Ground truth (tape): [benchmark/ground_truth.csv](benchmark/ground_truth.csv), sketch [benchmark/flat_sketch.jpg](benchmark/flat_sketch.jpg).
 Fix loop before/after: [docs/FIX_LOOP.md](docs/FIX_LOOP.md) (before = git tag `fixloop-before`).
 

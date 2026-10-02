@@ -17,6 +17,7 @@ dependencies = [
     "av",
     "pyyaml",
     "tqdm",
+    "pillow",
     "pillow-heif",
     "piexif",
     "gdown",

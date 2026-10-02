@@ -38,14 +38,14 @@ differences are honest differences in the input, not in the code.
 
 | tier | input (protocol: docs/CAPTURE_PROTOCOL.md) | runs on | wall error on benchmark flat (mean abs) | honest accuracy claim |
 |---|---|---|---|---|
-| LiDAR | Stray Scanner recording, start/end at same corner, ceiling swept | iPhone 12 Pro or newer Pro/Pro Max (tested: iPhone 17 Pro; Cozmo sample) | 7.5 % (1-10 cm on correctly segmented walls, biased short ~4 cm) | ±6 cm per wall (95 %) when the room is segmented correctly |
+| LiDAR | Stray Scanner recording, start/end at same corner, ceiling swept | iPhone 12 Pro or newer Pro/Pro Max (tested: iPhone 17 Pro; Cozmo sample) | 7.5 % (1-10 cm on correctly segmented walls, biased short ~4 cm) | ±8 cm per wall length (95 %) when the room is segmented correctly |
 | video | one landscape walkthrough, 1x lens, 1080p+ | any iPhone 15+ / Android flagship (tested: iPhone 17 Pro, OnePlus 13) | 12.1-12.5 % | ±20 % per wall (95 %); room grouping can split/merge rooms |
 | photo | 4-8 landscape stills per room, corner to corner | any phone with EXIF focal length (tested: iPhone 17 Pro, OnePlus 13) | 13.0 % (OnePlus), 13.4 % (iPhone) | ±20 % per wall (95 %), ±30 % without EXIF |
 
 Intrinsics for image tiers: from EXIF 35 mm-equivalent focal (photo, `f_px = f35 · diag_px / 43.27`)
 or container metadata (Android video writes `lens.focal_length`). Known intrinsics were the
 single biggest accuracy lever: with model-estimated focal length, depth was 36 % short on the
-Cozmo sample. Run times (RTX 4070 Laptop 8 GB): LiDAR 40-150 s, photo 55-70 s, video 2-4 min.
+Cozmo sample. Run times (RTX 4070 Laptop 8 GB): LiDAR 40-155 s, photo 40-70 s, video 2-4 min.
 
 ## 3. Drift handling
 
@@ -65,8 +65,8 @@ plane, which needs no ground truth):
 | capture | sharpness off → on | footprint off → on | heading drift found | kept by guard |
 |---|---|---|---|---|
 | Cozmo sample, multi-room (floor only) | 0.413 → **0.504** | 48.8 → 52.9 m² | 3.1° | yes |
-| Cozmo sample, multi-room (with ceiling) | 0.401 → 0.413 | 42.1 → 43.0 m² | 3.2° | yes |
-| benchmark flat, iPhone 17 Pro (tape 46.9 m²) | 0.339 → 0.319 | **36.5** → 34.9 m² | 13.3° (estimate) | **no** |
+| Cozmo sample, multi-room (with ceiling) | 0.401 → 0.413 | 48.4 → 46.6 m² | 3.2° | yes |
+| benchmark flat, iPhone 17 Pro (tape 46.9 m²) | 0.339 → 0.319 | **37.2** → 35.6 m² | 13.3° (estimate) | **no** |
 
 The last row is a guard success with ground truth behind it: on the furnished benchmark flat the
 per-window yaw estimate was dominated by non-Manhattan clutter (13° of apparent drift is far more
@@ -83,9 +83,9 @@ corner; we did not have time to diagnose why, so loop closure is unproven on rea
 | plane fit noise (median of 10³-10⁴ pts) | < 1 mm | MAD/√n |
 | LiDAR range bias | ~1 cm | Apple spec; floor/ceiling peaks are 1-2 cm thick |
 | heading drift over a room | 0.5-2 cm | ablation above |
-| surface definition (tape at 1 m vs plane fit; skirting, plaster bulge) | 2-4 cm | systematic −4 cm mean on bedroom2 / living |
+| surface definition (tape at 1 m vs plane fit; skirting, plaster bulge) | 2-4 cm | systematic −4.4 cm mean on correctly segmented walls |
 | tape ground truth | ~0.5 cm | two readings per wall |
-| **observed RMS on correctly segmented walls** | **5.8 cm** | benchmark |
+| **observed RMS on correctly segmented walls** | **5.6 cm** (8 of 12 matched walls; range −9.9 to +0.5 cm) | benchmark |
 | segmentation failure (furniture to 2.1 m, merged rooms) | 0.3-1.1 m | bedroom1, living (section 7) |
 
 Image tiers: metric scale of the depth network dominates (~10 % per room, measured as the RMS
@@ -167,9 +167,19 @@ visible walls. One reverted change: jamb snapping on the photo tier made doors w
 Damage is searched only on wall pixels (3D point within 3 cm of a measured wall plane), as dark
 soft blobs (stains) and thin dark ridges (cracks), gated against busy texture (curtains hang
 within 3 cm of the window wall), classified zero-shot by CLIP against damage and non-damage
-prompts, then measured in metres on that surface and merged across frames. On the staged room
-(LiDAR): the 1.1 m crack is found (partial extent, 13-47 cm per region, 0.72-0.82), the
-10 x 10 cm water stain is missed, one false positive elsewhere in the flat. Concealed-damage
+prompts, then measured in metres on that surface and merged across frames.
+
+| capture | staged crack (1.1 m, bedroom1) | staged stain (10 cm, bedroom1) | detections elsewhere (false positives) |
+|---|---|---|---|
+| LiDAR bedroom1 scan a / b | found: 0.12 m / 0.61 m of extent (1.85-2.50 m high) | missed | 0 |
+| LiDAR whole flat | not found | missed | 2 (bedroom2) |
+| photo iPhone / OnePlus | not found | missed | 1 / 1 |
+| video iPhone / OnePlus | not found | missed | 1 (a "mould" that also fires rule R3) / 0 |
+
+Damage is the least mature part: the staged crack is found only in close LiDAR room scans, the
+small stain never, and roughly one false positive per capture remains (one of which triggers a
+concealed-damage flag, so flags inherit detector errors). Next step: a small segmenter trained
+on public crack/stain data, evaluated on these staged regions. Concealed-damage
 rules R1-R5 (stain near ceiling → leak above; near floor → rising damp/pipe; mould → hidden
 growth; crack > 1 m → structural; stain > 0.25 m² → saturated substrate) fire with the rule
 name in the JSON; scope items are keyed to surface IDs (`R1-W2`).
