@@ -4,11 +4,11 @@
 
 | capture | device | tier | rooms | footprint | mean wall err | wall gate | walls in 95% CI | ceilings ≤1.5 cm | openings ≤2 cm | time s |
 |---|---|---|---|---|---|---|---|---|---|---|
-| iphone_lidar_flat | iPhone 17 Pro | lidar | 3/4 | 36.55 vs tape 46.86 (-22.0%) | 8.19% | n/a (cm-level, see table) | 6/16 | 1/3 | 0/10 (missed 4, phantom 3) | 151.5 |
-| iphone_photo | iPhone 17 Pro | photo | 4/4 | 36.22 vs tape 46.86 (-22.7%) | 13.37% | 11/16 within +-8% | 12/16 | 0/4 | 1/11 (missed 7, phantom 2) | 86.4 |
-| iphone_video | iPhone 17 Pro | video | 2/4 | 30.77 vs tape 46.86 (-34.3%) | 12.51% | 2/16 within +-3% | 2/16 | 0/1 | 0/7 (missed 3, phantom 3) | 308.4 |
-| oneplus_photo | OnePlus 13 | photo | 4/4 | 40.40 vs tape 46.86 (-13.8%) | 13.01% | 8/16 within +-8% | 12/16 | 1/3 | 1/12 (missed 8, phantom 3) | 70.8 |
-| oneplus_video | OnePlus 13 | video | 2/4 | 43.12 vs tape 46.86 (-8.0%) | 12.1% | 0/16 within +-3% | 6/16 | 0/0 | 0/5 (missed 3, phantom 1) | 155.1 |
+| iphone_lidar_flat | iPhone 17 Pro | lidar | 3/4 | 37.22 vs tape 46.86 (-20.6%) | 7.51% | n/a (cm-level, see table) | 8/16 | 2/3 | 0/10 (missed 4, phantom 3) | 124.1 |
+| iphone_photo | iPhone 17 Pro | photo | 4/4 | 36.22 vs tape 46.86 (-22.7%) | 13.37% | 11/16 within +-8% | 12/16 | 0/4 | 1/11 (missed 7, phantom 2) | 68.6 |
+| iphone_video | iPhone 17 Pro | video | 2/4 | 30.77 vs tape 46.86 (-34.3%) | 12.51% | 2/16 within +-3% | 2/16 | 0/1 | 0/7 (missed 3, phantom 3) | 243.3 |
+| oneplus_photo | OnePlus 13 | photo | 4/4 | 40.40 vs tape 46.86 (-13.8%) | 13.01% | 8/16 within +-8% | 12/16 | 1/3 | 1/12 (missed 8, phantom 3) | 60.8 |
+| oneplus_video | OnePlus 13 | video | 2/4 | 43.12 vs tape 46.86 (-8.0%) | 12.1% | 0/16 within +-3% | 6/16 | 0/0 | 0/5 (missed 3, phantom 1) | 124.8 |
 
 Per-wall tables: `benchmark/results/<capture>.md`.
 
@@ -19,21 +19,28 @@ Per-wall tables: `benchmark/results/<capture>.md`.
 | bedroom1, photo (OnePlus 13) | 2.982 vs 2.991 (Δ 0.9 cm, pass) | 3.605 vs 3.538 (Δ 6.7 cm, fail) | | |
 | bedroom1, LiDAR (iPhone 17 Pro) a vs b | 3.049 vs 3.078 (Δ 2.9 cm, fail) | 3.609 vs 3.628 (Δ 1.9 cm, fail) | | |
 
+**Ceiling height, same room captured twice** (gate: spread ≤ 1 cm)
+
+| room / tier | capture 1 | capture 2 | spread | gate |
+|---|---|---|---|---|
+| bedroom1, LiDAR a vs b | 2.655 | 2.659 | 0.4 cm | pass |
+| bedroom1, photo OnePlus set 1 vs 2 | 2.507 | 2.466 | 4.1 cm | fail |
+
 ## Timing
 
 | capture | tier | seconds |
 |---|---|---|
-| iphone_lidar_flat | lidar | 151.5 |
-| iphone_lidar_bedroom1_a | lidar | 75.6 |
-| iphone_lidar_bedroom1_b | lidar | 52.8 |
-| iphone_photo | photo | 86.4 |
-| iphone_video | video | 308.4 |
-| oneplus_photo | photo | 70.8 |
-| oneplus_photo_repeat | photo | 49.3 |
-| oneplus_video | video | 155.1 |
-| sample_single_room | lidar | 58.2 |
-| sample_floor_only | lidar | 146.9 |
-| sample_with_ceiling | lidar | 217.0 |
+| iphone_lidar_flat | lidar | 124.1 |
+| iphone_lidar_bedroom1_a | lidar | 42.9 |
+| iphone_lidar_bedroom1_b | lidar | 38.9 |
+| iphone_photo | photo | 68.6 |
+| iphone_video | video | 243.3 |
+| oneplus_photo | photo | 60.8 |
+| oneplus_photo_repeat | photo | 42.3 |
+| oneplus_video | video | 124.8 |
+| sample_single_room | lidar | 44.7 |
+| sample_floor_only | lidar | 106.8 |
+| sample_with_ceiling | lidar | 153.2 |
 
 ## Head-to-head vs Polycam
 

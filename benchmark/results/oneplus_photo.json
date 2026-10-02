@@ -190,8 +190,8 @@
     {
       "room": "living",
       "tape": 2.62,
-      "ours": 2.704,
-      "err_cm": 8.4,
+      "ours": 2.7,
+      "err_cm": 8.0,
       "inside_ci": true
     }
   ],

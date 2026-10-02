@@ -24,4 +24,4 @@
 
 | room | ceiling tape | ours | err cm | inside CI |
 |---|---|---|---|---|
-| bedroom1 | 2.67 | 2.612 | -5.8 | yes |
+| bedroom1 | 2.67 | 2.604 | -6.6 | yes |

@@ -3,7 +3,7 @@
   "capture": {
     "tier": "lidar",
     "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\iphone\\lidar\\bedroom1_b",
-    "processing_seconds": 52.8
+    "processing_seconds": 38.9
   },
   "property": {
     "floor_area": {
@@ -63,8 +63,20 @@
           13.669
         ]
       },
-      "ceiling_height": null,
-      "ceiling_levels": [],
+      "ceiling_height": {
+        "value": 2.659,
+        "sigma": 0.0071,
+        "ci95": [
+          2.645,
+          2.673
+        ]
+      },
+      "ceiling_levels": [
+        {
+          "height": 2.65,
+          "share": 0.95
+        }
+      ],
       "walls": [
         {
           "id": "R1-W1",
@@ -211,14 +223,14 @@
       ],
       "center": [
         3.628,
-        2.517
+        2.554
       ],
       "width": {
-        "value": 0.776,
+        "value": 0.735,
         "sigma": 0.0141,
         "ci95": [
-          0.748,
-          0.804
+          0.707,
+          0.763
         ]
       },
       "sill_height": 0.08,
@@ -297,7 +309,7 @@
       "surface": "R1-W5",
       "damage": "D1",
       "description": "Repaint full wall for uniform finish",
-      "quantity": 9.43,
+      "quantity": 9.65,
       "unit": "m2"
     },
     {
@@ -313,8 +325,6 @@
     "drift_correction_applied": true,
     "max_heading_drift_deg": 1.14,
     "loop_closure_applied": false,
-    "warnings": [
-      "R1: ceiling not observed, height not reported"
-    ]
+    "warnings": []
   }
 }

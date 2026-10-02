@@ -2,12 +2,12 @@
   "summary": {
     "tier": "lidar",
     "rooms_matched": "3/4",
-    "footprint_m2": "36.55 vs tape 46.86 (-22.0%)",
-    "wall_mean_abs_err_pct": 8.19,
+    "footprint_m2": "37.22 vs tape 46.86 (-20.6%)",
+    "wall_mean_abs_err_pct": 7.51,
     "wall_max_abs_err_pct": 25.95,
     "wall_gate": null,
-    "wall_inside_ci95": "6/16",
-    "ceiling_within_1.5cm": "1/3",
+    "wall_inside_ci95": "8/16",
+    "ceiling_within_1.5cm": "2/3",
     "openings_within_2cm": "0/10 (missed 4, phantom 3)"
   },
   "walls": [
@@ -15,21 +15,21 @@
       "room": "bedroom2",
       "wall": "A",
       "tape": 3.62,
-      "ours": 3.473,
-      "err_cm": -14.7,
-      "rel": -0.040607734806629776,
-      "ci95_cm": 12.6,
-      "inside_ci": 0.0
+      "ours": 3.625,
+      "err_cm": 0.5,
+      "rel": 0.0013812154696133529,
+      "ci95_cm": 13.4,
+      "inside_ci": 1.0
     },
     {
       "room": "bedroom2",
       "wall": "C",
       "tape": 3.66,
-      "ours": 3.473,
-      "err_cm": -18.7,
-      "rel": -0.05109289617486334,
-      "ci95_cm": 12.6,
-      "inside_ci": 0.0
+      "ours": 3.625,
+      "err_cm": -3.5,
+      "rel": -0.009562841530054562,
+      "ci95_cm": 13.4,
+      "inside_ci": 1.0
     },
     {
       "room": "bedroom2",
@@ -118,7 +118,7 @@
       "ours": 4.922,
       "err_cm": -0.8,
       "rel": -0.001622718052738158,
-      "ci95_cm": 11.4,
+      "ci95_cm": 12.9,
       "inside_ci": 1.0
     },
     {
@@ -128,7 +128,7 @@
       "ours": 4.922,
       "err_cm": -2.8,
       "rel": -0.0056565656565655716,
-      "ci95_cm": 11.4,
+      "ci95_cm": 12.9,
       "inside_ci": 1.0
     }
   ],
@@ -136,22 +136,22 @@
     {
       "room": "bedroom2",
       "tape": 2.64,
-      "ours": 2.645,
-      "err_cm": 0.5,
+      "ours": 2.64,
+      "err_cm": 0.0,
       "inside_ci": true
     },
     {
       "room": "bedroom1",
       "tape": 2.67,
-      "ours": 2.048,
-      "err_cm": -62.2,
-      "inside_ci": false
+      "ours": 2.663,
+      "err_cm": -0.7,
+      "inside_ci": true
     },
     {
       "room": "living",
       "tape": 2.62,
-      "ours": 2.685,
-      "err_cm": 6.5,
+      "ours": 2.664,
+      "err_cm": 4.4,
       "inside_ci": false
     }
   ],
@@ -162,8 +162,8 @@
         "label": "A1",
         "kind": "door",
         "tape": 0.75,
-        "ours": 0.643,
-        "err_cm": -10.7,
+        "ours": 0.783,
+        "err_cm": 3.3,
         "inside_ci": false
       },
       {
@@ -171,8 +171,8 @@
         "label": "A1",
         "kind": "door",
         "tape": 0.76,
-        "ours": 0.682,
-        "err_cm": -7.8,
+        "ours": 0.722,
+        "err_cm": -3.8,
         "inside_ci": false
       },
       {
@@ -180,8 +180,8 @@
         "label": "A1",
         "kind": "door",
         "tape": 0.95,
-        "ours": 0.813,
-        "err_cm": -13.7,
+        "ours": 0.882,
+        "err_cm": -6.8,
         "inside_ci": false
       }
     ],

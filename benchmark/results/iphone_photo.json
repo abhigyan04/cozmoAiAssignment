@@ -176,9 +176,9 @@
     {
       "room": "bedroom1",
       "tape": 2.67,
-      "ours": 1.961,
-      "err_cm": -70.9,
-      "inside_ci": false
+      "ours": 2.445,
+      "err_cm": -22.5,
+      "inside_ci": true
     },
     {
       "room": "bedroom2",
@@ -190,15 +190,15 @@
     {
       "room": "hall",
       "tape": 2.64,
-      "ours": 2.522,
-      "err_cm": -11.8,
+      "ours": 2.504,
+      "err_cm": -13.6,
       "inside_ci": true
     },
     {
       "room": "living",
       "tape": 2.62,
-      "ours": 2.382,
-      "err_cm": -23.8,
+      "ours": 2.349,
+      "err_cm": -27.1,
       "inside_ci": true
     }
   ],

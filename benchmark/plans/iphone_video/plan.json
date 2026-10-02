@@ -3,7 +3,7 @@
   "capture": {
     "tier": "video",
     "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\iphone\\video\\IMG_2821.MOV",
-    "processing_seconds": 308.4
+    "processing_seconds": 243.3
   },
   "property": {
     "floor_area": {
@@ -103,21 +103,21 @@
         ]
       },
       "ceiling_height": {
-        "value": 2.612,
-        "sigma": 0.3919,
+        "value": 2.604,
+        "sigma": 0.3907,
         "ci95": [
-          1.844,
-          3.38
+          1.838,
+          3.37
         ]
       },
       "ceiling_levels": [
         {
-          "height": 2.61,
-          "share": 0.4
+          "height": 2.55,
+          "share": 0.39
         },
         {
-          "height": 2.41,
-          "share": 0.24
+          "height": 2.39,
+          "share": 0.21
         }
       ],
       "walls": [
@@ -597,11 +597,11 @@
         ]
       },
       "ceiling_height": {
-        "value": 2.516,
-        "sigma": 0.3775,
+        "value": 2.517,
+        "sigma": 0.3776,
         "ci95": [
-          1.776,
-          3.256
+          1.777,
+          3.257
         ]
       },
       "ceiling_levels": [

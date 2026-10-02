@@ -34,15 +34,15 @@
 <text x="356.7" y="821.3" font-size="11" fill="#c0392b" text-anchor="middle">door 0.68</text>
 <text x="389.6" y="253.2" font-size="16" font-weight="bold" text-anchor="middle">bedroom1</text>
 <text x="389.6" y="271.2" font-size="12" text-anchor="middle">10.34 ± 4.06 m²</text>
-<text x="389.6" y="287.2" font-size="12" text-anchor="middle">ceiling 1.961 m</text>
+<text x="389.6" y="287.2" font-size="12" text-anchor="middle">ceiling 2.445 m</text>
 <text x="891.0" y="403.9" font-size="16" font-weight="bold" text-anchor="middle">bedroom2</text>
 <text x="891.0" y="421.9" font-size="12" text-anchor="middle">10.33 ± 4.05 m²</text>
 <text x="891.0" y="437.9" font-size="12" text-anchor="middle">ceiling 2.431 m</text>
 <text x="366.6" y="481.3" font-size="16" font-weight="bold" text-anchor="middle">hall</text>
 <text x="366.6" y="499.3" font-size="12" text-anchor="middle">2.88 ± 1.17 m²</text>
-<text x="366.6" y="515.3" font-size="12" text-anchor="middle">ceiling 2.522 m</text>
+<text x="366.6" y="515.3" font-size="12" text-anchor="middle">ceiling 2.504 m</text>
 <text x="218.3" y="764.1" font-size="16" font-weight="bold" text-anchor="middle">living</text>
 <text x="218.3" y="782.1" font-size="12" text-anchor="middle">12.66 ± 4.96 m²</text>
-<text x="218.3" y="798.1" font-size="12" text-anchor="middle">ceiling 2.382 m</text>
+<text x="218.3" y="798.1" font-size="12" text-anchor="middle">ceiling 2.349 m</text>
 <text x="80" y="30" font-size="14">Tier: photo · total 36.22 m² · blue = located on 3D points, red = grid-only (wider interval) · ±values are 95% intervals</text>
 </svg>

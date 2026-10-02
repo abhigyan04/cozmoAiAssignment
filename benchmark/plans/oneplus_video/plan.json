@@ -3,7 +3,7 @@
   "capture": {
     "tier": "video",
     "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\oneplus\\video\\flat_tour_new.mp4",
-    "processing_seconds": 155.1
+    "processing_seconds": 124.8
   },
   "property": {
     "floor_area": {

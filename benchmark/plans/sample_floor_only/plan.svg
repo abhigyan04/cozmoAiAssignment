@@ -56,45 +56,45 @@
 <text x="1213.8" y="145.8" font-size="12" fill="#b03a2e" text-anchor="middle">0.93 ±14cm</text>
 <text x="1260.0" y="166.2" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 1260.0 174.2)">0.41 ±11cm</text>
 <text x="1338.0" y="186.7" font-size="12" fill="#1a4d8f" text-anchor="middle">1.56 ±11cm</text>
-<line x1="387.3" y1="249.7" x2="387.3" y2="185.4" stroke="white" stroke-width="8"/>
-<line x1="387.3" y1="249.7" x2="387.3" y2="185.4" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="387.3" y="235.5" font-size="11" fill="#c0392b" text-anchor="middle">door 0.64</text>
-<line x1="791.8" y1="802.0" x2="791.8" y2="707.3" stroke="white" stroke-width="8"/>
-<line x1="791.8" y1="802.0" x2="791.8" y2="707.3" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="791.8" y="772.7" font-size="11" fill="#c0392b" text-anchor="middle">door 0.95</text>
-<line x1="872.4" y1="367.2" x2="872.4" y2="284.5" stroke="white" stroke-width="8"/>
-<line x1="872.4" y1="367.2" x2="872.4" y2="284.5" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="872.4" y="343.9" font-size="11" fill="#c0392b" text-anchor="middle">door 0.83</text>
-<line x1="963.2" y1="726.0" x2="963.2" y2="477.2" stroke="white" stroke-width="8"/>
-<line x1="963.2" y1="726.0" x2="963.2" y2="477.2" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
-<text x="963.2" y="619.6" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.49</text>
-<line x1="529.6" y1="466.9" x2="529.6" y2="412.0" stroke="white" stroke-width="8"/>
-<line x1="529.6" y1="466.9" x2="529.6" y2="412.0" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="529.6" y="457.5" font-size="11" fill="#c0392b" text-anchor="middle">door 0.55</text>
-<line x1="614.2" y1="297.0" x2="855.0" y2="297.0" stroke="white" stroke-width="8"/>
-<line x1="614.2" y1="297.0" x2="855.0" y2="297.0" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
-<text x="734.6" y="315.0" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.41</text>
-<line x1="796.1" y1="100.1" x2="936.5" y2="100.1" stroke="white" stroke-width="8"/>
-<line x1="796.1" y1="100.1" x2="936.5" y2="100.1" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
-<text x="866.3" y="118.1" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.40</text>
-<line x1="801.9" y1="265.3" x2="864.9" y2="265.3" stroke="white" stroke-width="8"/>
-<line x1="801.9" y1="265.3" x2="864.9" y2="265.3" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="833.4" y="283.3" font-size="11" fill="#c0392b" text-anchor="middle">door 0.63</text>
-<line x1="953.2" y1="1046.5" x2="999.6" y2="1046.5" stroke="white" stroke-width="8"/>
-<line x1="953.2" y1="1046.5" x2="999.6" y2="1046.5" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
-<text x="976.4" y="1064.5" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.46</text>
-<line x1="889.5" y1="797.8" x2="889.5" y2="752.5" stroke="white" stroke-width="8"/>
-<line x1="889.5" y1="797.8" x2="889.5" y2="752.5" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="889.5" y="793.1" font-size="11" fill="#c0392b" text-anchor="middle">door 0.45</text>
+<line x1="387.3" y1="253.0" x2="387.3" y2="185.4" stroke="white" stroke-width="8"/>
+<line x1="387.3" y1="253.0" x2="387.3" y2="185.4" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="387.3" y="237.2" font-size="11" fill="#c0392b" text-anchor="middle">door 0.68</text>
+<line x1="791.8" y1="801.6" x2="791.8" y2="703.4" stroke="white" stroke-width="8"/>
+<line x1="791.8" y1="801.6" x2="791.8" y2="703.4" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="791.8" y="770.5" font-size="11" fill="#c0392b" text-anchor="middle">door 0.98</text>
+<line x1="872.4" y1="369.1" x2="872.4" y2="284.5" stroke="white" stroke-width="8"/>
+<line x1="872.4" y1="369.1" x2="872.4" y2="284.5" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="872.4" y="344.8" font-size="11" fill="#c0392b" text-anchor="middle">door 0.84</text>
+<line x1="963.2" y1="724.7" x2="963.2" y2="479.1" stroke="white" stroke-width="8"/>
+<line x1="963.2" y1="724.7" x2="963.2" y2="479.1" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
+<text x="963.2" y="619.9" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.46</text>
+<line x1="529.6" y1="471.2" x2="529.6" y2="402.6" stroke="white" stroke-width="8"/>
+<line x1="529.6" y1="471.2" x2="529.6" y2="402.6" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="529.6" y="454.9" font-size="11" fill="#c0392b" text-anchor="middle">door 0.69</text>
+<line x1="619.7" y1="297.0" x2="864.9" y2="297.0" stroke="white" stroke-width="8"/>
+<line x1="619.7" y1="297.0" x2="864.9" y2="297.0" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
+<text x="742.3" y="315.0" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.45</text>
+<line x1="783.3" y1="100.1" x2="944.9" y2="100.1" stroke="white" stroke-width="8"/>
+<line x1="783.3" y1="100.1" x2="944.9" y2="100.1" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="864.1" y="118.1" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.62</text>
+<line x1="797.0" y1="265.3" x2="865.0" y2="265.3" stroke="white" stroke-width="8"/>
+<line x1="797.0" y1="265.3" x2="865.0" y2="265.3" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="831.0" y="283.3" font-size="11" fill="#c0392b" text-anchor="middle">door 0.68</text>
+<line x1="951.6" y1="1046.5" x2="994.1" y2="1046.5" stroke="white" stroke-width="8"/>
+<line x1="951.6" y1="1046.5" x2="994.1" y2="1046.5" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="972.8" y="1064.5" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.42</text>
+<line x1="889.5" y1="801.0" x2="889.5" y2="752.5" stroke="white" stroke-width="8"/>
+<line x1="889.5" y1="801.0" x2="889.5" y2="752.5" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="889.5" y="794.8" font-size="11" fill="#c0392b" text-anchor="middle">door 0.48</text>
 <line x1="1416.0" y1="249.0" x2="1416.0" y2="193.5" stroke="white" stroke-width="8"/>
 <line x1="1416.0" y1="249.0" x2="1416.0" y2="193.5" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
 <text x="1416.0" y="239.3" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.56</text>
 <line x1="1052.1" y1="215.3" x2="1118.1" y2="215.3" stroke="white" stroke-width="8"/>
 <line x1="1052.1" y1="215.3" x2="1118.1" y2="215.3" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
 <text x="1085.1" y="233.3" font-size="11" fill="#c0392b" text-anchor="middle">door 0.66</text>
-<line x1="1260.0" y1="194.7" x2="1362.0" y2="194.7" stroke="white" stroke-width="8"/>
-<line x1="1260.0" y1="194.7" x2="1362.0" y2="194.7" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
-<text x="1311.0" y="212.7" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.02</text>
+<line x1="1253.5" y1="194.7" x2="1364.3" y2="194.7" stroke="white" stroke-width="8"/>
+<line x1="1253.5" y1="194.7" x2="1364.3" y2="194.7" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="1308.9" y="212.7" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.11</text>
 <text x="398.6" y="196.4" font-size="16" font-weight="bold" text-anchor="middle">R1</text>
 <text x="398.6" y="214.4" font-size="12" text-anchor="middle">8.84 ± 0.53 m²</text>
 <text x="649.7" y="869.9" font-size="16" font-weight="bold" text-anchor="middle">R2</text>

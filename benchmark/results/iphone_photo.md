@@ -32,7 +32,7 @@
 
 | room | ceiling tape | ours | err cm | inside CI |
 |---|---|---|---|---|
-| bedroom1 | 2.67 | 1.961 | -70.9 | **no** |
+| bedroom1 | 2.67 | 2.445 | -22.5 | yes |
 | bedroom2 | 2.64 | 2.431 | -20.9 | yes |
-| hall | 2.64 | 2.522 | -11.8 | yes |
-| living | 2.62 | 2.382 | -23.8 | yes |
+| hall | 2.64 | 2.504 | -13.6 | yes |
+| living | 2.62 | 2.349 | -27.1 | yes |

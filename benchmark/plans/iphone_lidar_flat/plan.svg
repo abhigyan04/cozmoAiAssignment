@@ -1,15 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1330" height="795" viewBox="0 0 1330 795" font-family="Helvetica, Arial, sans-serif">
 <rect width="1330" height="795" fill="white"/>
-<polygon points="80.0,593.2 80.0,245.9 251.6,245.9 251.6,283.4 281.6,283.4 281.6,258.4 382.1,258.4 382.1,593.2" fill="#e8f1fb" stroke="#222" stroke-width="4"/>
+<polygon points="80.0,593.2 80.0,245.9 251.6,245.9 251.6,283.4 281.6,283.4 281.6,230.7 382.1,230.7 382.1,593.2" fill="#e8f1fb" stroke="#222" stroke-width="4"/>
 <polygon points="661.6,334.1 366.6,334.1 366.6,256.9 661.6,256.9" fill="#fdf1e3" stroke="#222" stroke-width="4"/>
 <polygon points="618.5,352.7 927.3,352.7 927.3,638.4 846.6,638.4 846.6,714.6 618.5,714.6" fill="#eaf6ec" stroke="#222" stroke-width="4"/>
-<polygon points="1250.3,80.0 1250.3,572.2 974.3,572.2 974.3,323.4 901.6,323.4 901.6,280.9 959.5,280.9 959.5,120.9 1139.1,120.9 1139.1,80.0" fill="#f7e9f3" stroke="#222" stroke-width="4"/>
+<polygon points="1250.3,80.0 1250.3,572.2 974.3,572.2 974.3,323.4 901.6,323.4 901.6,280.9 959.5,280.9 959.5,98.8 1139.1,98.8 1139.1,80.0" fill="#f7e9f3" stroke="#222" stroke-width="4"/>
 <text x="80.0" y="411.6" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 80.0 419.6)">3.47 ±11cm</text>
 <text x="165.8" y="237.9" font-size="12" fill="#b03a2e" text-anchor="middle">1.72 ±11cm</text>
 <text x="251.6" y="256.6" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 251.6 264.6)">0.38 ±14cm</text>
 <text x="266.6" y="275.4" font-size="12" fill="#b03a2e" text-anchor="middle">0.30 ±14cm</text>
-<text x="331.9" y="250.4" font-size="12" fill="#b03a2e" text-anchor="middle">1.00 ±11cm</text>
-<text x="382.1" y="417.8" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 382.1 425.8)">3.35 ±11cm</text>
+<text x="281.6" y="249.0" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 281.6 257.0)">0.53 ±15cm</text>
+<text x="331.9" y="222.7" font-size="12" fill="#b03a2e" text-anchor="middle">1.00 ±11cm</text>
+<text x="382.1" y="404.0" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 382.1 412.0)">3.62 ±13cm</text>
 <text x="231.0" y="585.2" font-size="12" fill="#1a4d8f" text-anchor="middle">3.02 ±8cm</text>
 <text x="514.1" y="326.1" font-size="12" fill="#1a4d8f" text-anchor="middle">2.95 ±14cm</text>
 <text x="366.6" y="287.5" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 366.6 295.5)">0.77 ±8cm</text>
@@ -27,54 +28,53 @@
 <text x="937.9" y="315.4" font-size="12" fill="#b03a2e" text-anchor="middle">0.73 ±11cm</text>
 <text x="901.6" y="294.2" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 901.6 302.2)">0.42 ±14cm</text>
 <text x="930.5" y="272.9" font-size="12" fill="#b03a2e" text-anchor="middle">0.58 ±11cm</text>
-<text x="959.5" y="192.9" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 959.5 200.9)">1.60 ±14cm</text>
-<text x="1049.3" y="112.9" font-size="12" fill="#b03a2e" text-anchor="middle">1.80 ±11cm</text>
-<text x="1139.1" y="92.4" font-size="12" fill="#b03a2e" text-anchor="middle" transform="rotate(-90 1139.1 100.4)">0.41 ±11cm</text>
+<text x="959.5" y="181.8" font-size="12" fill="#1a4d8f" text-anchor="middle" transform="rotate(-90 959.5 189.8)">1.82 ±15cm</text>
+<text x="1049.3" y="90.8" font-size="12" fill="#b03a2e" text-anchor="middle">1.80 ±11cm</text>
 <text x="1194.7" y="72.0" font-size="12" fill="#1a4d8f" text-anchor="middle">1.11 ±11cm</text>
-<line x1="80.0" y1="474.7" x2="80.0" y2="353.6" stroke="white" stroke-width="8"/>
-<line x1="80.0" y1="474.7" x2="80.0" y2="353.6" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
-<text x="80.0" y="432.1" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.21</text>
-<line x1="382.1" y1="580.3" x2="382.1" y2="519.3" stroke="white" stroke-width="8"/>
-<line x1="382.1" y1="580.3" x2="382.1" y2="519.3" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
-<text x="382.1" y="567.8" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.61</text>
-<line x1="382.1" y1="321.6" x2="382.1" y2="257.2" stroke="white" stroke-width="8"/>
-<line x1="382.1" y1="321.6" x2="382.1" y2="257.2" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="382.1" y="307.4" font-size="11" fill="#c0392b" text-anchor="middle">door 0.64</text>
-<line x1="569.8" y1="334.1" x2="620.8" y2="334.1" stroke="white" stroke-width="8"/>
-<line x1="569.8" y1="334.1" x2="620.8" y2="334.1" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="595.3" y="352.1" font-size="11" fill="#c0392b" text-anchor="middle">door 0.51</text>
+<line x1="80.0" y1="469.9" x2="80.0" y2="357.2" stroke="white" stroke-width="8"/>
+<line x1="80.0" y1="469.9" x2="80.0" y2="357.2" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="80.0" y="431.5" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.13</text>
+<line x1="382.1" y1="593.4" x2="382.1" y2="519.2" stroke="white" stroke-width="8"/>
+<line x1="382.1" y1="593.4" x2="382.1" y2="519.2" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="382.1" y="574.3" font-size="11" fill="#2e86c1" text-anchor="middle">window 0.74</text>
+<line x1="382.1" y1="330.7" x2="382.1" y2="252.4" stroke="white" stroke-width="8"/>
+<line x1="382.1" y1="330.7" x2="382.1" y2="252.4" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="382.1" y="309.5" font-size="11" fill="#c0392b" text-anchor="middle">door 0.78</text>
+<line x1="569.7" y1="334.1" x2="622.9" y2="334.1" stroke="white" stroke-width="8"/>
+<line x1="569.7" y1="334.1" x2="622.9" y2="334.1" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="596.3" y="352.1" font-size="11" fill="#c0392b" text-anchor="middle">door 0.53</text>
 <line x1="366.7" y1="256.9" x2="564.0" y2="256.9" stroke="white" stroke-width="8"/>
 <line x1="366.7" y1="256.9" x2="564.0" y2="256.9" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
 <text x="465.3" y="274.9" font-size="11" fill="#7d3c98" text-anchor="middle">passage 1.97</text>
-<line x1="640.5" y1="352.7" x2="708.7" y2="352.7" stroke="white" stroke-width="8"/>
-<line x1="640.5" y1="352.7" x2="708.7" y2="352.7" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="674.6" y="370.7" font-size="11" fill="#c0392b" text-anchor="middle">door 0.68</text>
-<line x1="1250.3" y1="254.6" x2="1250.3" y2="109.4" stroke="white" stroke-width="8"/>
-<line x1="1250.3" y1="254.6" x2="1250.3" y2="109.4" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
-<text x="1250.3" y="200.0" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.45</text>
-<line x1="980.3" y1="572.2" x2="1237.5" y2="572.2" stroke="white" stroke-width="8"/>
-<line x1="980.3" y1="572.2" x2="1237.5" y2="572.2" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
-<text x="1108.9" y="590.2" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.57</text>
-<line x1="974.3" y1="550.8" x2="974.3" y2="322.2" stroke="white" stroke-width="8"/>
-<line x1="974.3" y1="550.8" x2="974.3" y2="322.2" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
-<text x="974.3" y="454.5" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.29</text>
-<line x1="959.5" y1="280.9" x2="959.5" y2="120.9" stroke="white" stroke-width="8"/>
-<line x1="959.5" y1="280.9" x2="959.5" y2="120.9" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
-<text x="959.5" y="218.9" font-size="11" fill="#7d3c98" text-anchor="middle">passage 1.60</text>
-<line x1="1155.5" y1="80.0" x2="1236.8" y2="80.0" stroke="white" stroke-width="8"/>
-<line x1="1155.5" y1="80.0" x2="1236.8" y2="80.0" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
-<text x="1196.1" y="98.0" font-size="11" fill="#c0392b" text-anchor="middle">door 0.81</text>
-<text x="248.8" y="345.2" font-size="16" font-weight="bold" text-anchor="middle">R1</text>
-<text x="248.8" y="363.2" font-size="12" text-anchor="middle">10.26 ± 0.39 m²</text>
-<text x="248.8" y="379.2" font-size="12" text-anchor="middle">ceiling 2.645 m</text>
+<line x1="638.4" y1="352.7" x2="710.6" y2="352.7" stroke="white" stroke-width="8"/>
+<line x1="638.4" y1="352.7" x2="710.6" y2="352.7" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="674.5" y="370.7" font-size="11" fill="#c0392b" text-anchor="middle">door 0.72</text>
+<line x1="1250.3" y1="254.6" x2="1250.3" y2="109.6" stroke="white" stroke-width="8"/>
+<line x1="1250.3" y1="254.6" x2="1250.3" y2="109.6" stroke="#2e86c1" stroke-width="3" stroke-dasharray="6,3"/>
+<text x="1250.3" y="200.1" font-size="11" fill="#2e86c1" text-anchor="middle">window 1.45</text>
+<line x1="981.5" y1="572.2" x2="1238.3" y2="572.2" stroke="white" stroke-width="8"/>
+<line x1="981.5" y1="572.2" x2="1238.3" y2="572.2" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
+<text x="1109.9" y="590.2" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.57</text>
+<line x1="974.3" y1="551.4" x2="974.3" y2="328.1" stroke="white" stroke-width="8"/>
+<line x1="974.3" y1="551.4" x2="974.3" y2="328.1" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
+<text x="974.3" y="457.7" font-size="11" fill="#7d3c98" text-anchor="middle">passage 2.23</text>
+<line x1="959.5" y1="281.0" x2="959.5" y2="108.6" stroke="white" stroke-width="8"/>
+<line x1="959.5" y1="281.0" x2="959.5" y2="108.6" stroke="#7d3c98" stroke-width="3" stroke-dasharray="none"/>
+<text x="959.5" y="212.8" font-size="11" fill="#7d3c98" text-anchor="middle">passage 1.72</text>
+<line x1="1148.5" y1="80.0" x2="1236.7" y2="80.0" stroke="white" stroke-width="8"/>
+<line x1="1148.5" y1="80.0" x2="1236.7" y2="80.0" stroke="#c0392b" stroke-width="3" stroke-dasharray="none"/>
+<text x="1192.6" y="98.0" font-size="11" fill="#c0392b" text-anchor="middle">door 0.88</text>
+<text x="248.8" y="338.3" font-size="16" font-weight="bold" text-anchor="middle">R1</text>
+<text x="248.8" y="356.3" font-size="12" text-anchor="middle">10.53 ± 0.41 m²</text>
+<text x="248.8" y="372.3" font-size="12" text-anchor="middle">ceiling 2.640 m</text>
 <text x="514.1" y="295.5" font-size="16" font-weight="bold" text-anchor="middle">R2</text>
 <text x="514.1" y="313.5" font-size="12" text-anchor="middle">2.28 ± 0.27 m²</text>
-<text x="514.1" y="329.5" font-size="12" text-anchor="middle">ceiling 2.719 m</text>
+<text x="514.1" y="329.5" font-size="12" text-anchor="middle">ceiling 2.680 m</text>
 <text x="797.5" y="568.6" font-size="16" font-weight="bold" text-anchor="middle">R3</text>
 <text x="797.5" y="586.6" font-size="12" text-anchor="middle">10.56 ± 0.37 m²</text>
-<text x="797.5" y="602.6" font-size="12" text-anchor="middle">ceiling 2.048 m</text>
-<text x="1045.0" y="275.5" font-size="16" font-weight="bold" text-anchor="middle">R4</text>
-<text x="1045.0" y="293.5" font-size="12" text-anchor="middle">13.45 ± 0.43 m²</text>
-<text x="1045.0" y="309.5" font-size="12" text-anchor="middle">ceiling 2.685 m</text>
-<text x="80" y="30" font-size="14">Tier: lidar · total 36.55 m² · blue = located on 3D points, red = grid-only (wider interval) · ±values are 95% intervals</text>
+<text x="797.5" y="602.6" font-size="12" text-anchor="middle">ceiling 2.663 m</text>
+<text x="1045.0" y="271.1" font-size="16" font-weight="bold" text-anchor="middle">R4</text>
+<text x="1045.0" y="289.1" font-size="12" text-anchor="middle">13.85 ± 0.45 m²</text>
+<text x="1045.0" y="305.1" font-size="12" text-anchor="middle">ceiling 2.664 m</text>
+<text x="80" y="30" font-size="14">Tier: lidar · total 37.22 m² · blue = located on 3D points, red = grid-only (wider interval) · ±values are 95% intervals</text>
 </svg>

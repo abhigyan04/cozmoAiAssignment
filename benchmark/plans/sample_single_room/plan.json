@@ -3,7 +3,7 @@
   "capture": {
     "tier": "lidar",
     "source": "C:\\Users\\abhig\\Downloads\\single_room",
-    "processing_seconds": 58.2
+    "processing_seconds": 44.7
   },
   "property": {
     "floor_area": {
@@ -391,14 +391,14 @@
       ],
       "center": [
         2.538,
-        4.753
+        4.751
       ],
       "width": {
-        "value": 0.504,
+        "value": 0.481,
         "sigma": 0.0141,
         "ci95": [
-          0.476,
-          0.531
+          0.454,
+          0.509
         ]
       },
       "sill_height": 0.28,

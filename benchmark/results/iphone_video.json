@@ -96,8 +96,8 @@
     {
       "room": "bedroom1",
       "tape": 2.67,
-      "ours": 2.612,
-      "err_cm": -5.8,
+      "ours": 2.604,
+      "err_cm": -6.6,
       "inside_ci": true
     }
   ],

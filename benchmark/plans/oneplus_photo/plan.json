@@ -3,7 +3,7 @@
   "capture": {
     "tier": "photo",
     "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\oneplus\\photos",
-    "processing_seconds": 70.8
+    "processing_seconds": 60.8
   },
   "property": {
     "floor_area": {
@@ -485,17 +485,17 @@
         ]
       },
       "ceiling_height": {
-        "value": 2.704,
-        "sigma": 0.2705,
+        "value": 2.7,
+        "sigma": 0.2701,
         "ci95": [
-          2.174,
-          3.234
+          2.171,
+          3.23
         ]
       },
       "ceiling_levels": [
         {
           "height": 2.71,
-          "share": 0.79
+          "share": 0.76
         }
       ],
       "walls": [

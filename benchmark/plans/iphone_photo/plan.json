@@ -3,7 +3,7 @@
   "capture": {
     "tier": "photo",
     "source": "C:\\Users\\abhig\\Downloads\\cozmoAiAssignment\\data\\raw\\iphone\\photos",
-    "processing_seconds": 86.4
+    "processing_seconds": 68.6
   },
   "property": {
     "floor_area": {
@@ -71,16 +71,16 @@
         ]
       },
       "ceiling_height": {
-        "value": 1.961,
-        "sigma": 0.1963,
+        "value": 2.445,
+        "sigma": 0.2446,
         "ci95": [
-          1.577,
-          2.346
+          1.966,
+          2.925
         ]
       },
       "ceiling_levels": [
         {
-          "height": 1.97,
+          "height": 2.45,
           "share": 1.0
         }
       ],
@@ -217,7 +217,7 @@
         "sigma": 0.2432,
         "ci95": [
           1.954,
-          2.908
+          2.907
         ]
       },
       "ceiling_levels": [
@@ -355,11 +355,11 @@
         ]
       },
       "ceiling_height": {
-        "value": 2.522,
-        "sigma": 0.2523,
+        "value": 2.504,
+        "sigma": 0.2505,
         "ci95": [
-          2.027,
-          3.016
+          2.013,
+          2.995
         ]
       },
       "ceiling_levels": [
@@ -497,16 +497,16 @@
         ]
       },
       "ceiling_height": {
-        "value": 2.382,
-        "sigma": 0.2383,
+        "value": 2.349,
+        "sigma": 0.235,
         "ci95": [
-          1.915,
-          2.849
+          1.888,
+          2.81
         ]
       },
       "ceiling_levels": [
         {
-          "height": 2.39,
+          "height": 2.35,
           "share": 1.0
         }
       ],
@@ -747,7 +747,7 @@
       "surface": "R4-W4",
       "damage": "D1",
       "description": "Repaint full wall for uniform finish",
-      "quantity": 10.9,
+      "quantity": 10.75,
       "unit": "m2"
     }
   ],
