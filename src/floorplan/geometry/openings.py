@@ -132,3 +132,49 @@ def detect_openings(walls: list[dict], top: float, min_votes: int = 2) -> list[O
             # benchmark calibrates it against tape measurements.
             out.append(Opening(w["room"], w["wall"], kind, u0, u1, h0, h1, float(np.hypot(0.01, 0.01))))
     return out
+
+def refine_with_jambs(openings: list[Opening], polys: list[RoomPolygon], P: np.ndarray, N: np.ndarray,
+                      R2: np.ndarray, floor_y: float, search: float = 0.15, depth: float = 0.30,
+                      min_pts: int = 30) -> list[dict]:
+    """Snap each opening edge to its jamb: the vertical surface, at right angles to the
+    wall, that bounds the opening inside the wall's thickness.
+
+    Tape measures a door as the clear distance between the frame faces. Edges from the
+    pass/hit vote profile sit inside the opening (the door frame, an open leaf and
+    grazing rays all vote "hit"), so they are biased narrow. The jamb face is a
+    separate 3D plane: points whose normal runs *along* the wall, within `search` of
+    the edge, within `depth` of the wall plane, and at mid-opening heights. Edges with
+    too little jamb evidence keep their vote-based position. Returns per-edge diagnostics.
+    """
+    XZ, N2 = P[:, [0, 2]] @ R2.T, N[:, [0, 2]] @ R2.T
+    H = P[:, 1] - floor_y
+    log = []
+    for o in openings:
+        w = polys[o.room].walls[o.wall]
+        ax, al = w.axis, 1 - w.axis                         # wall-normal axis, along-wall axis
+        lo_h, hi_h = o.bottom + 0.3, min(o.top - 0.2, o.bottom + 1.8)
+        base = (np.abs(N2[:, al]) > 0.9) & (np.abs(XZ[:, ax] - w.c) < depth) & (H > lo_h) & (H < hi_h)
+        new = []
+        for edge, inward in ((o.u0, +1), (o.u1, -1)):
+            # The jamb face sits at, or just outside, the vote edge (votes are biased
+            # inward), so search mostly outward from the edge.
+            if inward > 0:
+                sel = base & (XZ[:, al] > edge - search) & (XZ[:, al] < edge + 0.06)
+            else:
+                sel = base & (XZ[:, al] > edge - 0.06) & (XZ[:, al] < edge + search)
+            v = XZ[sel, al]
+            name = "left" if inward > 0 else "right"
+            if len(v) < min_pts:
+                new.append(edge)
+                log.append({"edge": name, "shift_cm": 0.0, "n": int(len(v))})
+                continue
+            # Among strong planes, the one nearest the opening's centre is the frame face.
+            hist, e = np.histogram(v, bins=np.arange(v.min(), v.max() + 0.011, 0.01))
+            strong = np.nonzero(hist >= max(0.3 * hist.max(), 5))[0]
+            pk = e[strong.max() if inward > 0 else strong.min()] + 0.005
+            face = float(np.median(v[np.abs(v - pk) < 0.015]))
+            new.append(face)
+            log.append({"edge": name, "shift_cm": round(100 * (edge - face) * inward, 1), "n": int(len(v))})
+        if new[1] - new[0] > 0.4:
+            o.u0, o.u1 = new
+    return log

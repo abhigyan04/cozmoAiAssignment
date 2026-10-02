@@ -155,3 +155,84 @@ def room_polygon(mask: np.ndarray, fm: FloorMap, P: np.ndarray, N: np.ndarray,
     # Area uncertainty: moving wall k by dc changes area by (its length) * dc.
     rp.area_sigma = float(np.sqrt(sum((L * w.sigma) ** 2 for L, w in zip(rp.lengths, walls))))
     return rp
+
+def _finalize(rp: RoomPolygon) -> RoomPolygon:
+    """Recompute corners, lengths, sigmas and area after walls moved."""
+    walls = rp.walls
+    V = _vertices(walls)
+    K = len(walls)
+    rp.vertices = V
+    rp.lengths = [float(np.linalg.norm(V[(k + 1) % K] - V[k])) for k in range(K)]
+    rp.length_sigmas = [float(np.hypot(walls[k - 1].sigma, walls[(k + 1) % K].sigma)) for k in range(K)]
+    x, z = V[:, 0], V[:, 1]
+    rp.area = float(abs(np.dot(x, np.roll(z, -1)) - np.dot(z, np.roll(x, -1))) / 2)
+    rp.area_sigma = float(np.sqrt(sum((L * w.sigma) ** 2 for L, w in zip(rp.lengths, walls))))
+    return rp
+
+
+def extend_to_ceiling(polys: list[RoomPolygon], ceilings: list[float | None], P: np.ndarray, N: np.ndarray,
+                      R2: np.ndarray, floor_y: float, max_out: float = 1.5) -> list[dict]:
+    """Push walls that are really furniture faces (wardrobes) out to the true wall.
+
+    The ceiling is never hidden by furniture: seen from below it runs to the real
+    wall. A wall is moved only if (1) almost nothing vertical exists just below the
+    ceiling at its position (real walls reach the ceiling; wardrobe fronts stop at
+    ~2.1 m), (2) the room's own ceiling continues >= 0.2 m beyond it, and (3) the
+    move does not cross into another room. Target: the first ceiling-reaching
+    vertical plane beyond it that is still under the ceiling, else the ceiling edge.
+    """
+    from shapely.geometry import Polygon
+
+    XZ, N2 = P[:, [0, 2]] @ R2.T, N[:, [0, 2]] @ R2.T
+    H = P[:, 1] - floor_y
+    vert = np.abs(N[:, 1]) < 0.3
+    horiz = np.abs(N[:, 1]) > 0.9
+    log = []
+    for ri, (rp, top) in enumerate(zip(polys, ceilings)):
+        if top is None:
+            continue
+        others = [Polygon(o.vertices) for j, o in enumerate(polys) if j != ri]
+        ceil = horiz & (np.abs(H - top) < 0.05)
+        high = vert & (H > top - 0.35) & (H < top - 0.05)
+        moved = False
+        ctr = rp.vertices.mean(0)
+        for k, w in enumerate(rp.walls):
+            V = rp.vertices
+            a, b = V[k], V[(k + 1) % len(V)]
+            lo, hi = sorted([a[1 - w.axis], b[1 - w.axis]])
+            if hi - lo < 0.8:
+                continue
+            out = np.sign(w.c - ctr[w.axis]) or 1.0
+            span = (XZ[:, 1 - w.axis] > lo + 0.15) & (XZ[:, 1 - w.axis] < hi - 0.15)
+            d_all = (XZ[:, w.axis] - w.c) * out
+            # (1) does this wall reach the ceiling?
+            reach = (high & span & (np.abs(N2[:, w.axis]) > 0.9) & (np.abs(d_all) < 0.05)).sum()
+            if reach >= 150:
+                continue
+            # (2) does the room's ceiling continue beyond it?
+            beyond = d_all[ceil & span & (d_all > 0) & (d_all < max_out)]
+            if len(beyond) < 300 or np.percentile(beyond, 98) < 0.2:
+                continue
+            edge = float(np.percentile(beyond, 98))
+            # (3) first ceiling-reaching plane further out, still under the ceiling
+            cand = d_all[high & span & (np.abs(N2[:, w.axis]) > 0.9) & (d_all > 0.2) & (d_all < edge + 0.15)]
+            target = edge
+            if len(cand) >= 100:
+                hist, e = np.histogram(cand, bins=np.arange(0.2, edge + 0.16, 0.02))
+                pk = np.nonzero(hist >= max(0.3 * hist.max(), 30))[0]
+                if len(pk):
+                    t0 = e[pk.min()] + 0.01
+                    target = float(np.median(cand[np.abs(cand - t0) < 0.03]))
+            old_c = w.c
+            w.c = old_c + out * target
+            trial = _finalize(rp)
+            if trial.area <= 0 or any(Polygon(trial.vertices).intersection(o).area > 0.3 for o in others):
+                w.c = old_c                       # would cross into another room: keep
+                _finalize(rp)
+                continue
+            w.sigma = float(np.hypot(w.sigma, 0.03))   # placed from ceiling evidence: a bit less certain
+            moved = True
+            log.append({"room": ri, "wall": k, "moved_m": round(target, 3), "wall_ceiling_support": int(reach)})
+        if moved:
+            _finalize(rp)
+    return log

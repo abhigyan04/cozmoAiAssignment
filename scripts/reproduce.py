@@ -113,6 +113,17 @@ def main():
     md.append(repeatability(ph1, largest_room(plans.get("oneplus_photo_repeat")), "bedroom1, photo (OnePlus 13)"))
     md.append(repeatability(largest_room(plans.get("iphone_lidar_bedroom1_a")),
                             largest_room(plans.get("iphone_lidar_bedroom1_b")), "bedroom1, LiDAR (iPhone 17 Pro) a vs b"))
+    md += ["", "**Ceiling height, same room captured twice** (gate: spread ≤ 1 cm)", "",
+           "| room / tier | capture 1 | capture 2 | spread | gate |", "|---|---|---|---|---|"]
+    for label, x, y in (("bedroom1, LiDAR a vs b", largest_room(plans.get("iphone_lidar_bedroom1_a")),
+                         largest_room(plans.get("iphone_lidar_bedroom1_b"))),
+                        ("bedroom1, photo OnePlus set 1 vs 2", ph1, largest_room(plans.get("oneplus_photo_repeat")))):
+        if x and y and x["ceiling_height"] and y["ceiling_height"]:
+            a_, b_ = x["ceiling_height"]["value"], y["ceiling_height"]["value"]
+            md.append(f"| {label} | {a_:.3f} | {b_:.3f} | {100 * abs(a_ - b_):.1f} cm | "
+                      f"{'pass' if abs(a_ - b_) <= 0.01 else 'fail'} |")
+        else:
+            md.append(f"| {label} | — | — | — | ceiling not observed in one capture |")
     md += ["", "## Timing", "", "| capture | tier | seconds |", "|---|---|---|"]
     for name, cap, tier, scored, device in RUNS:
         p = plans.get(name)

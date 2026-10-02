@@ -6,7 +6,7 @@ import numpy as np
 from floorplan.io.stray import StrayCapture
 from floorplan.geometry.drift import DriftReport, correct_drift, wall_sharpness
 from floorplan.geometry.floormap import BAND, FloorMap, build_floormap, find_doorways, segment_rooms, wall_band
-from floorplan.geometry.openings import Opening, detect_openings, wall_evidence
+from floorplan.geometry.openings import Opening, detect_openings, refine_with_jambs, wall_evidence
 from floorplan.geometry.polygon import RoomPolygon, room_polygon
 from floorplan.geometry.stitch import RoomHeights, SharedOpening, adjacency, pair_openings, room_heights
 from floorplan.geometry.structure import Level, floor_and_ceiling, fuse, manhattan_yaw
@@ -66,10 +66,11 @@ def run_lidar(cap: StrayCapture, drift: str = "auto", stride: int = 10,
     rooms = segment_rooms(fm, doors)
     refine = band if band != BAND else (0.3, 2.4)   # no ceiling: refine on full wall height as before
     polys = [room_polygon(rooms == k, fm, P, N, floor.y, refine) for k in range(1, rooms.max() + 1)]
-    heights = room_heights(P, N, fm, rooms)
+    heights = room_heights(P, N, fm, rooms, floor)
     top = ceil.y - floor.y if ceil else DEFAULT_CEILING
     openings = detect_openings(wall_evidence(cap, fm, floor.y, polys, top, stride=max(stride // 2, 1),
                                               max_pts=2 * rays_per_frame), top)
+    refine_with_jambs(openings, polys, P, N, fm.R, floor.y)
     if scale_sigma:
         widen_for_scale(polys, heights, openings, scale_sigma)
     shared = pair_openings(openings, polys)

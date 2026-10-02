@@ -45,24 +45,46 @@ class RoomHeights:
         return None if self.height is None else float(np.hypot(self.floor.sigma, self.ceiling.sigma))
 
 
-def room_heights(P: np.ndarray, N: np.ndarray, fm: FloorMap, rooms: np.ndarray) -> list[RoomHeights]:
-    """Floor and ceiling measured separately inside each room (floors are not always level
-    across a property, and a room whose ceiling was never seen must say so)."""
+def room_heights(P: np.ndarray, N: np.ndarray, fm: FloorMap, rooms: np.ndarray,
+                 floor: Level | None = None) -> list[RoomHeights]:
+    """Floor and ceiling measured separately inside each room.
+
+    Floor: searched only within +-10 cm of the property-wide floor `floor`. Floors are
+    level across a flat to a few cm, and a room's own "lowest strong plane" can be a bed
+    top when the bed covers most of the floor (bedroom1: 0.6 m bed taken as floor gave a
+    2.05 m ceiling). Falls back to the property floor if the room's floor is unseen.
+    Ceiling: the strongest overhead plane at least 2.2 m above the floor (lofts and door
+    heads sit at ~2.0-2.1 m), else the strongest above 1.8 m; none if never observed."""
+    from floorplan.geometry.structure import _refine_level
     ij = fm.to_cell(P[:, [0, 2]])
     lab = rooms[ij[:, 0], ij[:, 1]]
     out = []
     for k in range(1, rooms.max() + 1):
         core = ndi.binary_erosion(rooms == k, iterations=2)      # keep away from walls
-        sel = core[ij[:, 0], ij[:, 1]] & (lab == k)
-        if sel.sum() < MIN_ROOM_POINTS:
-            out.append(RoomHeights(None, None))
+        sel = core[ij[:, 0], ij[:, 1]] & (lab == k) & (np.abs(N[:, 1]) > 0.9)
+        y = P[sel, 1]
+        if len(y) < MIN_ROOM_POINTS:
+            out.append(RoomHeights(floor, None))
             continue
-        try:
-            f, c = floor_and_ceiling(P[sel], N[sel], min_support=MIN_ROOM_POINTS)
-        except ValueError:
-            f, c = None, None
+        if floor is not None:
+            near = y[np.abs(y - floor.y) < 0.10]
+            f = _refine_level(near, float(np.median(near))) if len(near) >= 100 else floor
+        else:
+            h, e = np.histogram(y, bins=np.arange(y.min(), y.max() + 0.02, 0.01))
+            strong = np.nonzero(h >= max(h.max() * 0.2, 50))[0]
+            f = _refine_level(y, e[strong.min()] + 0.005)
+        c = None
+        for min_h in (MIN_CEILING, 1.8):
+            up = y[y > f.y + min_h]
+            if len(up) >= MIN_ROOM_POINTS:
+                h, e = np.histogram(up, bins=np.arange(up.min(), up.max() + 0.02, 0.01))
+                c = _refine_level(up, e[np.argmax(h)] + 0.005)
+                break
         out.append(RoomHeights(f, c, _ceiling_levels(P[sel], N[sel], f) if c else []))
     return out
+
+
+MIN_CEILING = 2.2   # habitable ceilings are higher; lofts and door heads sit at ~2.0-2.1 m
 
 
 def _ceiling_levels(P: np.ndarray, N: np.ndarray, floor: Level, min_share: float = 0.15):
