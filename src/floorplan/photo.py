@@ -12,7 +12,7 @@
 3. Intervals: every length gets an extra relative term for metric-scale
    error, which dominates on photos (calibrated against tape, see report).
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import numpy as np
@@ -71,7 +71,14 @@ def load_rooms(root: Path) -> list[PhotoRoom]:
         files = sorted(f for f in d.iterdir() if f.suffix.lower() in IMG_EXT)   # closeups/ subfolder is skipped
         if not files:
             continue
-        loaded = [_load(f) for f in files]
+        import hashlib
+        seen, uniq = set(), []
+        for f in files:
+            h = hashlib.md5(f.read_bytes()).hexdigest()
+            if h not in seen:
+                seen.add(h)
+                uniq.append(f)
+        loaded = [_load(f) for f in uniq]
         shapes = {im.shape for im, _, _ in loaded}
         if len(shapes) > 1:   # mixed portrait/landscape: keep the majority orientation
             major = max(shapes, key=lambda s: sum(im.shape == s for im, _, _ in loaded))
@@ -87,6 +94,8 @@ def _pick_room_region(fm, doors) -> np.ndarray:
         cut |= d["mask"]
     lab, n = ndi.label(fm.free & ~cut)
     near_cam = ndi.distance_transform_edt(~fm.visited) * RES < 1.0
+    if n == 0:
+        return fm.free.copy()          # no free-space region (e.g. too few distinct views)
     best = max(range(1, n + 1), key=lambda k: ((lab == k) & near_cam).sum())
     mask = lab == best
     grown = ndi.binary_dilation(mask, iterations=12) & cut & fm.free     # give doorway cuts back
@@ -104,6 +113,7 @@ class RoomResult:
     R2: np.ndarray          # 2x2 world(x,z) -> room Manhattan frame
     scale_sigma: float
     floor_y: float = 0.0
+    warnings: list = field(default_factory=list)
 
 
 def _wall_planes_rect(P, N, R, floor_y, top, cams) -> list[Wall] | None:
@@ -163,7 +173,8 @@ def reconstruct_room(room: PhotoRoom) -> RoomResult:
     cap = ReconCapture(views, fps=1.0)
     pcd = fuse(cap, stride=1)
     P, N = np.asarray(pcd.points), np.asarray(pcd.normals)
-    floor, ceil = floor_and_ceiling(P, N, min_support=300)
+    cam_y = float(np.median([f.T_wc[1, 3] for f in cap.frames]))
+    floor, ceil = floor_and_ceiling(P, N, min_support=300, cam_y=cam_y)
     yaw = manhattan_yaw(N)
     fm = build_floormap(cap, P, N, floor.y, yaw, stride=1, rays_per_frame=20000)
     cams = np.array([f.T_wc[:3, 3][[0, 2]] for f in cap.frames]) @ fm.R.T
@@ -177,19 +188,36 @@ def reconstruct_room(room: PhotoRoom) -> RoomResult:
     walls = _wall_planes_rect(P, N, fm.R, floor.y, top, cams)
     doors = find_doorways(fm)
     mask = _pick_room_region(fm, doors)
+    single_view = False
     if walls is not None:
         poly = _poly_from_walls(walls)
-    else:   # fall back to the free-space outline (narrow or poorly covered rooms)
+    elif mask.sum() > 50:   # fall back to the free-space outline (narrow or poorly covered rooms)
         poly = room_polygon(mask, fm, P, N, floor.y)
+    else:
+        # No parallax (photos from one spot / duplicates): no free space can be carved.
+        # "Any picture in, results out": rough rectangle from the spread of vertical
+        # surfaces, with a large interval, and a warning.
+        single_view = True
+        print(f"  warning: room '{room.name}': photos lack viewpoint change; rough estimate only")
+        XZ = P[np.abs(N[:, 1]) < 0.3][:, [0, 2]] @ fm.R.T
+        lo, hi = np.percentile(XZ, 2, axis=0), np.percentile(XZ, 98, axis=0)
+        walls = [Wall(0, float(lo[0]), 0.25, 0, False), Wall(1, float(lo[1]), 0.25, 0, False),
+                 Wall(0, float(hi[0]), 0.25, 0, False), Wall(1, float(hi[1]), 0.25, 0, False)]
+        poly = _poly_from_walls(walls)
     rooms = mask.astype(np.int32)
-    heights = room_heights(P, N, fm, rooms, floor)[0]
+    hs = room_heights(P, N, fm, rooms, floor) if rooms.max() > 0 else []
+    heights = hs[0] if hs else RoomHeights(floor, ceil)
     top = ceil.y - floor.y if ceil else 2.6
     openings = detect_openings(wall_evidence(cap, fm, floor.y, [poly], top, stride=1, max_pts=40000), top)
     # No jamb snapping here (LiDAR only): a jamb is a 10-20 cm wide face and image-only
     # depth is too smooth at edges to locate it; on the benchmark it made photo doors worse.
     s = SCALE_SIGMA[room.has_exif]
     widen_for_scale([poly], [heights], openings, s)
-    return RoomResult(room.name, poly, heights, openings, cap, yaw, fm.R, s, floor.y)
+    rr = RoomResult(room.name, poly, heights, openings, cap, yaw, fm.R, s, floor.y)
+    if single_view:
+        rr.warnings.append(f"{room.name}: photos lack viewpoint change (taken from one spot or duplicates); "
+                           f"dimensions are a rough estimate with wide intervals")
+    return rr
 
 
 # ---------------------------------------------------------------- stitching
@@ -206,6 +234,7 @@ class PhotoPlan:
     drift: object = None
     drift_applied: bool = False
     results: list = None      # per-room RoomResult (own frames), used for damage
+    warnings: list = field(default_factory=list)
 
 
 def _rot2(theta: float) -> np.ndarray:
@@ -312,10 +341,22 @@ def stitch(rooms: list[PhotoRoom], results: list[RoomResult], joint_max: int = 4
             ov = [min(a[2], b[2]) - max(a[0], b[0]), min(a[3], b[3]) - max(a[1], b[1])]
             if max(ov) > 0.5 and abs(min(ov) + WALL_T) < 0.05:
                 edges.append({"rooms": [i, j], "center": None, "opening": None})
-    return PhotoPlan(names, out_polys, [r.heights for r in results], shared, edges, results=results)
+    return PhotoPlan(names, out_polys, [r.heights for r in results], shared, edges, results=results,
+                     warnings=[w for r in results for w in r.warnings])
 
 
 def run_photo(root: Path) -> PhotoPlan:
     rooms = load_rooms(root)
-    results = [reconstruct_room(r) for r in rooms]
-    return stitch(rooms, results)
+    ok_rooms, results = [], []
+    for r in rooms:
+        if len(r.images) < 2:
+            print(f"  warning: room '{r.name}' has {len(r.images)} distinct photo(s); need >= 2, skipped")
+            continue
+        try:
+            results.append(reconstruct_room(r))
+            ok_rooms.append(r)
+        except Exception as e:      # report and continue with the other rooms
+            print(f"  warning: room '{r.name}' could not be reconstructed ({type(e).__name__}: {e}); skipped")
+    if not results:
+        raise SystemExit("no room could be reconstructed from these photos")
+    return stitch(ok_rooms, results)
