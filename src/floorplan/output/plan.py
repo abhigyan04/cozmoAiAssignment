@@ -19,7 +19,7 @@ def measure(value, sigma, digits: int = 3):
 
 
 def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str] | None = None) -> dict:
-    warnings = list(warnings or [])
+    warnings = list(warnings or []) + list(getattr(res, "warnings", None) or [])
     if not res.polys:
         warnings.append("no room could be segmented from this capture")
     origin = np.vstack([rp.vertices for rp in res.polys]).min(0) if res.polys else np.zeros(2)
@@ -110,6 +110,7 @@ def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str]
         },
         "rooms": rooms,
         "openings": openings,
+        "damage_summary": damage_summary(damage_json, flags, len(rooms)),
         "damage": damage_json,
         "concealed_damage_flags": flags,
         "scope_items": scope,
@@ -120,4 +121,38 @@ def build_plan(res, tier: str, source: str, timing_s: float, warnings: list[str]
             "loop_closure_applied": bool(res.drift and res.drift.loop_closed),
             "warnings": warnings,
         },
+    }
+
+
+SEVERITY_WEIGHT = {"mould": 1.0, "water_stain": 0.8, "crack": 0.6, "peeling_paint": 0.4}
+
+
+def damage_summary(damage: list[dict], flags: list[dict], n_rooms: int) -> dict:
+    """One property-level damage score (0-100) for triage, with the evidence behind it.
+
+    Each detected region contributes  severity(class) x confidence x size factor, where the
+    size factor saturates at 0.5 m2 (stains/mould) or 1 m (cracks). Contributions combine
+    like independent risks: score = 100 x (1 - prod(1 - c_i)). Each concealed-damage flag
+    adds 10 points (capped at 100). This is a triage number, not a payout figure; the regions
+    and flags it is built from are listed in `basis`.
+    """
+    contrib = []
+    for d in damage:
+        if d["class"] == "crack":
+            size = min(1.0, max(d["width"]["value"], d["height"]["value"]) / 1.0)
+        else:
+            size = min(1.0, d["area_m2"] / 0.5)
+        c = SEVERITY_WEIGHT.get(d["class"], 0.5) * d["confidence"] * max(size, 0.2)
+        contrib.append((d["id"], c))
+    score = 100.0 * (1.0 - float(np.prod([1.0 - c for _, c in contrib]))) if contrib else 0.0
+    score = min(100.0, score + 10.0 * len(flags))
+    severity = "none" if score == 0 else "low" if score < 25 else "moderate" if score < 60 else "high"
+    return {
+        "score": round(score, 1),
+        "severity": severity,
+        "basis": [{"damage": i, "contribution": round(c, 3)} for i, c in contrib]
+                 + [{"flag": f["rule"]} for f in flags],
+        "note": ("no visible surface damage detected on the observed walls" if not contrib else
+                 f"{len(contrib)} damage region(s) on observed walls")
+                + f"; based on {n_rooms} room(s) — unobserved surfaces are not scored",
     }

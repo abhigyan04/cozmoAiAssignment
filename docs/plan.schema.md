@@ -29,6 +29,11 @@ Coordinates: plan frame, walls axis-aligned, origin at the lower-left of the who
     "sill_height": float, "head_height": float,
     "seen_from_both_sides": bool              // false for exterior openings, and for mirrors (phantoms)
   } ],
+  "damage_summary": {                         // property-level triage score
+    "score": 0-100, "severity": "none|low|moderate|high",
+    "basis": [ { "damage": "D1", "contribution": float } | { "flag": "R1 ..." } ],
+    "note": str                               // what was observed; unobserved surfaces are not scored
+  },
   "damage": [ {
     "id": "D1", "surface": "R1-W2", "class": "crack|water_stain|mould|peeling_paint",
     "width": measurement, "height": measurement, "area_m2": float,
@@ -44,6 +49,11 @@ Coordinates: plan frame, walls axis-aligned, origin at the lower-left of the who
   }
 }
 ```
+
+Damage score: each region contributes severity(class) × confidence × size factor
+(mould 1.0, water stain 0.8, crack 0.6, peeling paint 0.4; size saturates at 0.5 m² or 1 m crack length,
+floor 0.2); combined as 100 × (1 − Π(1 − cᵢ)); +10 per concealed-damage flag; capped at 100.
+Severity: 0 none, < 25 low, < 60 moderate, else high. A triage number, not a payout figure.
 
 Concealed-damage rules: R1 stain/mould within 30 cm of ceiling · R2 within 30 cm of floor ·
 R3 visible mould · R4 crack longer than 1 m · R5 water stain larger than 0.25 m².
