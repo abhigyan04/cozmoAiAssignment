@@ -7,7 +7,7 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 | requirement | file | artifact | status |
 |---|---|---|---|
 | Capture route (Route 2: stock-app protocol a non-engineer follows) | docs/CAPTURE_PROTOCOL.md | one-page protocol: install, walk, duration, avoid, hand-off | ✅ |
-| Photo tier, 2-8 stills per room, no depth/poses, folder per room | src/floorplan/photo.py | `python -m floorplan run <photos dir>` | ✅ |
+| Photo tier, 2-8 stills per room, no depth/poses, folder per room ("any picture in, results out") | src/floorplan/photo.py | `python -m floorplan run <photos dir>`; duplicates dropped, single-viewpoint sets give a rough estimate + warning instead of failing | ✅ |
 | Video tier, handheld walkthrough | src/floorplan/video.py | `python -m floorplan run <clip>` | ✅ |
 | LiDAR tier, depth + poses + intrinsics | src/floorplan/lidar.py, io/stray.py | `python -m floorplan run <stray folder>` | ✅ |
 | Same output contract from all tiers, intervals widen with thinner input | output/plan.py, uncertainty.py | identical JSON schema; scale σ 0 / 10 % / 10 % (+5 % without focal) | ✅ |
@@ -21,6 +21,7 @@ Status: ✅ met · ⚠️ partially met / met with stated deviation · ❌ not m
 | Stitched multi-room plan, correct adjacency | geometry/stitch.py, photo.stitch | `property.adjacency`, `plan.svg` | ⚠️ LiDAR shared frame; image tiers layout-snapped, adjacency partly wrong |
 | Per-surface damage regions with class and metric extent | damage.py | `damage[]` (surface, class, width/height with CI, area) | ⚠️ crack found in LiDAR room scans (partial extent), small stain missed, ~1 false positive per capture (report §8) |
 | Concealed-damage flags with the rule that fired | damage.concealed_flags | `concealed_damage_flags[].rule` | ✅ |
+| Property-level damage score (requested in the live call) | output/plan.py `damage_summary` | `damage_summary` {score 0-100, severity, basis, note} | ✅ (triage weights hand-set, not calibrated) |
 | Scope line items keyed to surfaces | damage.scope_items | `scope_items[].surface` | ✅ |
 | Confidence interval on every measurement | output/plan.py `measure()` | `{value, sigma, ci95}` | ✅ |
 | One command per capture, JSON to published schema, rendered plan | __main__.py, docs/plan.schema.md | `plan.json`, `plan.svg` | ✅ |

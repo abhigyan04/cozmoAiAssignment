@@ -1,8 +1,11 @@
 # floorplan — phone capture to a dimensioned, stitched floor plan with damage
 
 One command turns a phone capture of a property into `plan.json` (rooms, walls, openings,
-ceiling heights, damage, concealed-damage flags, scope items, a 95% interval on every
-measurement) and `plan.svg` (the rendered whole-property plan).
+ceiling heights, damage regions, a property-level damage score, concealed-damage flags, scope
+items, a 95% interval on every measurement) and `plan.svg` (the rendered whole-property plan).
+
+Any input produces a result: weak input (e.g. two photos from one spot, duplicate files) gives a
+rough estimate with wide intervals and an explicit warning in `quality.warnings`, never a crash.
 
 Three input tiers, one geometry back end:
 
@@ -66,7 +69,7 @@ Fix loop before/after: [docs/FIX_LOOP.md](docs/FIX_LOOP.md) (before = git tag `f
 | `src/floorplan/io/` | capture loaders: Stray Scanner, video keyframes, MapAnything wrapper |
 | `src/floorplan/geometry/` | floor/ceiling, Manhattan frame, free-space map, rooms, walls, openings, drift, stitching |
 | `src/floorplan/lidar.py`, `photo.py`, `video.py` | the three tiers |
-| `src/floorplan/damage.py` | damage regions, concealed-damage rules, scope items |
+| `src/floorplan/damage.py` | damage regions, concealed-damage rules, scope items (score: `output/plan.py`) |
 | `src/floorplan/output/` | JSON + SVG |
 | `scripts/` | benchmark scorer, drift ablation, privacy stripping, inspection tools |
 | `docs/` | capture protocol, technical report, compliance matrix, fix loop |

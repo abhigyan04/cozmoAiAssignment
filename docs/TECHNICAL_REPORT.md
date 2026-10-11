@@ -148,6 +148,7 @@ short because image-only metric scale (~10 %) is untouched; the next fix is a me
 | floor barely seen (bed covers it) | floor detected on the ceiling | floor must lie below the cameras (fixed) |
 | narrow corridors in photos | hall length unseen (2.55 vs 5.65 m) | protocol: photograph each end of a corridor; **open** |
 | blank walls | damage false positives, video room confusion | texture gate + CLIP negatives (posters, curtains, doors) |
+| photos from one spot / duplicate files (no parallax) | no free space can be carved; the first version crashed on such input in the live call | duplicates dropped by hash; room estimated from the spread of wall surfaces, wall σ 25 cm (area interval ~±50 %), warning in `quality.warnings`; unreconstructable rooms skipped with a warning |
 | openings at cm accuracy | vote edges biased ~10 cm narrow (frame, open leaf, grazing rays) | LiDAR edges snapped to jamb planes: doors −10.7/−7.8/−13.7 → +3.3/−3.8/−6.8 cm (mean 10.7 → 4.6 cm); still 0/3 within 2 cm, gate **not met**; jamb snapping made image-only doors worse (depth too smooth at edges), so it is LiDAR-only; windows (grilles, curtains) mostly missed |
 
 ## 7b. Day-2 improvements (each diagnosed on the benchmark, each a commit)
@@ -183,6 +184,16 @@ on public crack/stain data, evaluated on these staged regions. Concealed-damage
 rules R1-R5 (stain near ceiling → leak above; near floor → rising damp/pipe; mould → hidden
 growth; crack > 1 m → structural; stain > 0.25 m² → saturated substrate) fire with the rule
 name in the JSON; scope items are keyed to surface IDs (`R1-W2`).
+
+**Damage score** (`damage_summary`, added after the live call): one 0-100 triage number per
+property. Each region contributes severity(class) × confidence × size factor (mould 1.0, water
+stain 0.8, crack 0.6, peeling 0.4; size saturates at 0.5 m² or a 1 m crack), combined as
+100 × (1 − Π(1 − cᵢ)), +10 per concealed-damage flag, capped at 100; severity none / low (< 25) /
+moderate (< 60) / high. It lists the regions and flags it is built from and states that unobserved
+surfaces are not scored. Staged-damage bedroom (LiDAR scan b): **35, moderate** (two crack
+regions); the two photos used in the live call: **0, none** (no visible surface damage). The
+weights are hand-set for triage, not calibrated against claim outcomes; cached benchmark plans
+predate the field (`reproduce.py --force` regenerates them with it).
 
 ## 9. Head-to-head vs a consumer app (benchmark/HEAD_TO_HEAD.md)
 
